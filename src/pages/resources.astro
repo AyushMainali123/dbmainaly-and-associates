@@ -5,6 +5,14 @@ import Footer from '../components/Footer.astro';
 import Button from '../components/Button.astro';
 import { getCollection } from 'astro:content';
 
+import H1 from '../components/typography/H1.astro';
+import H2 from '../components/typography/H2.astro';
+import H3 from '../components/typography/H3.astro';
+import H4 from '../components/typography/H4.astro';
+import P from '../components/typography/P.astro';
+import Lead from '../components/typography/Lead.astro';
+import Small from '../components/typography/Small.astro';
+
 const resources = await getCollection('resources');
 const featuredResource = resources.find(r => r.data.featured) || resources[0];
 const otherResources = resources.filter(r => r.id !== featuredResource.id);
@@ -15,46 +23,46 @@ const otherResources = resources.filter(r => r.id !== featuredResource.id);
 
   <main>
     <!-- Hero Section -->
-    <section class="relative py-32 flex items-center bg-gradient-to-br from-primary to-primary-container px-12 overflow-hidden">
-      <div class="absolute inset-0 opacity-10">
+    <section class="relative py-20 md:py-32 flex items-center bg-gradient-to-br from-primary to-primary-container px-6 md:px-12 lg:px-20 overflow-hidden">
+      <div class="absolute inset-0 opacity-10 pointer-events-none">
         <div class="absolute inset-0" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 40px 40px;"></div>
       </div>
       <div class="relative z-10 max-w-4xl mx-auto text-center">
-        <span class="inline-block text-primary-fixed font-bold text-sm tracking-[0.2em] mb-6">COMPLIANCE HUB</span>
-        <h1 class="text-white text-6xl md:text-7xl font-bold tracking-tighter leading-[1.1] mb-8">
+        <Small class="text-primary-fixed font-bold tracking-[0.2em] mb-6 block uppercase">COMPLIANCE HUB</Small>
+        <H1 class="text-white mb-8">
           Resources & Templates
-        </h1>
-        <p class="text-primary-fixed/80 text-xl font-light leading-relaxed max-w-2xl mx-auto">
+        </H1>
+        <Lead class="text-primary-fixed/80 max-w-2xl mx-auto">
           Empowering our clients with essential financial tools, regulatory templates, and strategic documents for Nepal's fiscal landscape.
-        </p>
+        </Lead>
       </div>
     </section>
 
     <!-- Downloadable Forms Section -->
-    <section class="py-24 px-12 bg-surface">
-      <div class="max-w-7xl mx-auto">
-        <div class="mb-16">
-          <h2 class="text-on-surface text-4xl font-bold tracking-tight mb-4">Statutory Forms & Templates</h2>
-          <div class="w-24 h-1 bg-primary"></div>
+    <section class="py-16 md:py-24 px-6 md:px-12 lg:px-20 bg-surface">
+      <div class="max-w-[1440px] mx-auto">
+        <div class="mb-12 md:mb-16">
+          <H2 class="text-on-surface mb-4">Statutory Forms & Templates</H2>
+          <div class="w-24 h-1 bg-primary rounded-full"></div>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12">
           <!-- Featured Resource -->
           {featuredResource && (
-            <div class="md:col-span-12 lg:col-span-8 bg-surface-container-lowest p-10 rounded-xl shadow-[0_20px_40px_rgba(0,35,111,0.04)] border border-outline-variant/10 flex flex-col justify-between group hover:border-primary/20 transition-all">
+            <div class="md:col-span-12 lg:col-span-8 bg-surface-container-lowest p-8 md:p-10 rounded-xl shadow-[0_20px_40px_rgba(0,35,111,0.04)] border border-outline-variant/10 flex flex-col justify-between group hover:border-primary/20 transition-all">
               <div>
-                <div class="flex justify-between items-start mb-6">
-                  <span class="material-symbols-outlined text-5xl text-primary">{featuredResource.data.icon}</span>
-                  <span class="text-xs font-bold text-outline-variant bg-surface-container-low px-3 py-1 rounded-full uppercase tracking-widest">
+                <div class="flex justify-between items-start mb-6 md:mb-8">
+                  <span class="material-symbols-outlined text-4xl md:text-5xl text-primary">{featuredResource.data.icon}</span>
+                  <Small class="font-bold text-outline-variant bg-surface-container-low px-3 py-1 rounded-full uppercase tracking-widest">
                     {featuredResource.data.version}
-                  </span>
+                  </Small>
                 </div>
-                <h3 class="text-3xl font-bold text-on-surface mb-4">{featuredResource.data.title}</h3>
-                <p class="text-on-surface-variant text-lg leading-relaxed mb-8 max-w-2xl">
+                <H3 class="text-on-surface mb-4">{featuredResource.data.title}</H3>
+                <P class="text-on-surface-variant text-lg leading-relaxed mb-8 max-w-2xl">
                   {featuredResource.data.description}
-                </p>
+                </P>
               </div>
-              <div>
-                <Button href={featuredResource.data.downloadUrl} class="flex items-center gap-3 font-semibold group-hover:gap-5 transition-all">
+              <div class="mt-auto">
+                <Button href={featuredResource.data.downloadUrl} class="flex items-center gap-3 font-semibold group-hover:gap-5 transition-all w-full sm:w-auto justify-center">
                   Download Complete Package <span class="material-symbols-outlined">download</span>
                 </Button>
               </div>
@@ -62,34 +70,34 @@ const otherResources = resources.filter(r => r.id !== featuredResource.id);
           )}
 
           <!-- Audit Checklists Card -->
-          <div class="md:col-span-6 lg:col-span-4 bg-surface-container-low p-8 rounded-xl border border-outline-variant/10 hover:bg-surface-container-lowest transition-colors group">
-            <span class="material-symbols-outlined text-4xl text-secondary mb-4">analytics</span>
-            <h3 class="text-xl font-bold text-on-surface mb-3">Audit Checklists</h3>
-            <p class="text-on-surface-variant text-sm mb-8 leading-relaxed">
+          <div class="md:col-span-6 lg:col-span-4 bg-surface-container-low p-8 rounded-xl border border-outline-variant/10 hover:bg-surface-container-lowest transition-colors group flex flex-col h-full">
+            <span class="material-symbols-outlined text-4xl text-secondary mb-6 block">analytics</span>
+            <H4 class="text-on-surface mb-3">Audit Checklists</H4>
+            <P class="text-on-surface-variant text-sm mb-8 leading-relaxed">
               Comprehensive internal audit checklists for manufacturing and service-based entities to ensure financial health.
-            </p>
-            <button class="text-primary font-bold flex items-center gap-2 group-hover:gap-3 transition-all mt-auto">
+            </P>
+            <button class="text-primary font-bold flex items-center gap-2 group-hover:gap-3 transition-all mt-auto text-sm md:text-base">
               Get Templates <span class="material-symbols-outlined">arrow_right_alt</span>
             </button>
           </div>
 
           <!-- Other Resources -->
-          <div class="md:col-span-12 bg-surface-container-low p-10 rounded-xl border border-outline-variant/10">
-            <h3 class="text-2xl font-bold text-on-surface mb-8">Additional Downloads</h3>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="md:col-span-12 bg-surface-container-low p-8 md:p-10 rounded-xl border border-outline-variant/10 mt-8 md:mt-0">
+            <H3 class="text-on-surface mb-8">Additional Downloads</H3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {otherResources.map(resource => (
                 <div class="flex items-center gap-4 p-4 bg-surface-container-lowest rounded-lg border border-outline-variant/10 hover:border-primary/30 transition-all cursor-pointer group">
                   <span class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform">{resource.data.icon}</span>
-                  <span class="font-medium text-on-surface">{resource.data.title}</span>
+                  <span class="font-medium text-on-surface text-sm md:text-base">{resource.data.title}</span>
                 </div>
               ))}
               <div class="flex items-center gap-4 p-4 bg-surface-container-lowest rounded-lg border border-outline-variant/10 hover:border-primary/30 transition-all cursor-pointer group">
                 <span class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform">picture_as_pdf</span>
-                <span class="font-medium text-on-surface">TDS Rate Chart 2081/82</span>
+                <span class="font-medium text-on-surface text-sm md:text-base">TDS Rate Chart 2081/82</span>
               </div>
               <div class="flex items-center gap-4 p-4 bg-surface-container-lowest rounded-lg border border-outline-variant/10 hover:border-primary/30 transition-all cursor-pointer group">
                 <span class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform">picture_as_pdf</span>
-                <span class="font-medium text-on-surface">SSF Compliance Guide</span>
+                <span class="font-medium text-on-surface text-sm md:text-base">SSF Compliance Guide</span>
               </div>
             </div>
           </div>
@@ -98,45 +106,48 @@ const otherResources = resources.filter(r => r.id !== featuredResource.id);
     </section>
 
     <!-- FAQ Section -->
-    <section class="py-24 px-12 bg-surface-container-lowest">
+    <section class="py-16 md:py-24 px-6 md:px-12 lg:px-16 bg-surface-container-lowest">
       <div class="max-w-4xl mx-auto">
-        <div class="text-center mb-16">
-          <h2 class="text-4xl font-bold text-on-surface mb-4">Regulatory FAQs</h2>
-          <p class="text-on-surface-variant">Expert answers to common queries regarding Nepal's taxation and accounting standards.</p>
+        <div class="text-center mb-12 md:mb-16">
+          <H2 class="text-on-surface mb-4">Regulatory FAQs</H2>
+          <P class="text-on-surface-variant mb-0">Expert answers to common queries regarding Nepal's taxation and accounting standards.</P>
         </div>
         <div class="space-y-6">
-          <div class="border-b border-outline-variant/30 pb-6 group cursor-pointer">
-            <div class="flex justify-between items-center group-hover:text-primary transition-colors">
-              <h3 class="text-xl font-bold">What are the current corporate tax rates for manufacturing industries?</h3>
-              <span class="material-symbols-outlined">add</span>
+          <details class="border-b border-outline-variant/30 pb-6 group cursor-pointer list-none">
+            <summary class="flex justify-between items-center group-hover:text-primary transition-colors pr-8">
+              <H4 class="mb-0 pr-4">What are the current corporate tax rates for manufacturing industries?</H4>
+              <span class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
+            </summary>
+            <div class="mt-6 text-on-surface-variant leading-relaxed text-sm md:text-base bg-surface-container-low p-6 rounded-lg">
+              Corporate tax rates for manufacturing industries in Nepal often enjoy specific incentives under the Industrial Enterprises Act. Generally, the base rate is 20%, but exemptions apply for exports and geographical location.
             </div>
-          </div>
-          <div class="border-b border-outline-variant/30 pb-6 group cursor-pointer">
-            <div class="flex justify-between items-center text-primary">
-              <h3 class="text-xl font-bold">Is NFRS compliance mandatory for all SMEs?</h3>
-              <span class="material-symbols-outlined">remove</span>
-            </div>
-            <div class="mt-4 text-on-surface-variant leading-relaxed">
+          </details>
+          <details class="border-b border-outline-variant/30 pb-6 group cursor-pointer list-none" open>
+            <summary class="flex justify-between items-center text-primary pr-8">
+              <H4 class="mb-0 pr-4">Is NFRS compliance mandatory for all SMEs?</H4>
+              <span class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
+            </summary>
+            <div class="mt-6 text-on-surface-variant leading-relaxed text-sm md:text-base bg-surface-container-low p-6 rounded-lg">
               Nepal Financial Reporting Standards (NFRS) implementation is phased. While major public entities must comply, SMEs can use NFRS for SMEs, which is a simplified version tailored to smaller reporting entities.
             </div>
-          </div>
+          </details>
         </div>
       </div>
     </section>
 
     <!-- Newsletter Subscription -->
-    <section class="py-24 px-12">
-      <div class="bg-primary rounded-2xl p-16 flex flex-col md:flex-row items-center justify-between gap-12 relative overflow-hidden max-w-7xl mx-auto">
-        <div class="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -mr-32 -mt-32"></div>
-        <div class="max-w-xl relative z-10">
-          <h2 class="text-white text-4xl font-bold mb-4">Regulatory Alerts</h2>
-          <p class="text-primary-fixed/70 text-lg">
+    <section class="py-16 md:py-24 px-6 md:px-12 lg:px-16">
+      <div class="bg-primary rounded-2xl p-8 md:p-16 flex flex-col xl:flex-row items-center justify-between gap-12 md:gap-16 relative overflow-hidden max-w-[1440px] mx-auto">
+        <div class="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -mr-32 -mt-32 pointer-events-none"></div>
+        <div class="max-w-xl xl:max-w-2xl relative z-10 text-center xl:text-left">
+          <H2 class="text-white mb-4">Regulatory Alerts</H2>
+          <Lead class="text-primary-fixed/70">
             Stay informed about changes in the Finance Act, circulars from the NRB, and new IFRS/NFRS updates delivered directly to your inbox.
-          </p>
+          </Lead>
         </div>
-        <div class="w-full md:w-auto flex flex-col sm:flex-row gap-4 relative z-10">
-          <input class="bg-primary-container border-0 text-white placeholder:text-primary-fixed/50 px-6 py-4 rounded-lg focus:ring-2 focus:ring-tertiary-fixed-dim min-w-[300px]" placeholder="Professional Email Address" type="email">
-          <button class="bg-tertiary-fixed-dim text-on-tertiary-fixed px-8 py-4 rounded-lg font-bold hover:brightness-110 transition-all">
+        <div class="w-full xl:w-auto flex flex-col sm:flex-row gap-4 relative z-10">
+          <input class="bg-primary-container border-0 text-white placeholder:text-primary-fixed/50 px-6 py-4 rounded-lg focus:ring-2 focus:ring-tertiary-fixed-dim shrink-0 sm:min-w-[300px]" placeholder="Professional Email Address" type="email">
+          <button class="bg-tertiary-fixed-dim text-on-tertiary-fixed px-8 py-4 rounded-lg font-bold hover:brightness-110 transition-all shrink-0">
             Subscribe
           </button>
         </div>

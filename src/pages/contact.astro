@@ -4,6 +4,14 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import Button from '../components/Button.astro';
 
+import H1 from '../components/typography/H1.astro';
+import H2 from '../components/typography/H2.astro';
+import H3 from '../components/typography/H3.astro';
+import H4 from '../components/typography/H4.astro';
+import P from '../components/typography/P.astro';
+import Lead from '../components/typography/Lead.astro';
+import Small from '../components/typography/Small.astro';
+
 const faqs = [
   {
     question: "What documents are required for initial tax consultation?",
@@ -28,41 +36,41 @@ const faqs = [
   <Header />
 
   <main>
-    <header class="relative overflow-hidden bg-primary-container py-24 md:py-32">
+    <header class="relative overflow-hidden bg-primary-container py-20 md:py-32">
       <div class="absolute inset-0 bg-gradient-to-br from-primary to-primary-container opacity-90"></div>
-      <div class="relative max-w-[1440px] mx-auto px-12 lg:pl-16 lg:pr-24">
+      <div class="relative max-w-[1440px] mx-auto px-6 md:px-12 lg:px-16">
         <div class="max-w-3xl">
-          <span class="inline-block px-3 py-1 mb-6 text-xs font-bold tracking-[0.1rem] text-tertiary-fixed-dim bg-white/10 rounded uppercase">Get in Touch</span>
-          <h1 class="text-5xl md:text-7xl font-extrabold text-white tracking-tight mb-8 leading-[1.1]">
+          <Small class="inline-block px-3 py-1 mb-6 text-xs font-bold tracking-[0.1rem] text-tertiary-fixed-dim bg-white/10 rounded uppercase">Get in Touch</Small>
+          <H1 class="text-white mb-8">
             Let's secure your financial future together
-          </h1>
-          <p class="text-xl text-primary-fixed leading-relaxed max-w-2xl opacity-90">
+          </H1>
+          <Lead class="text-primary-fixed max-w-2xl opacity-90">
             Expert financial advisory and corporate legal solutions tailored for Nepal's evolving economic landscape.
-          </p>
+          </Lead>
         </div>
       </div>
     </header>
 
-    <section class="max-w-[1440px] mx-auto px-12 lg:pl-16 lg:pr-24 py-20">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
-        <div class="lg:col-span-7 bg-surface-container-lowest p-10 md:p-12 rounded-xl shadow-[0_20px_40px_rgba(0,35,111,0.04)]">
-          <h2 class="text-3xl font-bold text-on-surface mb-2">Send us a Message</h2>
-          <p class="text-on-surface-variant mb-10">Briefly outline your requirements and our partners will contact you within 24 business hours.</p>
+    <section class="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-16 py-12 md:py-20">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 md:gap-16 items-start">
+        <div class="lg:col-span-12 xl:col-span-7 bg-surface-container-lowest p-6 md:p-12 rounded-xl shadow-[0_20px_40px_rgba(0,35,111,0.04)] border border-outline-variant/10">
+          <H2 class="text-on-surface mb-2">Send us a Message</H2>
+          <P class="text-on-surface-variant mb-10">Briefly outline your requirements and our partners will contact you within 24 business hours.</P>
           <form class="space-y-8">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div class="space-y-2">
-                <label class="text-xs font-bold uppercase tracking-wider text-primary">Full Name</label>
-                <input class="w-full bg-surface-container-low border-0 border-b border-transparent focus:ring-0 focus:border-primary focus:bg-surface-container-lowest transition-all py-4 px-0 placeholder:text-outline-variant" placeholder="John Doe" type="text"/>
+                <Small class="font-bold text-primary uppercase tracking-wider block">Full Name</Small>
+                <input class="w-full bg-surface-container-low border-0 border-b border-outline-variant/30 focus:ring-0 focus:border-primary focus:bg-surface-container-lowest transition-all py-4 px-0 placeholder:text-outline-variant text-on-surface" placeholder="John Doe" type="text"/>
               </div>
               <div class="space-y-2">
-                <label class="text-xs font-bold uppercase tracking-wider text-primary">Email Address</label>
-                <input class="w-full bg-surface-container-low border-0 border-b border-transparent focus:ring-0 focus:border-primary focus:bg-surface-container-lowest transition-all py-4 px-0 placeholder:text-outline-variant" placeholder="john@company.com" type="email"/>
+                <Small class="font-bold text-primary uppercase tracking-wider block">Email Address</Small>
+                <input class="w-full bg-surface-container-low border-0 border-b border-outline-variant/30 focus:ring-0 focus:border-primary focus:bg-surface-container-lowest transition-all py-4 px-0 placeholder:text-outline-variant text-on-surface" placeholder="john@company.com" type="email"/>
               </div>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div class="space-y-2">
-                <label class="text-xs font-bold uppercase tracking-wider text-primary">Service Interest</label>
-                <select class="w-full bg-surface-container-low border-0 border-b border-transparent focus:ring-0 focus:border-primary focus:bg-surface-container-lowest transition-all py-4 px-0 text-on-surface-variant">
+                <Small class="font-bold text-primary uppercase tracking-wider block">Service Interest</Small>
+                <select class="w-full bg-surface-container-low border-0 border-b border-outline-variant/30 focus:ring-0 focus:border-primary focus:bg-surface-container-lowest transition-all py-4 px-0 text-on-surface-variant">
                   <option>Tax Advisory</option>
                   <option>Audit & Assurance</option>
                   <option>Corporate Law</option>
@@ -70,74 +78,74 @@ const faqs = [
                 </select>
               </div>
               <div class="space-y-2">
-                <label class="text-xs font-bold uppercase tracking-wider text-primary">Phone Number</label>
-                <input class="w-full bg-surface-container-low border-0 border-b border-transparent focus:ring-0 focus:border-primary focus:bg-surface-container-lowest transition-all py-4 px-0 placeholder:text-outline-variant" placeholder="+977 1-XXXXXXX" type="tel"/>
+                <Small class="font-bold text-primary uppercase tracking-wider block">Phone Number</Small>
+                <input class="w-full bg-surface-container-low border-0 border-b border-outline-variant/30 focus:ring-0 focus:border-primary focus:bg-surface-container-lowest transition-all py-4 px-0 placeholder:text-outline-variant text-on-surface" placeholder="+977 1-XXXXXXX" type="tel"/>
               </div>
             </div>
             <div class="space-y-2">
-              <label class="text-xs font-bold uppercase tracking-wider text-primary">How can we help?</label>
-              <textarea class="w-full bg-surface-container-low border-0 border-b border-transparent focus:ring-0 focus:border-primary focus:bg-surface-container-lowest transition-all py-4 px-0 placeholder:text-outline-variant resize-none" placeholder="Describe your consultation needs..." rows="4"></textarea>
+              <Small class="font-bold text-primary uppercase tracking-wider block">How can we help?</Small>
+              <textarea class="w-full bg-surface-container-low border-0 border-b border-outline-variant/30 focus:ring-0 focus:border-primary focus:bg-surface-container-lowest transition-all py-4 px-0 placeholder:text-outline-variant resize-none text-on-surface" placeholder="Describe your consultation needs..." rows="4"></textarea>
             </div>
             <Button type="submit" size="lg" class="w-full md:w-auto">Submit Inquiry</Button>
           </form>
         </div>
 
-        <aside class="lg:col-span-5 space-y-12">
-          <div class="bg-surface-container p-10 rounded-xl">
-            <h3 class="text-xl font-bold text-on-surface mb-8 border-l-4 border-primary pl-4">Office Headquarters</h3>
+        <aside class="lg:col-span-12 xl:col-span-5 space-y-8 md:space-y-12">
+          <div class="bg-surface-container p-8 md:p-10 rounded-xl">
+            <H3 class="text-on-surface mb-8 border-l-4 border-primary pl-4">Office Headquarters</H3>
             <div class="space-y-8">
               <div class="flex gap-4">
-                <span class="material-symbols-outlined text-primary">location_on</span>
+                <span class="material-symbols-outlined text-primary text-2xl">location_on</span>
                 <div>
-                  <p class="font-bold text-on-surface">Physical Address</p>
-                  <p class="text-on-surface-variant leading-relaxed">DB Mainaly & Associates Building<br/>Level 4, Corporate Plaza<br/>New Baneshwor, Kathmandu<br/>Nepal</p>
+                  <P class="font-bold text-on-surface mb-1">Physical Address</P>
+                  <P class="text-on-surface-variant leading-relaxed mb-0">DB Mainaly & Associates Building<br/>Level 4, Corporate Plaza<br/>New Baneshwor, Kathmandu<br/>Nepal</P>
                 </div>
               </div>
               <div class="flex gap-4">
-                <span class="material-symbols-outlined text-primary">call</span>
+                <span class="material-symbols-outlined text-primary text-2xl">call</span>
                 <div>
-                  <p class="font-bold text-on-surface">Phone & Fax</p>
-                  <p class="text-on-surface-variant">+977 1 4483012<br/>+977 9851000000</p>
+                  <P class="font-bold text-on-surface mb-1">Phone & Fax</P>
+                  <P class="text-on-surface-variant mb-0">+977 1 4483012<br/>+977 9851000000</P>
                 </div>
               </div>
               <div class="flex gap-4">
-                <span class="material-symbols-outlined text-primary">mail</span>
+                <span class="material-symbols-outlined text-primary text-2xl">mail</span>
                 <div>
-                  <p class="font-bold text-on-surface">Electronic Mail</p>
-                  <p class="text-on-surface-variant">info@dbmainaly.com.np<br/>support@dbmainaly.com.np</p>
+                  <P class="font-bold text-on-surface mb-1">Electronic Mail</P>
+                  <P class="text-on-surface-variant mb-0">info@dbmainaly.com.np<br/>support@dbmainaly.com.np</P>
                 </div>
               </div>
             </div>
           </div>
-          <div class="relative w-full aspect-square rounded-xl overflow-hidden bg-surface-container-high group">
-            <div class="absolute inset-0 flex flex-col items-center justify-center p-8 text-center bg-primary/5">
+          <div class="relative w-full aspect-square md:aspect-video xl:aspect-square rounded-xl overflow-hidden bg-surface-container-high group">
+            <div class="absolute inset-0 flex flex-col items-center justify-center p-8 text-center bg-primary/5 z-10 p-6 md:p-12">
               <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mb-4 shadow-xl">
                 <span class="material-symbols-outlined text-white text-3xl" style="font-variation-settings: 'FILL' 1;">pin_drop</span>
               </div>
-              <h4 class="text-lg font-bold text-primary mb-2">We are here</h4>
-              <p class="text-sm text-on-secondary-container">Centralized Hub, New Baneshwor</p>
+              <H4 class="text-primary mb-2">We are here</H4>
+              <P class="text-sm text-on-secondary-container mb-0 font-medium">Centralized Hub, New Baneshwor</P>
             </div>
-            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuD0sZsbfTajSAN2MeP6z8TkSSvB0Wti-_58SdbQm-_zk0KfI76qMLRzJmB8-KTyVjZj-8160EcXxcQ7vrJfaWrZzr8rEGMfPlm-WuiFY3hgX2oEA9Vg1Ci4Uf5Zsv9gGT_8WiQoT1EP1-t82OHSOnUVHRXPwZANIwUTQKrxqyDAWo3oK3j8VsUx3enjBcLnQDR5sABvjbdNpbpGXyFxAiyXv4Upr2ft8P_fgQLIjMe7lz1rxVljskrrGOYmpzAQ1QzYUtfVPX9Ohkg" alt="Map" class="absolute inset-0 w-full h-full object-cover mix-blend-overlay opacity-30 grayscale group-hover:grayscale-0 transition-all duration-500">
+            <img src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5ca?auto=format&fit=crop&q=80&w=800" alt="New Baneshwor Map placeholder" class="absolute inset-0 w-full h-full object-cover mix-blend-overlay opacity-30 grayscale group-hover:grayscale-0 transition-all duration-500">
           </div>
         </aside>
       </div>
     </section>
 
-    <section class="bg-surface-container-low py-24">
-      <div class="max-w-[1440px] mx-auto px-12 lg:pl-16 lg:pr-24">
+    <section class="bg-surface-container-low py-16 md:py-24">
+      <div class="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-16">
         <div class="max-w-4xl mx-auto">
-          <h2 class="text-4xl font-extrabold text-on-surface text-center mb-16 tracking-tight">Frequently Asked Questions</h2>
+          <H2 class="text-on-surface text-center mb-12 md:mb-16">Frequently Asked Questions</H2>
           <div class="space-y-4">
             {faqs.map(faq => (
-              <div class="bg-surface-container-lowest p-8 rounded-lg shadow-sm">
-                <button class="flex justify-between items-center w-full text-left group">
-                  <span class="text-lg font-bold text-on-surface group-hover:text-primary transition-colors">{faq.question}</span>
-                  <span class="material-symbols-outlined text-primary">add</span>
-                </button>
-                <div class="mt-4 text-on-surface-variant leading-relaxed">
+              <details class="group bg-surface-container-lowest p-6 md:p-8 rounded-lg shadow-sm border border-outline-variant/10">
+                <summary class="flex justify-between items-center w-full text-left cursor-pointer list-none">
+                  <span class="text-base md:text-lg font-bold text-on-surface group-hover:text-primary transition-colors pr-8">{faq.question}</span>
+                  <span class="material-symbols-outlined text-primary transition-transform group-open:rotate-45">add</span>
+                </summary>
+                <div class="mt-6 text-on-surface-variant leading-relaxed text-sm md:text-base border-t border-outline-variant/10 pt-6">
                   {faq.answer}
                 </div>
-              </div>
+              </details>
             ))}
           </div>
         </div>

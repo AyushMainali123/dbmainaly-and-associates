@@ -1,0 +1,9 @@
+---
+interface Props {
+  class?: string;
+  type?: "ul" | "ol";
+}
+const { class: className = "", type = "ul" } = Astro.props;
+const Tag = type;
+---
+<Tag class={className}><slot /></Tag>

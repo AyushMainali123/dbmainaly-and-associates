@@ -6,6 +6,14 @@ import Button from '../components/Button.astro';
 import Card from '../components/Card.astro';
 import { getCollection } from 'astro:content';
 
+import H1 from '../components/typography/H1.astro';
+import H2 from '../components/typography/H2.astro';
+import H3 from '../components/typography/H3.astro';
+import H4 from '../components/typography/H4.astro';
+import P from '../components/typography/P.astro';
+import Lead from '../components/typography/Lead.astro';
+import Small from '../components/typography/Small.astro';
+
 const services = await getCollection('services');
 const featuredBlogPosts = await getCollection('blog', ({ data }) => data.featured);
 ---
@@ -15,79 +23,79 @@ const featuredBlogPosts = await getCollection('blog', ({ data }) => data.feature
 
   <main>
     <!-- Hero Section -->
-    <section class="relative bg-gradient-to-br from-primary to-primary-container overflow-hidden min-h-[800px] flex items-center">
+    <section class="relative bg-gradient-to-br from-primary to-primary-container overflow-hidden min-h-[600px] md:min-h-[800px] flex items-center py-20 md:py-0">
       <div class="absolute inset-0 opacity-10">
-        <div class="absolute top-0 right-0 w-1/2 h-full bg-[url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center mix-blend-overlay"></div>
+        <div class="absolute top-0 right-0 w-full md:w-1/2 h-full bg-[url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center mix-blend-overlay"></div>
       </div>
-      <div class="max-w-[1440px] mx-auto px-12 w-full grid grid-cols-1 md:grid-cols-12 gap-8 relative z-10">
+      <div class="max-w-[1440px] mx-auto px-6 md:px-12 w-full grid grid-cols-1 md:grid-cols-12 gap-8 relative z-10">
         <div class="md:col-span-8">
           <div class="inline-flex items-center gap-2 mb-6 px-3 py-1 bg-surface-container-lowest/10 rounded-full border border-white/10">
-            <span class="w-2 h-2 rounded-full bg-tertiary-fixed-dim"></span>
-            <span class="text-white text-[10px] tracking-[0.2em] font-bold uppercase">Member of ICAN Nepal</span>
+            <span class="w-1.5 h-1.5 rounded-full bg-tertiary-fixed-dim"></span>
+            <Small class="text-white tracking-[0.2em] font-bold uppercase">Member of ICAN Nepal</Small>
           </div>
-          <h1 class="text-white text-5xl md:text-7xl font-bold tracking-tight leading-[1.1] mb-8">
-            Professional Financial <br/>Excellence.
-          </h1>
-          <p class="text-primary-fixed text-xl max-w-xl leading-relaxed mb-10 opacity-90">
+          <H1 class="text-white mb-8">
+            Professional Financial <br class="hidden md:block"/>Excellence.
+          </H1>
+          <Lead class="text-primary-fixed mb-10 opacity-90 max-w-xl">
             Navigating the complexities of Nepalese corporate law and global financial standards with architectural precision and unwavering integrity.
-          </p>
-          <div class="flex flex-wrap gap-4">
-            <Button href="/services" variant="surface" size="lg">Explore Advisory</Button>
-            <Button href="/about" variant="outline" size="lg">Our Portfolio</Button>
+          </Lead>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <Button href="/services" variant="surface" size="lg" class="w-full sm:w-auto">Explore Advisory</Button>
+            <Button href="/about" variant="outline" size="lg" class="w-full sm:w-auto">Our Portfolio</Button>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Compliance Badge Section -->
-    <div class="bg-surface-container-low py-12">
-      <div class="max-w-[1440px] mx-auto px-12 flex flex-col md:flex-row items-center justify-between gap-8 opacity-80">
-        <div class="flex items-center gap-6">
-          <div class="w-16 h-16 bg-surface-container-lowest rounded-full flex items-center justify-center border border-outline-variant/20 shadow-sm">
-            <span class="material-symbols-outlined text-primary text-3xl">verified</span>
+    <div class="bg-surface-container-low py-8 md:py-12 border-y border-outline-variant/10">
+      <div class="max-w-[1440px] mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center justify-between gap-8 md:gap-4 opacity-80">
+        <div class="flex flex-col md:flex-row items-center gap-4 md:gap-6 text-center md:text-left">
+          <div class="w-12 h-12 md:w-16 md:h-16 bg-surface-container-lowest rounded-full flex items-center justify-center border border-outline-variant/20 shadow-sm shrink-0">
+            <span class="material-symbols-outlined text-primary text-2xl md:text-3xl">verified</span>
           </div>
           <div>
-            <p class="text-[10px] text-primary font-bold tracking-widest uppercase mb-1">Regulatory Standard</p>
-            <p class="text-on-surface font-semibold">Institute of Chartered Accountants of Nepal (ICAN) Licensed</p>
+            <Small class="text-primary font-bold tracking-widest uppercase mb-1 block">Regulatory Standard</Small>
+            <p class="text-on-surface font-semibold text-sm md:text-base">Institute of Chartered Accountants of Nepal (ICAN) Licensed</p>
           </div>
         </div>
         <div class="h-px w-24 bg-outline-variant/30 hidden md:block"></div>
-        <div class="flex gap-12 grayscale opacity-60">
-          <span class="text-lg font-extrabold tracking-tighter">FIN-COMPLY</span>
-          <span class="text-lg font-extrabold tracking-tighter">TAX-NEPAL</span>
-          <span class="text-lg font-extrabold tracking-tighter">AUDIT-CORP</span>
+        <div class="flex flex-wrap justify-center gap-6 md:gap-12 grayscale opacity-60">
+          <span class="text-base md:text-lg font-extrabold tracking-tighter">FIN-COMPLY</span>
+          <span class="text-base md:text-lg font-extrabold tracking-tighter">TAX-NEPAL</span>
+          <span class="text-base md:text-lg font-extrabold tracking-tighter">AUDIT-CORP</span>
         </div>
       </div>
     </div>
 
     <!-- Strategic Financial Services: Bento Grid Layout -->
-    <section class="py-32 bg-surface">
-      <div class="max-w-[1440px] mx-auto px-12">
-        <div class="mb-20 flex flex-col md:flex-row md:items-end justify-between gap-6">
-          <div>
-            <p class="text-primary font-bold tracking-[0.15em] uppercase text-xs mb-4">Core Competencies</p>
-            <h2 class="text-4xl md:text-5xl font-bold tracking-tight text-on-surface">Strategic Financial Services</h2>
+    <section class="py-16 md:py-32 bg-surface">
+      <div class="max-w-[1440px] mx-auto px-6 md:px-12">
+        <div class="mb-12 md:mb-20 flex flex-col md:flex-row md:items-end justify-between gap-6">
+          <div class="max-w-xl">
+            <Small class="text-primary font-bold tracking-[0.15em] uppercase mb-4 block">Core Competencies</Small>
+            <H2 class="text-on-surface">Strategic Financial Services</H2>
           </div>
-          <p class="text-on-surface-variant max-w-md text-lg leading-relaxed">
+          <Lead class="text-on-surface-variant max-w-md">
             A multidisciplinary approach to fiscal health, combining local expertise with international standards.
-          </p>
+          </Lead>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8">
           {services.map((service, index) => (
-            <div class={`${index === 0 ? "md:col-span-8" : index === 1 ? "md:col-span-4 bg-primary text-white" : "md:col-span-6"} group relative overflow-hidden p-12 rounded-xl transition-all duration-500 hover:shadow-xl ${index === 0 ? "bg-surface-container-lowest border border-outline-variant/10" : index === 1 ? "" : index === 2 ? "bg-surface-container-high" : "bg-surface-container-lowest border border-outline-variant/10"}`}>
+            <div class={`${index === 0 ? "md:col-span-8" : index === 1 ? "md:col-span-4 bg-primary text-white" : "md:col-span-6"} group relative overflow-hidden p-8 md:p-12 rounded-xl border border-outline-variant/10 transition-all duration-500 hover:shadow-xl ${index === 0 ? "bg-surface-container-lowest" : index === 1 ? "" : index === 2 ? "bg-surface-container-high" : "bg-surface-container-lowest"}`}>
               <div class="relative z-10 h-full flex flex-col justify-between">
                 <div>
-                  <span class={`material-symbols-outlined text-4xl mb-8 ${index === 1 ? "text-tertiary-fixed-dim" : "text-primary"}`}>{service.data.icon}</span>
-                  <h3 class={`text-3xl font-bold mb-4 ${index === 1 ? "text-white" : "text-on-surface"}`}>{service.data.title}</h3>
-                  <p class={`text-lg leading-relaxed ${index === 1 ? "text-primary-fixed/80" : "text-on-surface-variant"} max-w-lg`}>
+                  <span class={`material-symbols-outlined text-3xl md:text-4xl mb-6 md:mb-8 ${index === 1 ? "text-tertiary-fixed-dim" : "text-primary"}`}>{service.data.icon}</span>
+                  <H3 class={`mb-4 ${index === 1 ? "text-white" : "text-on-surface"}`}>{service.data.title}</H3>
+                  <P class={`text-base md:text-lg mb-8 ${index === 1 ? "text-primary-fixed/80" : "text-on-surface-variant"} max-w-lg`}>
                     {service.data.description}
-                  </p>
+                  </P>
                 </div>
-                <div class="mt-12">
+                <div class="mt-4">
                   {index === 0 && (
-                    <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 text-on-surface font-medium mb-10">
+                    <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4 text-on-surface font-medium mb-10">
                       {service.data.features.map(feature => (
-                        <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 rounded-full bg-primary"></span> {feature}</li>
+                        <li class="flex items-center gap-3 text-sm md:text-base"><span class="w-1.5 h-1.5 rounded-full bg-primary shrink-0"></span> {feature}</li>
                       ))}
                     </ul>
                   )}
@@ -96,8 +104,8 @@ const featuredBlogPosts = await getCollection('blog', ({ data }) => data.feature
                   </a>
                 </div>
               </div>
-              <div class={`absolute -right-20 -bottom-20 opacity-[0.03] scale-150 pointer-events-none ${index === 1 ? "text-white" : "text-primary"}`}>
-                <span class="material-symbols-outlined text-[20rem]">{service.data.icon}</span>
+              <div class={`absolute -right-20 -bottom-20 opacity-[0.03] scale-100 md:scale-150 pointer-events-none ${index === 1 ? "text-white" : "text-primary"}`}>
+                <span class="material-symbols-outlined text-[10rem] md:text-[20rem]">{service.data.icon}</span>
               </div>
             </div>
           ))}
@@ -106,52 +114,52 @@ const featuredBlogPosts = await getCollection('blog', ({ data }) => data.feature
     </section>
 
     <!-- Our Impact Section -->
-    <section class="py-32 bg-surface-container-lowest">
-      <div class="max-w-[1440px] mx-auto px-12 grid grid-cols-1 md:grid-cols-2 gap-24 items-center">
-        <div class="relative">
-          <div class="absolute left-0 top-0 w-1 h-full bg-surface-container-high overflow-hidden">
+    <section class="py-16 md:py-32 bg-surface-container-lowest">
+      <div class="max-w-[1440px] mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24 items-center">
+        <div class="relative order-2 md:order-1">
+          <div class="absolute left-0 top-0 w-1 h-full bg-surface-container-high overflow-hidden rounded-full">
             <div class="absolute bottom-0 left-0 w-full h-3/4 bg-primary transition-all duration-1000"></div>
           </div>
-          <div class="pl-12 py-8">
-            <p class="text-primary font-bold tracking-widest uppercase text-xs mb-6">Our Trajectory</p>
-            <h2 class="text-5xl font-bold tracking-tight mb-8 leading-[1.1]">Decades of <br/>Fiscal Authority.</h2>
-            <p class="text-on-surface-variant text-xl leading-relaxed mb-12">
+          <div class="pl-8 md:pl-12 py-4">
+            <Small class="text-primary font-bold tracking-widest uppercase mb-6 block">Our Trajectory</Small>
+            <H2 class="mb-8">Decades of <br class="hidden md:block"/>Fiscal Authority.</H2>
+            <P class="text-on-surface-variant text-lg md:text-xl mb-12 max-w-lg">
               Since our inception, we have been the standard-bearer for financial integrity in Nepal, guiding organizations from startup to public listing.
-            </p>
-            <div class="grid grid-cols-2 gap-12">
+            </P>
+            <div class="grid grid-cols-2 gap-8 md:gap-12">
               <div>
-                <h4 class="text-4xl font-extrabold text-primary mb-2">15+</h4>
-                <p class="text-on-surface font-bold text-sm tracking-wide uppercase">Years Excellence</p>
+                <H3 class="text-primary mb-1">15+</H3>
+                <Small class="text-on-surface font-bold tracking-wide uppercase">Years Excellence</Small>
               </div>
               <div>
-                <h4 class="text-4xl font-extrabold text-primary mb-2">500+</h4>
-                <p class="text-on-surface font-bold text-sm tracking-wide uppercase">Active Clients</p>
+                <H3 class="text-primary mb-1">500+</H3>
+                <Small class="text-on-surface font-bold tracking-wide uppercase">Active Clients</Small>
               </div>
               <div>
-                <h4 class="text-4xl font-extrabold text-primary mb-2">1.2B</h4>
-                <p class="text-on-surface font-bold text-sm tracking-wide uppercase">Capital Managed</p>
+                <H3 class="text-primary mb-1">1.2B</H3>
+                <Small class="text-on-surface font-bold tracking-wide uppercase">Capital Managed</Small>
               </div>
               <div>
-                <h4 class="text-4xl font-extrabold text-primary mb-2">100%</h4>
-                <p class="text-on-surface font-bold text-sm tracking-wide uppercase">Compliance Rate</p>
+                <H3 class="text-primary mb-1">100%</H3>
+                <Small class="text-on-surface font-bold tracking-wide uppercase">Compliance Rate</Small>
               </div>
             </div>
           </div>
         </div>
-        <div class="relative aspect-square">
+        <div class="relative aspect-square order-1 md:order-2">
           <div class="absolute inset-0 bg-primary-container rounded-2xl transform rotate-3 scale-95 opacity-10"></div>
           <div class="relative h-full rounded-2xl overflow-hidden shadow-2xl">
-            <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmJZluKrtPXRzVVWeH0StgnmQD3eDHXqN62gi69SbQho1mElHKl9-_mKuBgYSX6eteGnThtwEY33b5tBljxRhOP2MtHb774DNZncc4GBHm8Z53M_RLqHuyrnVVhE74lM6x7XamD6Mmh6lYB4rKKKD5y9OOpvsshW1Z_6LQCUGnwj1a9HPowauQmXqnlcAkmgfvbpBrt2xNumFtknwGBRR-lY47bkCYC6-Q76E7VJFasbWcGB4Tc6bd1dknC7-g4tZMKjiF1teO_LI" alt="Modern architecture">
-            <div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent"></div>
-            <div class="absolute bottom-10 left-10 right-10">
-              <div class="bg-surface-container-lowest/10 backdrop-blur-xl p-8 rounded-xl border border-white/20">
-                <span class="material-symbols-outlined text-tertiary-fixed-dim text-4xl mb-4" style="font-variation-settings: 'FILL' 1;">format_quote</span>
-                <p class="text-white text-lg italic mb-6">"DB Mainaly & Associates transformed our corporate governance structure, enabling our successful transition to a public entity."</p>
+            <img class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1554469384-e58fac16e23a?auto=format&fit=crop&q=80&w=1000" alt="Modern corporate building">
+            <div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent"></div>
+            <div class="absolute bottom-6 left-6 right-6 md:bottom-10 md:left-10 md:right-10">
+              <div class="bg-surface-container-lowest/10 backdrop-blur-xl p-6 md:p-8 rounded-xl border border-white/20">
+                <span class="material-symbols-outlined text-tertiary-fixed-dim text-3xl md:text-4xl mb-4 block" style="font-variation-settings: 'FILL' 1;">format_quote</span>
+                <p class="text-white text-base md:text-lg italic mb-6">"DB Mainaly & Associates transformed our corporate governance structure, enabling our transition to a public entity."</p>
                 <div class="flex items-center gap-4">
-                  <div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center font-bold text-primary">SC</div>
+                  <div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center font-bold text-primary shrink-0">SC</div>
                   <div>
                     <p class="text-white font-bold text-sm">Sunil Chaudhary</p>
-                    <p class="text-white/60 text-xs">CEO, Apex Infrastructure</p>
+                    <Small class="text-white/60">CEO, Apex Infrastructure</Small>
                   </div>
                 </div>
               </div>
@@ -162,30 +170,30 @@ const featuredBlogPosts = await getCollection('blog', ({ data }) => data.feature
     </section>
 
     <!-- Latest Insights Section -->
-    <section class="py-32 bg-surface">
-      <div class="max-w-[1440px] mx-auto px-12">
-        <div class="flex justify-between items-end mb-16">
+    <section class="py-16 md:py-32 bg-surface">
+      <div class="max-w-[1440px] mx-auto px-6 md:px-12">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 md:mb-16 gap-6">
           <div>
-            <p class="text-primary font-bold tracking-[0.15em] uppercase text-xs mb-4">Financial Intelligence</p>
-            <h2 class="text-4xl font-bold text-on-surface">Latest Insights</h2>
+            <Small class="text-primary font-bold tracking-[0.15em] uppercase mb-4 block">Financial Intelligence</Small>
+            <H2 class="text-on-surface">Latest Insights</H2>
           </div>
           <a href="/blog" class="text-primary font-bold border-b-2 border-primary pb-1 hover:text-primary-container hover:border-primary-container transition-all">View All Publications</a>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
           {featuredBlogPosts.map(post => (
             <article class="group">
-              <div class="aspect-[16/10] bg-surface-container-high rounded-xl overflow-hidden mb-8">
+              <div class="aspect-[16/10] bg-surface-container-high rounded-xl overflow-hidden mb-6 md:mb-8">
                 <img src={post.data.image} alt={post.data.title} class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
               </div>
-              <span class="text-primary text-[10px] font-bold tracking-widest uppercase mb-4 block">
+              <Small class="text-primary font-bold tracking-widest uppercase mb-4 block">
                 {post.data.category} • {post.data.date.toLocaleDateString('en-US', { month: 'short', year: 'numeric' })}
-              </span>
-              <h3 class="text-2xl font-bold mb-4 group-hover:text-primary transition-colors">
+              </Small>
+              <H3 class="mb-4 group-hover:text-primary transition-colors text-xl md:text-2xl">
                 <a href={`/blog/${post.id}`}>{post.data.title}</a>
-              </h3>
-              <p class="text-on-surface-variant leading-relaxed mb-6 line-clamp-2">
+              </H3>
+              <P class="text-on-surface-variant mb-6 line-clamp-2">
                 {post.data.excerpt}
-              </p>
+              </P>
               <a href={`/blog/${post.id}`} class="material-symbols-outlined text-primary group-hover:translate-x-2 transition-transform">arrow_forward</a>
             </article>
           ))}
@@ -194,15 +202,15 @@ const featuredBlogPosts = await getCollection('blog', ({ data }) => data.feature
     </section>
 
     <!-- Final CTA Section -->
-    <section class="bg-primary text-white py-24 mb-0">
-      <div class="max-w-[1440px] mx-auto px-12 text-center">
-        <h2 class="text-4xl md:text-5xl font-bold tracking-tight mb-8">Ready to secure your financial future?</h2>
-        <p class="text-primary-fixed/70 text-xl max-w-2xl mx-auto mb-12">
+    <section class="bg-primary text-white py-16 md:py-24">
+      <div class="max-w-[1440px] mx-auto px-6 md:px-12 text-center">
+        <H2 class="text-white mb-8">Ready to secure your financial future?</H2>
+        <Lead class="text-primary-fixed/70 max-w-2xl mx-auto mb-12">
           Schedule a confidential consultation with our principal partners to discuss your corporate advisory or audit requirements.
-        </p>
-        <div class="flex flex-wrap justify-center gap-6">
-          <Button href="/contact" variant="secondary" size="lg">Contact Principal Partner</Button>
-          <Button href="/about" variant="outline" size="lg">Request Firm Profile</Button>
+        </Lead>
+        <div class="flex flex-col sm:flex-row justify-center gap-4 md:gap-6">
+          <Button href="/contact" variant="secondary" size="lg" class="w-full sm:w-auto">Contact Principal Partner</Button>
+          <Button href="/about" variant="outline" size="lg" class="w-full sm:w-auto">Request Firm Profile</Button>
         </div>
       </div>
     </section>

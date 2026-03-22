@@ -4,6 +4,14 @@ import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import { getCollection } from 'astro:content';
 
+import H1 from '../../components/typography/H1.astro';
+import H2 from '../../components/typography/H2.astro';
+import H3 from '../../components/typography/H3.astro';
+import H4 from '../../components/typography/H4.astro';
+import P from '../../components/typography/P.astro';
+import Lead from '../../components/typography/Lead.astro';
+import Small from '../../components/typography/Small.astro';
+
 const blogPosts = await getCollection('blog');
 const featuredPost = blogPosts.find(post => post.data.featured) || blogPosts[0];
 const regularPosts = blogPosts.filter(post => post.id !== featuredPost.id);
@@ -12,42 +20,42 @@ const regularPosts = blogPosts.filter(post => post.id !== featuredPost.id);
 <BaseLayout title="Insights & Analysis | DB Mainaly & Associates">
   <Header />
 
-  <main class="max-w-[1440px] mx-auto px-12 lg:pl-[4rem] lg:pr-[5.5rem] py-20">
-    <header class="mb-24">
+  <main class="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-16 py-12 md:py-20">
+    <header class="mb-12 md:mb-24">
       <div class="max-w-3xl">
-        <span class="label-md text-primary font-bold tracking-[0.1rem] uppercase block mb-4">Firm Insights</span>
-        <h1 class="text-6xl md:text-7xl font-bold tracking-tight text-on-surface leading-tight mb-8">
+        <Small class="text-primary font-bold tracking-[0.1rem] uppercase block mb-4">Firm Insights</Small>
+        <H1 class="text-on-surface mb-8">
           Insights & Analysis
-        </h1>
-        <p class="text-xl text-on-surface-variant leading-relaxed font-medium">
+        </H1>
+        <Lead class="text-on-surface-variant max-w-2xl">
           Critical updates and strategic perspectives on Nepal's evolving financial, regulatory, and corporate landscape from our senior advisors.
-        </p>
+        </Lead>
       </div>
     </header>
 
     <!-- Featured Article -->
     {featuredPost && (
-      <section class="mb-24">
-        <div class="relative group overflow-hidden rounded-xl bg-surface-container-lowest shadow-[0_20px_40px_rgba(0,35,111,0.04)]">
+      <section class="mb-16 md:mb-24">
+        <div class="relative group overflow-hidden rounded-xl bg-surface-container-lowest shadow-[0_20px_40px_rgba(0,35,111,0.04)] border border-outline-variant/10">
           <div class="flex flex-col lg:flex-row">
-            <div class="lg:w-7/12 overflow-hidden h-[450px]">
+            <div class="lg:w-7/12 overflow-hidden h-[300px] md:h-[450px]">
               <img src={featuredPost.data.image} alt={featuredPost.data.title} class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
             </div>
-            <div class="lg:w-5/12 p-12 flex flex-col justify-center">
-              <span class="text-primary font-bold text-sm tracking-widest mb-4 uppercase">{featuredPost.data.category} • {featuredPost.data.readTime}</span>
-              <h2 class="text-3xl font-bold text-on-surface mb-6 leading-snug hover:text-primary transition-colors">
+            <div class="lg:w-5/12 p-8 md:p-12 flex flex-col justify-center">
+              <Small class="text-primary font-bold tracking-widest mb-4 uppercase block">{featuredPost.data.category} • {featuredPost.data.readTime}</Small>
+              <H2 class="text-on-surface mb-6 hover:text-primary transition-colors">
                 <a href={`/blog/${featuredPost.id}`}>{featuredPost.data.title}</a>
-              </h2>
-              <p class="text-on-surface-variant mb-8 line-clamp-3">
+              </H2>
+              <P class="text-on-surface-variant mb-8 line-clamp-3">
                 {featuredPost.data.excerpt}
-              </p>
-              <div class="flex items-center gap-4">
-                <div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center">
+              </P>
+              <div class="flex items-center gap-4 mt-auto">
+                <div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center shrink-0">
                   <span class="material-symbols-outlined text-primary">person</span>
                 </div>
                 <div>
-                  <p class="text-sm font-bold text-on-surface">By {featuredPost.data.author}</p>
-                  <p class="text-xs text-on-surface-variant">{featuredPost.data.authorRole}</p>
+                  <P class="text-sm font-bold text-on-surface mb-0">By {featuredPost.data.author}</P>
+                  <P class="text-xs text-on-surface-variant mb-0">{featuredPost.data.authorRole}</P>
                 </div>
               </div>
             </div>
@@ -56,32 +64,32 @@ const regularPosts = blogPosts.filter(post => post.id !== featuredPost.id);
       </section>
     )}
 
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
-      <div class="lg:col-span-8">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 md:gap-16">
+      <div class="lg:col-span-12 xl:col-span-8">
         <!-- Category Filter -->
-        <div class="flex flex-wrap gap-4 mb-12">
-          <button class="px-6 py-2 rounded-full bg-primary text-on-primary font-bold text-sm transition-all">All</button>
-          <button class="px-6 py-2 rounded-full bg-surface-container text-on-surface-variant font-bold text-sm hover:bg-surface-container-high transition-all">Taxation</button>
-          <button class="px-6 py-2 rounded-full bg-surface-container text-on-surface-variant font-bold text-sm hover:bg-surface-container-high transition-all">Audit</button>
-          <button class="px-6 py-2 rounded-full bg-surface-container text-on-surface-variant font-bold text-sm hover:bg-surface-container-high transition-all">Regulatory</button>
+        <div class="flex flex-nowrap overflow-x-auto gap-4 mb-12 pb-2 scrollbar-hide">
+          <button class="px-6 py-2 rounded-full bg-primary text-on-primary font-bold text-sm transition-all shrink-0">All</button>
+          <button class="px-6 py-2 rounded-full bg-surface-container text-on-surface-variant font-bold text-sm hover:bg-surface-container-high transition-all shrink-0">Taxation</button>
+          <button class="px-6 py-2 rounded-full bg-surface-container text-on-surface-variant font-bold text-sm hover:bg-surface-container-high transition-all shrink-0">Audit</button>
+          <button class="px-6 py-2 rounded-full bg-surface-container text-on-surface-variant font-bold text-sm hover:bg-surface-container-high transition-all shrink-0">Regulatory</button>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-16">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-12 md:gap-y-16">
           {regularPosts.map(post => (
             <article class="group">
-              <div class="aspect-video mb-6 overflow-hidden rounded-lg bg-surface-container">
+              <div class="aspect-video mb-6 overflow-hidden rounded-lg bg-surface-container border border-outline-variant/10">
                 <img src={post.data.image} alt={post.data.title} class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
               </div>
-              <span class="text-xs font-bold text-primary tracking-widest uppercase mb-3 block">{post.data.category}</span>
-              <h3 class="text-2xl font-bold text-on-surface mb-4 leading-tight group-hover:text-primary transition-colors">
+              <Small class="text-primary font-bold tracking-widest uppercase mb-3 block">{post.data.category}</Small>
+              <H3 class="text-on-surface mb-4 group-hover:text-primary transition-colors">
                 <a href={`/blog/${post.id}`}>{post.data.title}</a>
-              </h3>
-              <p class="text-on-surface-variant mb-6 text-sm leading-relaxed line-clamp-2">
+              </H3>
+              <P class="text-on-surface-variant mb-6 text-sm line-clamp-2">
                 {post.data.excerpt}
-              </p>
-              <div class="flex items-center justify-between">
-                <span class="text-xs text-outline font-medium">{post.data.date.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</span>
-                <a class="text-primary font-bold text-sm flex items-center gap-2" href={`/blog/${post.id}`}>
+              </P>
+              <div class="flex items-center justify-between mt-auto">
+                <Small class="text-outline font-medium">{post.data.date.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</Small>
+                <a class="text-primary font-bold text-sm flex items-center gap-2 group-hover:gap-4 transition-all" href={`/blog/${post.id}`}>
                   Read More <span class="material-symbols-outlined text-sm">arrow_forward</span>
                 </a>
               </div>
@@ -90,32 +98,33 @@ const regularPosts = blogPosts.filter(post => post.id !== featuredPost.id);
         </div>
       </div>
 
-      <aside class="lg:col-span-4 space-y-12">
-        <div class="bg-primary-fixed p-10 rounded-xl relative overflow-hidden">
+      <aside class="lg:col-span-12 xl:col-span-4 space-y-12">
+        <div class="bg-primary text-white p-8 md:p-10 rounded-xl relative overflow-hidden">
           <div class="relative z-10">
-            <h4 class="text-2xl font-bold text-on-primary-fixed mb-4">The Ledger Monthly</h4>
-            <p class="text-on-primary-fixed-variant mb-8 text-sm leading-relaxed">
+            <H4 class="text-white mb-4">The Ledger Monthly</H4>
+            <P class="text-primary-fixed mb-8 text-sm opacity-80">
               Get exclusive regulatory summaries and fiscal updates delivered directly to your inbox.
-            </p>
+            </P>
             <form class="space-y-4">
-              <input class="w-full bg-surface-container-lowest border-none rounded-lg px-4 py-3 text-sm focus:ring-2 focus:ring-primary transition-all" placeholder="Corporate Email Address" type="email">
-              <button class="w-full bg-primary text-on-primary font-bold py-3 rounded-lg hover:bg-primary-container transition-all">
+              <input class="w-full bg-primary-container border-0 rounded-lg px-4 py-3 text-sm focus:ring-2 focus:ring-tertiary-fixed-dim transition-all text-white placeholder:text-primary-fixed/50" placeholder="Corporate Email Address" type="email">
+              <button class="w-full bg-white text-primary font-bold py-3 rounded-lg hover:bg-surface-dim transition-all active:scale-95">
                 Subscribe Now
               </button>
             </form>
           </div>
+          <div class="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full -mr-16 -mt-16 pointer-events-none"></div>
         </div>
 
         <div class="p-2">
-          <h4 class="text-lg font-bold text-on-surface mb-6 flex items-center gap-2">
+          <H4 class="text-on-surface mb-6 flex items-center gap-2">
             <span class="material-symbols-outlined text-primary">trending_up</span> Trending Analysis
-          </h4>
+          </H4>
           <ul class="space-y-6">
             <li class="border-b border-outline-variant/15 pb-4">
-              <a class="text-sm font-semibold text-on-surface hover:text-primary transition-colors" href="#">SEBON's New IPO Pricing Guidelines: What You Need to Know</a>
+              <a class="text-sm font-semibold text-on-surface hover:text-primary transition-colors font-bold" href="#">SEBON's New IPO Pricing Guidelines: What You Need to Know</a>
             </li>
             <li class="border-b border-outline-variant/15 pb-4">
-              <a class="text-sm font-semibold text-on-surface hover:text-primary transition-colors" href="#">Double Taxation Avoidance Agreement (DTAA) with China</a>
+              <a class="text-sm font-semibold text-on-surface hover:text-primary transition-colors font-bold" href="#">Double Taxation Avoidance Agreement (DTAA) with China</a>
             </li>
           </ul>
         </div>

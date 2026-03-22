@@ -4,6 +4,14 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { getCollection } from 'astro:content';
 
+import H1 from '../components/typography/H1.astro';
+import H2 from '../components/typography/H2.astro';
+import H3 from '../components/typography/H3.astro';
+import H4 from '../components/typography/H4.astro';
+import P from '../components/typography/P.astro';
+import Lead from '../components/typography/Lead.astro';
+import Small from '../components/typography/Small.astro';
+
 const services = await getCollection('services');
 ---
 
@@ -12,20 +20,20 @@ const services = await getCollection('services');
 
   <main>
     <!-- Hero Section -->
-    <section class="relative pt-24 pb-32 px-12 md:px-20 overflow-hidden bg-gradient-to-br from-primary to-primary-container">
+    <section class="relative pt-24 pb-32 px-6 md:px-12 lg:px-20 overflow-hidden bg-gradient-to-br from-primary to-primary-container">
       <div class="max-w-[1440px] mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
         <div class="md:col-span-8 z-10">
-          <span class="text-tertiary-fixed-dim font-bold tracking-[0.2em] text-xs uppercase mb-6 block">Our Expertise</span>
-          <h1 class="text-5xl md:text-7xl font-extrabold text-white tracking-tighter leading-[1.1] mb-8">
+          <Small class="text-tertiary-fixed-dim font-bold tracking-[0.2em] uppercase mb-6 block">Our Expertise</Small>
+          <H1 class="text-white mb-8">
             Precision in <br/><span class="opacity-80">Every Ledger</span>
-          </h1>
-          <p class="text-primary-fixed text-xl max-w-2xl leading-relaxed mb-10 opacity-90">
+          </H1>
+          <Lead class="text-primary-fixed max-w-2xl opacity-90">
             Navigating the complexities of Nepalese financial regulations with institutional rigor and deep-sector expertise.
-          </p>
+          </Lead>
         </div>
       </div>
       <!-- Background Graphic -->
-      <div class="absolute bottom-0 right-0 opacity-10 pointer-events-none">
+      <div class="absolute bottom-0 right-0 opacity-10 pointer-events-none hidden md:block">
         <svg fill="none" height="400" viewBox="0 0 600 400" width="600" xmlns="http://www.w3.org/2000/svg">
           <path d="M0 400L200 150L400 300L600 0V400H0Z" fill="white"></path>
         </svg>
@@ -33,33 +41,33 @@ const services = await getCollection('services');
     </section>
 
     <!-- Service Filter & Navigation -->
-    <section class="bg-surface-container py-8 sticky top-[88px] z-40 border-b border-outline-variant/10">
-      <div class="max-w-[1440px] mx-auto px-12 md:px-20">
-        <div class="flex flex-wrap gap-8 items-center justify-center md:justify-start">
-          <button class="text-primary font-bold border-b-2 border-primary pb-1 text-sm tracking-wide">ALL SERVICES</button>
-          <button class="text-on-surface-variant font-medium hover:text-primary transition-colors text-sm tracking-wide">TAX ADVISORY</button>
-          <button class="text-on-surface-variant font-medium hover:text-primary transition-colors text-sm tracking-wide">AUDIT & ASSURANCE</button>
-          <button class="text-on-surface-variant font-medium hover:text-primary transition-colors text-sm tracking-wide">CONSULTING</button>
+    <section class="bg-surface-container py-4 md:py-8 sticky top-[64px] md:top-[88px] z-40 border-b border-outline-variant/10 backdrop-blur-md bg-surface-container/90">
+      <div class="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20">
+        <div class="flex flex-nowrap overflow-x-auto md:flex-wrap gap-6 md:gap-8 items-center justify-start scrollbar-hide pb-2 md:pb-0">
+          <button class="text-primary font-bold border-b-2 border-primary pb-1 text-xs md:text-sm tracking-wide shrink-0">ALL SERVICES</button>
+          <button class="text-on-surface-variant font-medium hover:text-primary transition-colors text-xs md:text-sm tracking-wide shrink-0">TAX ADVISORY</button>
+          <button class="text-on-surface-variant font-medium hover:text-primary transition-colors text-xs md:text-sm tracking-wide shrink-0">AUDIT & ASSURANCE</button>
+          <button class="text-on-surface-variant font-medium hover:text-primary transition-colors text-xs md:text-sm tracking-wide shrink-0">CONSULTING</button>
         </div>
       </div>
     </section>
 
     <!-- Service Cards Grid -->
-    <section class="py-24 px-12 md:px-20 bg-surface">
+    <section class="py-16 md:py-24 px-6 md:px-12 lg:px-20 bg-surface">
       <div class="max-w-[1440px] mx-auto">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
           {services.map(service => (
-            <div id={service.id} class="group bg-surface-container-lowest p-10 flex flex-col h-full border border-outline-variant/15 hover:shadow-[0_20px_40px_rgba(0,35,111,0.06)] transition-all duration-300 rounded-xl">
-              <div class="mb-8">
-                <span class="material-symbols-outlined text-primary text-4xl">{service.data.icon}</span>
+            <div id={service.id} class="group bg-surface-container-lowest p-8 md:p-10 flex flex-col h-full border border-outline-variant/15 hover:shadow-[0_20px_40px_rgba(0,35,111,0.06)] transition-all duration-300 rounded-xl">
+              <div class="mb-6 md:mb-8">
+                <span class="material-symbols-outlined text-primary text-3xl md:text-4xl">{service.data.icon}</span>
               </div>
-              <h3 class="text-2xl font-bold text-on-surface mb-4 leading-tight">{service.data.title}</h3>
-              <p class="text-on-surface-variant leading-relaxed mb-8 flex-grow">
+              <H3 class="text-on-surface mb-4">{service.data.title}</H3>
+              <P class="text-on-surface-variant mb-8 flex-grow">
                 {service.data.description}
-              </p>
+              </P>
               <ul class="space-y-4 mb-10 text-sm font-medium text-on-surface-variant">
                 {service.data.features.map(feature => (
-                  <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 bg-primary rounded-full"></span>{feature}</li>
+                  <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 bg-primary rounded-full shrink-0"></span>{feature}</li>
                 ))}
               </ul>
               <a class="inline-flex items-center gap-2 text-primary font-bold text-sm group-hover:gap-4 transition-all" href={`#${service.id}`}>
@@ -72,40 +80,40 @@ const services = await getCollection('services');
     </section>
 
     <!-- Sector Specialization Section -->
-    <section class="py-24 px-12 md:px-20 bg-surface-container-low">
+    <section class="py-16 md:py-24 px-6 md:px-12 lg:px-20 bg-surface-container-low">
       <div class="max-w-[1440px] mx-auto">
-        <div class="mb-16">
-          <span class="text-primary label-md font-bold tracking-[0.2em] text-xs uppercase mb-4 block">SECTOR SPECIALIZATION</span>
-          <h2 class="text-4xl font-extrabold text-on-surface tracking-tight">Industry-Specific Solutions</h2>
+        <div class="mb-12 md:mb-16">
+          <Small class="text-primary font-bold tracking-[0.2em] uppercase mb-4 block">Sector Specialization</Small>
+          <H2 class="text-on-surface">Industry-Specific Solutions</H2>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
-          <div class="md:col-span-4 relative group overflow-hidden bg-primary p-12 flex flex-col justify-end min-h-[500px] rounded-xl">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8">
+          <div class="md:col-span-5 lg:col-span-4 relative group overflow-hidden bg-primary p-8 md:p-12 flex flex-col justify-end min-h-[400px] md:min-h-[500px] rounded-xl">
             <div class="absolute inset-0 opacity-40 mix-blend-multiply transition-transform duration-700 group-hover:scale-110">
-              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAkGK7oSQKItL8xCPkwozHbJV_qb6sL2Z-r2XUs7NmC0KK6Uhv3buwnIAN6mK5WZxzzqBT2A9UN7ddbJVXhqJjxZV_Yifj1Pa_Gs07i0qNWEvF7hO49o7EYC9CbZJRmAYokCuzsayC7wsGaWOgT39ldt3QWqykkXpysYx2kd0qDBNqXLhgbx1POUbKSMNNhA_byOEjXa6JEYK_f9e2FKPcQ8Bemf7zd7k1UXYGJYw8rj8NBceYRIUWb3iOuradaNzWwdYeaFVTUxZQ" alt="Banking" class="w-full h-full object-cover">
+              <img src="https://images.unsplash.com/photo-1541354453284-699709772a0d?auto=format&fit=crop&q=80&w=800" alt="Banking" class="w-full h-full object-cover">
             </div>
             <div class="relative z-10">
-              <h4 class="text-white font-bold text-3xl mb-4">Banking & Finance</h4>
-              <p class="text-primary-fixed-dim text-sm leading-relaxed mb-6">NRB regulatory compliance and risk management for leading commercial banks.</p>
-              <span class="material-symbols-outlined text-white">payments</span>
+              <H4 class="text-white mb-4">Banking & Finance</H4>
+              <P class="text-primary-fixed-dim text-sm leading-relaxed mb-6">NRB regulatory compliance and risk management for leading commercial banks.</P>
+              <span class="material-symbols-outlined text-white text-3xl">payments</span>
             </div>
           </div>
-          <div class="md:col-span-8 grid grid-rows-2 gap-6">
-            <div class="relative group overflow-hidden bg-secondary-container p-12 flex flex-col justify-center rounded-xl">
+          <div class="md:col-span-7 lg:col-span-8 grid grid-rows-1 md:grid-rows-2 gap-6 md:gap-8">
+            <div class="relative group overflow-hidden bg-secondary-container p-8 md:p-12 flex flex-col justify-center rounded-xl min-h-[300px] md:min-h-0">
               <div class="absolute inset-0 opacity-20 transition-transform duration-700 group-hover:scale-105">
-                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGbw1PfWnv_MnZrAwKM2s0aDehfsuD5uokUavEl_IKxxnKpWfGIS8KIRjEGWsP-o9c61SgLMFzoU75jhit-nmd_GJgMO9NsfZr_8RRV3OP6IpC_Qaj_zMqcK7nTS0-na1TBWY7ASIdyJ-if7CejL4vYjToOG7cjXWUQkW_H2BzLlHC_41pKYKZVLHHmCbyfPP7x4zcw9NWS8NgOLvE9hSt_6hvWvvgDg_0BwTikBAnFkWBKT7BJlMRRLi7FUij0DXilR-gowR2oO8" alt="Hydropower" class="w-full h-full object-cover">
+                <img src="https://images.unsplash.com/photo-1466611653911-95481536a6b2?auto=format&fit=crop&q=80&w=1200" alt="Hydropower" class="w-full h-full object-cover">
               </div>
               <div class="relative z-10 max-w-lg">
-                <h4 class="text-on-secondary-container font-bold text-3xl mb-4">Hydropower</h4>
-                <p class="text-on-secondary-fixed-variant text-sm leading-relaxed">Specialized project financing and tax incentives advisory for large-scale energy projects in Nepal.</p>
+                <H4 class="text-on-secondary-container mb-4">Hydropower</H4>
+                <P class="text-on-secondary-fixed-variant text-sm leading-relaxed mb-0">Specialized project financing and tax incentives advisory for large-scale energy projects in Nepal.</P>
               </div>
             </div>
-            <div class="relative group overflow-hidden bg-tertiary-fixed p-12 flex flex-col justify-center rounded-xl">
+            <div class="relative group overflow-hidden bg-tertiary-fixed p-8 md:p-12 flex flex-col justify-center rounded-xl min-h-[300px] md:min-h-0">
               <div class="absolute inset-0 opacity-15 transition-transform duration-700 group-hover:scale-105">
-                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBUMDOoGkaMHDUmRzIClwSm9PAeo3gX04qQUUDKTBK9oH5je02AcKd4_xXneJ4btMRudvktNo2LJHquTfg1KRckbQEX_apqokqAgkktfRV2UJPDmd-fO2TeOG-gecBaIKQSRvdUzExAI1AP3YYEY4Uqqevyyi4K7EDLithxRqNmRkAxk24OPQ7puiUsbZuvEooVNb1V0mj7SJy5o_I-x9TQIGlr_DnsFgPQ-JDIg051uSofVVduRI0wQiRSQRNS1IMW-4i42eywEOo" alt="Manufacturing" class="w-full h-full object-cover">
+                <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1200" alt="Manufacturing" class="w-full h-full object-cover">
               </div>
               <div class="relative z-10 max-w-lg">
-                <h4 class="text-on-tertiary-fixed font-bold text-3xl mb-4">Manufacturing</h4>
-                <p class="text-on-tertiary-fixed-variant text-sm leading-relaxed">Cost auditing and supply chain financial optimization for Nepal's industrial sector.</p>
+                <H4 class="text-on-tertiary-fixed mb-4">Manufacturing</H4>
+                <P class="text-on-tertiary-fixed-variant text-sm leading-relaxed mb-0">Cost auditing and supply chain financial optimization for Nepal's industrial sector.</P>
               </div>
             </div>
           </div>
@@ -114,39 +122,38 @@ const services = await getCollection('services');
     </section>
 
     <!-- FAQ Section -->
-    <section class="py-24 px-12 md:px-20 bg-surface-container-lowest">
+    <section class="py-16 md:py-24 px-6 md:px-12 lg:px-20 bg-surface-container-lowest">
       <div class="max-w-3xl mx-auto">
-        <div class="text-center mb-16">
-          <h2 class="text-3xl font-extrabold text-on-surface mb-4">Nepal ICAN Compliance FAQ</h2>
-          <p class="text-on-surface-variant">Essential information regarding the Institute of Chartered Accountants of Nepal standards.</p>
+        <div class="text-center mb-12 md:mb-16">
+          <H2 class="text-on-surface mb-4">Nepal ICAN Compliance FAQ</H2>
+          <P class="text-on-surface-variant mb-0">Essential information regarding the Institute of Chartered Accountants of Nepal standards.</P>
         </div>
         <div class="space-y-4">
           <div class="border-b border-outline-variant/30 py-6">
             <button class="flex justify-between items-center w-full text-left group">
-              <span class="text-lg font-bold text-on-surface group-hover:text-primary transition-colors">What are the current mandatory NFRS standards for SMEs in Nepal?</span>
-              <span class="material-symbols-outlined text-primary">expand_more</span>
+              <span class="text-base md:text-lg font-bold text-on-surface group-hover:text-primary transition-colors pr-8">What are the current mandatory NFRS standards for SMEs in Nepal?</span>
+              <span class="material-symbols-outlined text-primary shrink-0 transition-transform group-focus:rotate-180">expand_more</span>
             </button>
-            <div class="mt-4 text-on-surface-variant leading-relaxed text-sm">
+            <div class="mt-4 text-on-surface-variant leading-relaxed text-sm md:text-base">
               As per ICAN guidelines, SMEs in Nepal must follow the NFRS for SMEs which simplifies full NFRS requirements while maintaining high transparency for stakeholders.
             </div>
           </div>
-          <!-- More FAQs can be added here -->
         </div>
       </div>
     </section>
 
     <!-- CTA Section -->
-    <section class="py-20 px-12 md:px-20">
-      <div class="max-w-[1440px] mx-auto bg-primary-container rounded-xl p-12 md:p-20 text-center relative overflow-hidden">
+    <section class="py-16 md:py-20 px-6 md:px-12 lg:px-20">
+      <div class="max-w-[1440px] mx-auto bg-primary rounded-xl p-8 md:p-20 text-center relative overflow-hidden">
         <div class="relative z-10">
-          <h2 class="text-3xl md:text-5xl font-extrabold text-white mb-6">Ready to align your financial strategy?</h2>
-          <p class="text-primary-fixed mb-10 text-lg opacity-80 max-w-2xl mx-auto">Consult with our lead partners today and ensure your enterprise meets the highest standards of fiscal integrity.</p>
-          <div class="flex flex-col md:flex-row gap-4 justify-center">
-            <a href="/contact" class="bg-surface text-primary font-bold px-10 py-4 rounded-lg hover:bg-surface-dim transition-all active:scale-95">Schedule a Meeting</a>
-            <a href="/about" class="border border-surface/30 text-white font-bold px-10 py-4 rounded-lg hover:bg-white/10 transition-all">View Firm Profile</a>
+          <H2 class="text-white mb-6">Ready to align your financial strategy?</H2>
+          <Lead class="text-primary-fixed mb-10 opacity-80 max-w-2xl mx-auto">Consult with our lead partners today and ensure your enterprise meets the highest standards of fiscal integrity.</Lead>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="/contact" class="bg-surface text-primary font-bold px-10 py-4 rounded-lg hover:bg-surface-dim transition-all active:scale-95 text-sm md:text-base">Schedule a Meeting</a>
+            <a href="/about" class="border border-surface/30 text-white font-bold px-10 py-4 rounded-lg hover:bg-white/10 transition-all text-sm md:text-base">View Firm Profile</a>
           </div>
         </div>
-        <div class="absolute top-0 right-0 w-1/3 h-full bg-white/5 -skew-x-12 translate-x-1/2"></div>
+        <div class="absolute top-0 right-0 w-1/3 h-full bg-white/5 -skew-x-12 translate-x-1/2 pointer-events-none"></div>
       </div>
     </section>
   </main>
