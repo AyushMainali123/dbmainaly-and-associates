@@ -1,0 +1,40 @@
+---
+const navItems = [
+  { name: 'Home', href: '/' },
+  { name: 'Services', href: '/services' },
+  { name: 'About', href: '/about' },
+  { name: 'Blog', href: '/blog' },
+  { name: 'Resources', href: '/resources' },
+];
+
+const { currentPath = Astro.url.pathname } = Astro.props;
+---
+
+<header class="w-full sticky top-0 z-50 bg-surface dark:bg-[#191c1e] shadow-[0_20px_40px_rgba(0,35,111,0.04)] font-sans antialiased tracking-tight">
+  <nav class="flex justify-between items-center max-w-[1440px] mx-auto px-12 py-6">
+    <a href="/" class="text-xl font-bold tracking-tighter text-primary dark:text-white">
+      DB Mainaly & Associates
+    </a>
+    <div class="hidden md:flex items-center space-x-10">
+      {navItems.map((item) => (
+        <a
+          href={item.href}
+          class={`font-medium transition-colors duration-200 ${
+            currentPath === item.href || (item.href !== '/' && currentPath.startsWith(item.href))
+              ? "text-primary dark:text-white font-bold border-b-2 border-primary pb-1"
+              : "text-on-surface-variant dark:text-outline-variant hover:text-primary"
+          }`}
+        >
+          {item.name}
+        </a>
+      ))}
+    </div>
+    <div class="flex items-center gap-6">
+      <a href="/contact" class="hidden lg:block bg-primary text-on-primary px-6 py-2.5 rounded-lg font-semibold active:scale-95 transition-transform hover:bg-primary-container">
+        Book a Consultation
+      </a>
+      <button class="material-symbols-outlined md:hidden text-primary">menu</button>
+    </div>
+  </nav>
+  <div class="bg-surface-container dark:bg-on-surface-variant h-[1px] w-full"></div>
+</header>

@@ -1,0 +1,168 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const leaders = [
+  {
+    name: "Dhruba B. Mainaly",
+    role: "Senior Partner & Founder",
+    description: "Fellow Chartered Accountant with 25 years of experience in statutory audits and strategic tax planning for multinational corporations.",
+    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCp4-WD9FlZmnLW0j81NbrT0Kq-Z1a5yCEkbZlMxIPIQQDGDMRK7i1ziJuWlrHtzOwlk9UCswgn6qDqvN8VFHxJjbWxcFtc8ayk6j42BfxnlBsDogEUqC4S6Wrj0eq3luMLWCz-3AA8bvFDR1tPaLUR8kd5YjDx8Dt7RgazcTTC2nyAka3AHNeIwHLET3OL-Za-c1k_Cox5iq7og49QzMKyqE9iq37hXlGIjxxcx9v7Oy7SqYI1uekt-RI_h9zgTwTcUAw_IcSD58c",
+    quote: "Precision is the cornerstone of sustainable enterprise."
+  },
+  {
+    name: "Sunita K. Shrestha",
+    role: "Partner - Tax Advisory",
+    description: "Specializing in indirect taxation and compliance frameworks, ensuring institutional resilience in a volatile regulatory landscape.",
+    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBBI_CIF7sVEp2e8Wrru1sJZtn3t59Lug-g12ZK9imdAf5WczKu-hW01G3Hc55jTC9ERg4NvJr4v_VKDCAYzs-a7AQJmWPpHoF9iaHP3YixpH1BrosmnnbhC0rs4I5GB0BvfajQJfqw7IaPCdq8bFTJf-zHADsVbIApd-hU2C3QNQ_Wv_bTHPRpAp_kNck80oV1VK3iQjbRjiz7I9nLxd-fJS3WA_ljFwHrjlYUnq_rxZ1svpA2jVSo9Ki3pPXAyBztfa8Nj3aGnjQ",
+    quote: "Regulatory compliance is an opportunity for clarity."
+  },
+  {
+    name: "Ramesh P. Adhikari",
+    role: "Head of Corporate Law",
+    description: "Advising on mergers, acquisitions, and restructuring with a focus on mitigating institutional risk and maximizing valuation.",
+    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDmAsukcFXtsTJ6VgOwNX0cPojXvY1ysWIrh0Qzl1Zwn85ILg27MTuXtRc-LkYEGqvwhYRyNmyBf2kuFlVaQ9EoL-hkgDak10b48Np-0DQD_by5h7nskNtCnSNAk3EaT4IizfUryTPo-GC5hdRcUH9SJeIG2Xx_2JZTnMMwHQ5Lei3DXrxYXm_LJ3Y2px8yTwk4q3DdZF1DxhZchEXyQaWURZRrBR-oLA-xkikSHlPkuggiHmn3c5diYeihdADloJYxQWyVDsDKCek",
+    quote: "Protecting corporate integrity through rigorous legal oversight."
+  }
+];
+---
+
+<BaseLayout title="About Us | DB Mainaly & Associates">
+  <Header />
+
+  <main>
+    <!-- Hero Section -->
+    <section class="relative min-h-[716px] flex items-center overflow-hidden bg-primary">
+      <div class="absolute inset-0 opacity-20 pointer-events-none">
+        <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-bl from-primary-container to-transparent"></div>
+        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDw47UqcQ7LfOqfYW35qboHRKYzSDVbdCO8DpB-DER4FfhUfKNT-U2lo_miQljyBnP73cI-BSfzeWhDmlW44ckPvFI6xh9l5zb-VD0FHqHmqcfgkZefeA7_sK2hs0ZTJrYPc_M8o6fbzYxSc5sYEMyNMYnhX3Mis1lyVNfnIH7hRQbvaI1OC6KZGZdIRp-OL3slVmepIdi8uhWVhXu0hbOjLl51xGdZKLCAn8f0AzLvju7Mqlhi8Wbm103tFfrQa-tc01B5LlFXkcA" alt="Corporate" class="w-full h-full object-cover mix-blend-overlay">
+      </div>
+      <div class="relative max-w-[1440px] mx-auto px-12 md:px-16 py-24 w-full">
+        <div class="max-w-3xl">
+          <span class="inline-block px-4 py-1.5 rounded-full bg-tertiary-fixed-dim text-on-tertiary-fixed text-xs font-bold tracking-widest uppercase mb-6">ESTABLISHED AUTHORITY</span>
+          <h1 class="text-5xl md:text-7xl font-extrabold text-white leading-[1.1] tracking-tight mb-8">
+            The Legacy of Financial Stewardship
+          </h1>
+          <p class="text-xl text-primary-fixed leading-relaxed opacity-90 mb-12 max-w-2xl font-light">
+            Guiding enterprises through the complexities of global finance with unwavering precision, local expertise, and a commitment to institutional excellence since our founding.
+          </p>
+          <div class="flex items-center gap-4">
+            <div class="h-[2px] w-12 bg-tertiary-fixed-dim"></div>
+            <span class="text-primary-fixed font-semibold tracking-wide uppercase text-sm">A MEMBER OF THE INSTITUTE OF CHARTERED ACCOUNTANTS OF NEPAL</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Foundation of Purpose Section -->
+    <section class="py-32 bg-surface">
+      <div class="max-w-[1440px] mx-auto px-12 md:px-16 grid grid-cols-1 lg:grid-cols-12 gap-16">
+        <div class="lg:col-span-4">
+          <h2 class="text-label-md font-bold text-primary tracking-[0.1rem] uppercase mb-4">Foundation of Purpose</h2>
+          <h3 class="text-4xl font-bold text-on-surface mb-8 leading-tight">Architecture of a Modern Advisory</h3>
+          <p class="text-on-surface-variant text-lg leading-relaxed mb-12">
+            Our firm is built upon three pillars that define every audit, advisory, and corporate strategy we execute. We do not just process numbers; we engineer trust.
+          </p>
+          <div class="relative pl-8 border-l-[0.175rem] border-primary/20 space-y-12">
+            <div class="relative">
+              <div class="absolute -left-[1.125rem] top-0 w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white">
+                <span class="material-symbols-outlined text-sm">visibility</span>
+              </div>
+              <h4 class="text-xl font-bold text-primary mb-2">Our Vision</h4>
+              <p class="text-on-surface-variant">To be the most trusted financial vanguard in the region, bridging Nepalese enterprise with global standards.</p>
+            </div>
+            <div class="relative">
+              <div class="absolute -left-[1.125rem] top-0 w-8 h-8 rounded-full bg-surface-container-high border-2 border-primary flex items-center justify-center text-primary">
+                <span class="material-symbols-outlined text-sm">rocket_launch</span>
+              </div>
+              <h4 class="text-xl font-bold text-primary mb-2">Our Mission</h4>
+              <p class="text-on-surface-variant">Delivering uncompromising integrity and analytical depth to empower sustainable corporate growth.</p>
+            </div>
+          </div>
+        </div>
+        <div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="bg-surface-container-lowest p-10 rounded-xl shadow-[0_20px_40px_rgba(0,35,111,0.04)] border border-outline-variant/10">
+            <span class="material-symbols-outlined text-primary text-4xl mb-6">gavel</span>
+            <h4 class="text-2xl font-bold text-on-surface mb-4">Integrity</h4>
+            <p class="text-on-surface-variant leading-relaxed">Absolute transparency in all professional engagements, ensuring compliance with the highest ethical mandates.</p>
+          </div>
+          <div class="bg-surface-container-lowest p-10 rounded-xl shadow-[0_20px_40px_rgba(0,35,111,0.04)] border border-outline-variant/10">
+            <span class="material-symbols-outlined text-primary text-4xl mb-6">precision_manufacturing</span>
+            <h4 class="text-2xl font-bold text-on-surface mb-4">Precision</h4>
+            <p class="text-on-surface-variant leading-relaxed">Eliminating ambiguity through rigorous data analysis and methodical cross-verification protocols.</p>
+          </div>
+          <div class="bg-primary-container p-10 rounded-xl md:col-span-2 flex flex-col md:flex-row items-center gap-8">
+            <div class="md:w-1/3">
+              <span class="material-symbols-outlined text-tertiary-fixed-dim text-6xl mb-6">hub</span>
+            </div>
+            <div class="md:w-2/3">
+              <h4 class="text-2xl font-bold text-white mb-4">Client Stewardship</h4>
+              <p class="text-primary-fixed leading-relaxed">Our relationships are viewed as decades-long partnerships, prioritizing the long-term stability of the institutions we serve.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Leadership Section -->
+    <section class="py-32 bg-surface-container-low">
+      <div class="max-w-[1440px] mx-auto px-12 md:px-16">
+        <div class="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
+          <div class="max-w-2xl">
+            <h2 class="text-label-md font-bold text-primary tracking-[0.1rem] uppercase mb-4">Executive Leadership</h2>
+            <h3 class="text-4xl md:text-5xl font-bold text-on-surface leading-tight">Managed by Experts, <br/>Driven by Excellence.</h3>
+          </div>
+          <p class="text-on-surface-variant text-lg max-w-sm">Our partners bring over 60 years of combined experience across auditing, taxation, and law.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+          {leaders.map(leader => (
+            <div class="group">
+              <div class="relative overflow-hidden rounded-xl mb-8 aspect-[3/4] bg-surface-container-high">
+                <img src={leader.image} alt={leader.name} class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                <div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-8">
+                  <p class="text-white text-sm italic">"{leader.quote}"</p>
+                </div>
+              </div>
+              <h4 class="text-2xl font-extrabold text-on-surface mb-1">{leader.name}</h4>
+              <p class="text-primary font-bold text-sm tracking-widest uppercase mb-4">{leader.role}</p>
+              <p class="text-on-surface-variant leading-relaxed">{leader.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Professional Accreditations Section -->
+    <section class="py-24 bg-surface-container-lowest border-y border-outline-variant/15">
+      <div class="max-w-[1440px] mx-auto px-12 md:px-16 text-center">
+        <h2 class="text-label-md font-bold text-primary tracking-[0.2rem] uppercase mb-4">Institutional Recognition</h2>
+        <div class="h-1 w-20 bg-tertiary-fixed-dim mx-auto mb-16"></div>
+        <div class="grid grid-cols-2 md:grid-cols-4 items-center gap-12 opacity-80 grayscale hover:grayscale-0 transition-all duration-500">
+          <div class="flex flex-col items-center">
+            <div class="w-24 h-24 bg-surface-container rounded-full flex items-center justify-center mb-4 text-primary font-black text-2xl">ICAN</div>
+            <p class="text-on-surface font-bold text-sm">IC Nepal Member</p>
+          </div>
+          <div class="flex flex-col items-center">
+            <div class="w-24 h-24 bg-surface-container rounded-full flex items-center justify-center mb-4 text-primary font-black text-2xl">IFAC</div>
+            <p class="text-on-surface font-bold text-sm">IFAC Compliance</p>
+          </div>
+          <div class="flex flex-col items-center">
+            <div class="w-24 h-24 bg-surface-container rounded-full flex items-center justify-center mb-4">
+              <span class="material-symbols-outlined text-primary text-4xl">verified_user</span>
+            </div>
+            <p class="text-on-surface font-bold text-sm">ISO 9001 Certified</p>
+          </div>
+          <div class="flex flex-col items-center">
+            <div class="w-24 h-24 bg-surface-container rounded-full flex items-center justify-center mb-4">
+              <span class="material-symbols-outlined text-primary text-4xl">language</span>
+            </div>
+            <p class="text-on-surface font-bold text-sm">Global Standards</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>
