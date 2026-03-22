@@ -1,0 +1,126 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { getCollection, render } from 'astro:content';
+
+import H1 from '../../components/typography/H1.astro';
+import H2 from '../../components/typography/H2.astro';
+import H3 from '../../components/typography/H3.astro';
+import H4 from '../../components/typography/H4.astro';
+import P from '../../components/typography/P.astro';
+import Lead from '../../components/typography/Lead.astro';
+import Small from '../../components/typography/Small.astro';
+
+export async function getStaticPaths() {
+  const blogPosts = await getCollection('blog');
+  return blogPosts.map(post => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+
+<BaseLayout title={`${post.data.title} | DB Mainaly & Associates`}>
+  <Header />
+
+  <main class="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-16 py-8 md:py-12">
+    <!-- Breadcrumb -->
+    <div class="flex items-center space-x-2 text-xs md:text-sm text-on-surface-variant mb-8 uppercase tracking-widest font-bold">
+      <a class="hover:text-primary transition-colors" href="/blog">Insights</a>
+      <span class="material-symbols-outlined text-[10px] md:text-xs">chevron_right</span>
+      <span class="text-primary">{post.data.category}</span>
+    </div>
+
+    <!-- Article Header -->
+    <header class="max-w-4xl mb-12">
+      <H1 class="text-on-surface mb-8">
+        {post.data.title}
+      </H1>
+      <div class="flex flex-wrap items-center gap-6 md:gap-8 py-6 border-y border-outline-variant/15">
+        <div class="flex items-center space-x-3">
+          <div class="w-12 h-12 rounded-full overflow-hidden bg-surface-container shrink-0 border border-outline-variant/10">
+            <img class="w-full h-full object-cover" src={post.data.authorImage || "https://lh3.googleusercontent.com/aida-public/AB6AXuCu_hwUFdLPZHuo1qZ139khpVptrEe3uYE_WSmAoZ_2ZJvZRXFag0az1QsDrF_vlBzNamrAx2TtlIApixz-zqADG4EH7G0dtUmnucaRWKclKtLrd8EU2R3NkI3fmK0r47p_9F2RexetaZH0SDih9dCecTol0eFr6AhqgwyQi8LYRaEjRthLONDQ6hWuLErtqsIXvQs5MbGGMFge9lQhAxGsCK3-1EORGYhiy2DmYwSWHoyD4mE1HlWqyWm0YtThvk7b0bvpBJ3CO5A"} alt={post.data.author}>
+          </div>
+          <div>
+            <P class="text-sm font-bold text-on-surface mb-0">By {post.data.author}</P>
+            <P class="text-xs text-on-surface-variant mb-0">{post.data.authorRole}</P>
+          </div>
+        </div>
+        <div class="h-8 w-px bg-outline-variant/20 hidden md:block"></div>
+        <div class="flex flex-col">
+          <Small class="text-on-surface-variant font-medium uppercase mb-0">Published</Small>
+          <Small class="font-bold text-on-surface mb-0">{post.data.date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</Small>
+        </div>
+        <div class="flex flex-col">
+          <Small class="text-on-surface-variant font-medium uppercase mb-0">Reading Time</Small>
+          <Small class="font-bold text-on-surface mb-0">{post.data.readTime}</Small>
+        </div>
+        <div class="sm:ml-auto flex space-x-2">
+          <button class="p-2 rounded-full hover:bg-surface-container transition-colors"><span class="material-symbols-outlined text-on-surface-variant">share</span></button>
+          <button class="p-2 rounded-full hover:bg-surface-container transition-colors"><span class="material-symbols-outlined text-on-surface-variant">bookmark</span></button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Featured Image -->
+    <div class="w-full aspect-[16/9] md:aspect-[21/9] rounded-xl overflow-hidden mb-12 md:mb-16 shadow-2xl shadow-primary/5 border border-outline-variant/10">
+      <img class="w-full h-full object-cover" src={post.data.image} alt={post.data.title}>
+    </div>
+
+    <!-- Content Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 md:gap-16">
+      <aside class="hidden lg:block lg:col-span-3">
+        <div class="sticky top-32 space-y-12">
+          <div>
+            <Small class="font-bold text-primary tracking-[0.2em] mb-6 uppercase block">CONTENTS</Small>
+            <ul class="space-y-4 text-sm font-medium">
+              <li><a class="text-primary border-l-2 border-primary pl-4 block font-bold" href="#">Executive Summary</a></li>
+              <li><a class="text-on-surface-variant hover:text-primary pl-4 block transition-colors" href="#">Core Changes</a></li>
+              <li><a class="text-on-surface-variant hover:text-primary pl-4 block transition-colors" href="#">Implementation</a></li>
+              <li><a class="text-on-surface-variant hover:text-primary pl-4 block transition-colors" href="#">Conclusion</a></li>
+            </ul>
+          </div>
+        </div>
+      </aside>
+
+      <article class="lg:col-span-9 max-w-3xl">
+        <div class="prose prose-slate prose-lg max-w-none text-on-surface-variant leading-relaxed dark:prose-invert">
+          <Content />
+        </div>
+
+        <!-- Tags -->
+        <div class="flex flex-wrap gap-2 mt-12 pt-8 border-t border-outline-variant/20">
+          <Small class="px-4 py-1.5 bg-surface-container rounded-full text-on-surface-variant font-bold">COMPLIANCE</Small>
+          <Small class="px-4 py-1.5 bg-surface-container rounded-full text-on-surface-variant font-bold">NEPAL TAX</Small>
+          <Small class="px-4 py-1.5 bg-surface-container rounded-full text-on-surface-variant font-bold">AUDIT ADVISORY</Small>
+        </div>
+
+        <!-- Call to Action -->
+        <section class="mt-16 md:mt-20 p-8 md:p-12 bg-primary rounded-xl text-white relative overflow-hidden group">
+          <div class="relative z-10">
+            <H3 class="text-white mb-4">Have questions about this update?</H3>
+            <Lead class="text-primary-fixed mb-8 max-w-xl opacity-90">
+              Our team of certified experts is ready to help you navigate the complexities of NFRS and ensure your business remains compliant and competitive.
+            </Lead>
+            <div class="flex flex-col sm:flex-row gap-4">
+              <a href="/contact" class="bg-surface text-primary px-8 py-3.5 rounded-lg font-bold hover:bg-surface-dim transition-all shadow-lg text-center active:scale-95">
+                Speak with our experts
+              </a>
+              <a href="/resources" class="border border-surface/30 text-white px-8 py-3.5 rounded-lg font-bold hover:bg-white/10 transition-all text-center active:scale-95">
+                Download SME Guide
+              </a>
+            </div>
+          </div>
+          <div class="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-white/5 to-transparent pointer-events-none"></div>
+          <div class="absolute -bottom-20 -right-20 w-64 h-64 bg-white/5 rounded-full blur-3xl pointer-events-none"></div>
+        </section>
+      </article>
+    </div>
+  </main>
+
+  <Footer />
+</BaseLayout>

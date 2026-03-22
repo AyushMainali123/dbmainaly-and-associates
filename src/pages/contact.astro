@@ -1,0 +1,157 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Button from '../components/Button.astro';
+
+import H1 from '../components/typography/H1.astro';
+import H2 from '../components/typography/H2.astro';
+import H3 from '../components/typography/H3.astro';
+import H4 from '../components/typography/H4.astro';
+import P from '../components/typography/P.astro';
+import Lead from '../components/typography/Lead.astro';
+import Small from '../components/typography/Small.astro';
+
+const faqs = [
+  {
+    question: "What documents are required for initial tax consultation?",
+    answer: "Typically, we require your previous three years of financial statements, current PAN/VAT registration certificates, and details of any outstanding tax liabilities or notices from the Inland Revenue Department."
+  },
+  {
+    question: "Do you offer virtual consulting for international clients?",
+    answer: "Yes, we provide secure digital consultation via Microsoft Teams and Zoom for international investors looking to navigate the Nepalese corporate landscape."
+  },
+  {
+    question: "How do your fees structure work?",
+    answer: "Our fees are structured based on the complexity and volume of work. We offer both project-based fixed pricing for audits and hourly rates for advisory services."
+  },
+  {
+    question: "Are you a member of any international accounting networks?",
+    answer: "We are a proud member of ICAN (The Institute of Chartered Accountants of Nepal) and maintain strong affiliations with global financial networks to ensure international compliance standards."
+  }
+];
+---
+
+<BaseLayout title="Contact Us | DB Mainaly & Associates">
+  <Header />
+
+  <main>
+    <header class="relative overflow-hidden bg-primary-container py-20 md:py-32">
+      <div class="absolute inset-0 bg-gradient-to-br from-primary to-primary-container opacity-90"></div>
+      <div class="relative max-w-[1440px] mx-auto px-6 md:px-12 lg:px-16">
+        <div class="max-w-3xl">
+          <Small class="inline-block px-3 py-1 mb-6 text-xs font-bold tracking-[0.1rem] text-tertiary-fixed-dim bg-white/10 rounded uppercase">Get in Touch</Small>
+          <H1 class="text-white mb-8">
+            Let's secure your financial future together
+          </H1>
+          <Lead class="text-primary-fixed max-w-2xl opacity-90">
+            Expert financial advisory and corporate legal solutions tailored for Nepal's evolving economic landscape.
+          </Lead>
+        </div>
+      </div>
+    </header>
+
+    <section class="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-16 py-12 md:py-20">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 md:gap-16 items-start">
+        <div class="lg:col-span-12 xl:col-span-7 bg-surface-container-lowest p-6 md:p-12 rounded-xl shadow-[0_20px_40px_rgba(0,35,111,0.04)] border border-outline-variant/10">
+          <H2 class="text-on-surface mb-2">Send us a Message</H2>
+          <P class="text-on-surface-variant mb-10">Briefly outline your requirements and our partners will contact you within 24 business hours.</P>
+          <form class="space-y-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div class="space-y-2">
+                <Small class="font-bold text-primary uppercase tracking-wider block">Full Name</Small>
+                <input class="w-full bg-surface-container-low border-0 border-b border-outline-variant/30 focus:ring-0 focus:border-primary focus:bg-surface-container-lowest transition-all py-4 px-0 placeholder:text-outline-variant text-on-surface" placeholder="John Doe" type="text"/>
+              </div>
+              <div class="space-y-2">
+                <Small class="font-bold text-primary uppercase tracking-wider block">Email Address</Small>
+                <input class="w-full bg-surface-container-low border-0 border-b border-outline-variant/30 focus:ring-0 focus:border-primary focus:bg-surface-container-lowest transition-all py-4 px-0 placeholder:text-outline-variant text-on-surface" placeholder="john@company.com" type="email"/>
+              </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div class="space-y-2">
+                <Small class="font-bold text-primary uppercase tracking-wider block">Service Interest</Small>
+                <select class="w-full bg-surface-container-low border-0 border-b border-outline-variant/30 focus:ring-0 focus:border-primary focus:bg-surface-container-lowest transition-all py-4 px-0 text-on-surface-variant">
+                  <option>Tax Advisory</option>
+                  <option>Audit & Assurance</option>
+                  <option>Corporate Law</option>
+                  <option>Financial Consulting</option>
+                </select>
+              </div>
+              <div class="space-y-2">
+                <Small class="font-bold text-primary uppercase tracking-wider block">Phone Number</Small>
+                <input class="w-full bg-surface-container-low border-0 border-b border-outline-variant/30 focus:ring-0 focus:border-primary focus:bg-surface-container-lowest transition-all py-4 px-0 placeholder:text-outline-variant text-on-surface" placeholder="+977 1-XXXXXXX" type="tel"/>
+              </div>
+            </div>
+            <div class="space-y-2">
+              <Small class="font-bold text-primary uppercase tracking-wider block">How can we help?</Small>
+              <textarea class="w-full bg-surface-container-low border-0 border-b border-outline-variant/30 focus:ring-0 focus:border-primary focus:bg-surface-container-lowest transition-all py-4 px-0 placeholder:text-outline-variant resize-none text-on-surface" placeholder="Describe your consultation needs..." rows="4"></textarea>
+            </div>
+            <Button type="submit" size="lg" class="w-full md:w-auto">Submit Inquiry</Button>
+          </form>
+        </div>
+
+        <aside class="lg:col-span-12 xl:col-span-5 space-y-8 md:space-y-12">
+          <div class="bg-surface-container p-8 md:p-10 rounded-xl">
+            <H3 class="text-on-surface mb-8 border-l-4 border-primary pl-4">Office Headquarters</H3>
+            <div class="space-y-8">
+              <div class="flex gap-4">
+                <span class="material-symbols-outlined text-primary text-2xl">location_on</span>
+                <div>
+                  <P class="font-bold text-on-surface mb-1">Physical Address</P>
+                  <P class="text-on-surface-variant leading-relaxed mb-0">DB Mainaly & Associates Building<br/>Level 4, Corporate Plaza<br/>New Baneshwor, Kathmandu<br/>Nepal</P>
+                </div>
+              </div>
+              <div class="flex gap-4">
+                <span class="material-symbols-outlined text-primary text-2xl">call</span>
+                <div>
+                  <P class="font-bold text-on-surface mb-1">Phone & Fax</P>
+                  <P class="text-on-surface-variant mb-0">+977 1 4483012<br/>+977 9851000000</P>
+                </div>
+              </div>
+              <div class="flex gap-4">
+                <span class="material-symbols-outlined text-primary text-2xl">mail</span>
+                <div>
+                  <P class="font-bold text-on-surface mb-1">Electronic Mail</P>
+                  <P class="text-on-surface-variant mb-0">info@dbmainaly.com.np<br/>support@dbmainaly.com.np</P>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="relative w-full aspect-square md:aspect-video xl:aspect-square rounded-xl overflow-hidden bg-surface-container-high group">
+            <div class="absolute inset-0 flex flex-col items-center justify-center p-8 text-center bg-primary/5 z-10 p-6 md:p-12">
+              <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mb-4 shadow-xl">
+                <span class="material-symbols-outlined text-white text-3xl" style="font-variation-settings: 'FILL' 1;">pin_drop</span>
+              </div>
+              <H4 class="text-primary mb-2">We are here</H4>
+              <P class="text-sm text-on-secondary-container mb-0 font-medium">Centralized Hub, New Baneshwor</P>
+            </div>
+            <img src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5ca?auto=format&fit=crop&q=80&w=800" alt="New Baneshwor Map placeholder" class="absolute inset-0 w-full h-full object-cover mix-blend-overlay opacity-30 grayscale group-hover:grayscale-0 transition-all duration-500">
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="bg-surface-container-low py-16 md:py-24">
+      <div class="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-16">
+        <div class="max-w-4xl mx-auto">
+          <H2 class="text-on-surface text-center mb-12 md:mb-16">Frequently Asked Questions</H2>
+          <div class="space-y-4">
+            {faqs.map(faq => (
+              <details class="group bg-surface-container-lowest p-6 md:p-8 rounded-lg shadow-sm border border-outline-variant/10">
+                <summary class="flex justify-between items-center w-full text-left cursor-pointer list-none">
+                  <span class="text-base md:text-lg font-bold text-on-surface group-hover:text-primary transition-colors pr-8">{faq.question}</span>
+                  <span class="material-symbols-outlined text-primary transition-transform group-open:rotate-45">add</span>
+                </summary>
+                <div class="mt-6 text-on-surface-variant leading-relaxed text-sm md:text-base border-t border-outline-variant/10 pt-6">
+                  {faq.answer}
+                </div>
+              </details>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>

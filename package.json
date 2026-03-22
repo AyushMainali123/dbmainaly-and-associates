@@ -1,0 +1,30 @@
+{
+  "dependencies": {
+    "@tailwindcss/vite": "^4.2.2",
+    "astro": "^6.0.8",
+    "tailwindcss": "^4.2.2"
+  },
+  "name": "db-mainaly-and-associates",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AyushMainali123/dbmainaly-and-associates.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/AyushMainali123/dbmainaly-and-associates/issues"
+  },
+  "homepage": "https://github.com/AyushMainali123/dbmainaly-and-associates#readme"
+}

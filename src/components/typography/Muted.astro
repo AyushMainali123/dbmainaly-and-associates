@@ -1,0 +1,9 @@
+---
+interface Props {
+  class?: string;
+  tag?: "p" | "span";
+}
+const { class: className = "", tag = "p" } = Astro.props;
+const Tag = tag;
+---
+<Tag class:list={["text-muted", className]}><slot /></Tag>
