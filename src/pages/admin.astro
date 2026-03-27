@@ -1,0 +1,16 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { Keystatic } from '@keystatic/astro/ui';
+---
+
+<BaseLayout title="Admin Dashboard">
+  <div class="min-h-screen flex flex-col">
+    <Header />
+    <main class="flex-grow">
+      <Keystatic client:only="react" />
+    </main>
+    <Footer />
+  </div>
+</BaseLayout>

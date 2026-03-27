@@ -3,16 +3,17 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import Button from '../components/Button.astro';
-import Card from '../components/Card.astro';
-import { getCollection } from 'astro:content';
+import { getCollection, getEntry } from 'astro:content';
 
 import H1 from '../components/typography/H1.astro';
 import H2 from '../components/typography/H2.astro';
 import H3 from '../components/typography/H3.astro';
-import H4 from '../components/typography/H4.astro';
 import P from '../components/typography/P.astro';
 import Lead from '../components/typography/Lead.astro';
 import Small from '../components/typography/Small.astro';
+
+const homePage = await getEntry('pages', 'home');
+const { data: home } = homePage;
 
 const services = await getCollection('services');
 const featuredBlogPosts = await getCollection('blog', ({ data }) => data.featured);
@@ -34,14 +35,14 @@ const featuredBlogPosts = await getCollection('blog', ({ data }) => data.feature
             <Small class="text-white tracking-[0.2em] font-bold uppercase">Member of ICAN Nepal</Small>
           </div>
           <H1 class="text-white mb-8">
-            Professional Financial <br class="hidden md:block"/>Excellence.
+            {home.heroTitle}
           </H1>
           <Lead class="text-primary-fixed mb-10 opacity-90 max-w-xl">
-            Navigating the complexities of Nepalese corporate law and global financial standards with architectural precision and unwavering integrity.
+            {home.heroSubtitle}
           </Lead>
           <div class="flex flex-col sm:flex-row gap-4">
-            <Button href="/services" variant="surface" size="lg" class="w-full sm:w-auto">Explore Advisory</Button>
-            <Button href="/about" variant="outline" size="lg" class="w-full sm:w-auto">Our Portfolio</Button>
+            <Button href={home.heroButton1Link} variant="surface" size="lg" class="w-full sm:w-auto">{home.heroButton1}</Button>
+            <Button href={home.heroButton2Link} variant="outline" size="lg" class="w-full sm:w-auto">{home.heroButton2}</Button>
           </div>
         </div>
       </div>
@@ -55,8 +56,8 @@ const featuredBlogPosts = await getCollection('blog', ({ data }) => data.feature
             <span class="material-symbols-outlined text-primary text-2xl md:text-3xl">verified</span>
           </div>
           <div>
-            <Small class="text-primary font-bold tracking-widest uppercase mb-1 block">Regulatory Standard</Small>
-            <p class="text-on-surface font-semibold text-sm md:text-base">Institute of Chartered Accountants of Nepal (ICAN) Licensed</p>
+            <Small class="text-primary font-bold tracking-widest uppercase mb-1 block">{home.complianceBadgeTitle}</Small>
+            <p class="text-on-surface font-semibold text-sm md:text-base">{home.complianceBadgeText}</p>
           </div>
         </div>
         <div class="h-px w-24 bg-outline-variant/30 hidden md:block"></div>
@@ -122,9 +123,9 @@ const featuredBlogPosts = await getCollection('blog', ({ data }) => data.feature
           </div>
           <div class="pl-8 md:pl-12 py-4">
             <Small class="text-primary font-bold tracking-widest uppercase mb-6 block">Our Trajectory</Small>
-            <H2 class="mb-8">Decades of <br class="hidden md:block"/>Fiscal Authority.</H2>
+            <H2 class="mb-8">{home.impactTitle}</H2>
             <P class="text-on-surface-variant text-lg md:text-xl mb-12 max-w-lg">
-              Since our inception, we have been the standard-bearer for financial integrity in Nepal, guiding organizations from startup to public listing.
+              {home.impactSubtitle}
             </P>
             <div class="grid grid-cols-2 gap-8 md:gap-12">
               <div>
@@ -204,9 +205,9 @@ const featuredBlogPosts = await getCollection('blog', ({ data }) => data.feature
     <!-- Final CTA Section -->
     <section class="bg-primary text-white py-16 md:py-24">
       <div class="max-w-[1440px] mx-auto px-6 md:px-12 text-center">
-        <H2 class="text-white mb-8">Ready to secure your financial future?</H2>
+        <H2 class="text-white mb-8">{home.ctaTitle}</H2>
         <Lead class="text-primary-fixed/70 max-w-2xl mx-auto mb-12">
-          Schedule a confidential consultation with our principal partners to discuss your corporate advisory or audit requirements.
+          {home.ctaSubtitle}
         </Lead>
         <div class="flex flex-col sm:flex-row justify-center gap-4 md:gap-6">
           <Button href="/contact" variant="secondary" size="lg" class="w-full sm:w-auto">Contact Principal Partner</Button>

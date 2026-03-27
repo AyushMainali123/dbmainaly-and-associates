@@ -1,0 +1,33 @@
+{
+  "heroTitle": "The Legacy of Financial Stewardship",
+  "heroSubtitle": "Guiding enterprises through the complexities of global finance with unwavering precision, local expertise, and a commitment to institutional excellence since our founding.",
+  "foundationTitle": "Architecture of a Modern Advisory",
+  "foundationSubtitle": "Our firm is built upon three pillars that define every audit, advisory, and corporate strategy we execute. We do not just process numbers; we engineer trust.",
+  "visionTitle": "Our Vision",
+  "visionText": "To be the most trusted financial vanguard in the region, bridging Nepalese enterprise with global standards.",
+  "missionTitle": "Our Mission",
+  "missionText": "Delivering uncompromising integrity and analytical depth to empower sustainable corporate growth.",
+  "leaders": [
+    {
+      "name": "Dhruba B. Mainaly",
+      "role": "Senior Partner & Founder",
+      "description": "Fellow Chartered Accountant with 25 years of experience in statutory audits and strategic tax planning for multinational corporations.",
+      "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCp4-WD9FlZmnLW0j81NbrT0Kq-Z1a5yCEkbZlMxIPIQQDGDMRK7i1ziJuWlrHtzOwlk9UCswgn6qDqvN8VFHxJjbWxcFtc8ayk6j42BfxnlBsDogEUqC4S6Wrj0eq3luMLWCz-3AA8bvFDR1tPaLUR8kd5YjDx8Dt7RgazcTTC2nyAka3AHNeIwHLET3OL-Za-c1k_Cox5iq7og49QzMKyqE9iq37hXlGIjxxcx9v7Oy7SqYI1uekt-RI_h9zgTwTcUAw_IcSD58c",
+      "quote": "Precision is the cornerstone of sustainable enterprise."
+    },
+    {
+      "name": "Sunita K. Shrestha",
+      "role": "Partner - Tax Advisory",
+      "description": "Specializing in indirect taxation and compliance frameworks, ensuring institutional resilience in a volatile regulatory landscape.",
+      "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuBBI_CIF7sVEp2e8Wrru1sJZtn3t59Lug-g12ZK9imdAf5WczKu-hW01G3Hc55jTC9ERg4NvJr4v_VKDCAYzs-a7AQJmWPpHoF9iaHP3YixpH1BrosmnnbhC0rs4I5GB0BvfajQJfqw7IaPCdq8bFTJf-zHADsVbIApd-hU2C3QNQ_Wv_bTHPRpAp_kNck80oV1VK3iQjbRjiz7I9nLxd-fJS3WA_ljFwHrjlYUnq_rxZ1svpA2jVSo9Ki3pPXAyBztfa8Nj3aGnjQ",
+      "quote": "Regulatory compliance is an opportunity for clarity."
+    },
+    {
+      "name": "Ramesh P. Adhikari",
+      "role": "Head of Corporate Law",
+      "description": "Advising on mergers, acquisitions, and restructuring with a focus on mitigating institutional risk and maximizing valuation.",
+      "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuDmAsukcFXtsTJ6VgOwNX0cPojXvY1ysWIrh0Qzl1Zwn85ILg27MTuXtRc-LkYEGqvwhYRyNmyBf2kuFlVaQ9EoL-hkgDak10b48Np-0DQD_by5h7nskNtCnSNAk3EaT4IizfUryTPo-GC5hdRcUH9SJeIG2Xx_2JZTnMMwHQ5Lei3DXrxYXm_LJ3Y2px8yTwk4q3DdZF1DxhZchEXyQaWURZRrBR-oLA-xkikSHlPkuggiHmn3c5diYeihdADloJYxQWyVDsDKCek",
+      "quote": "Protecting corporate integrity through rigorous legal oversight."
+    }
+  ]
+}

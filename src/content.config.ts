@@ -44,4 +44,9 @@ const resources = defineCollection({
   }),
 });
 
-export const collections = { services, blog, resources };
+const pages = defineCollection({
+  loader: glob({ pattern: "**/*.json", base: "./src/content/pages" }),
+  schema: z.any()
+});
+
+export const collections = { services, blog, resources, pages };

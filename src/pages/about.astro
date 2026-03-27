@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import { getEntry } from 'astro:content';
 
 import H1 from '../components/typography/H1.astro';
 import H2 from '../components/typography/H2.astro';
@@ -11,29 +12,8 @@ import P from '../components/typography/P.astro';
 import Lead from '../components/typography/Lead.astro';
 import Small from '../components/typography/Small.astro';
 
-const leaders = [
-  {
-    name: "Dhruba B. Mainaly",
-    role: "Senior Partner & Founder",
-    description: "Fellow Chartered Accountant with 25 years of experience in statutory audits and strategic tax planning for multinational corporations.",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCp4-WD9FlZmnLW0j81NbrT0Kq-Z1a5yCEkbZlMxIPIQQDGDMRK7i1ziJuWlrHtzOwlk9UCswgn6qDqvN8VFHxJjbWxcFtc8ayk6j42BfxnlBsDogEUqC4S6Wrj0eq3luMLWCz-3AA8bvFDR1tPaLUR8kd5YjDx8Dt7RgazcTTC2nyAka3AHNeIwHLET3OL-Za-c1k_Cox5iq7og49QzMKyqE9iq37hXlGIjxxcx9v7Oy7SqYI1uekt-RI_h9zgTwTcUAw_IcSD58c",
-    quote: "Precision is the cornerstone of sustainable enterprise."
-  },
-  {
-    name: "Sunita K. Shrestha",
-    role: "Partner - Tax Advisory",
-    description: "Specializing in indirect taxation and compliance frameworks, ensuring institutional resilience in a volatile regulatory landscape.",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBBI_CIF7sVEp2e8Wrru1sJZtn3t59Lug-g12ZK9imdAf5WczKu-hW01G3Hc55jTC9ERg4NvJr4v_VKDCAYzs-a7AQJmWPpHoF9iaHP3YixpH1BrosmnnbhC0rs4I5GB0BvfajQJfqw7IaPCdq8bFTJf-zHADsVbIApd-hU2C3QNQ_Wv_bTHPRpAp_kNck80oV1VK3iQjbRjiz7I9nLxd-fJS3WA_ljFwHrjlYUnq_rxZ1svpA2jVSo9Ki3pPXAyBztfa8Nj3aGnjQ",
-    quote: "Regulatory compliance is an opportunity for clarity."
-  },
-  {
-    name: "Ramesh P. Adhikari",
-    role: "Head of Corporate Law",
-    description: "Advising on mergers, acquisitions, and restructuring with a focus on mitigating institutional risk and maximizing valuation.",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDmAsukcFXtsTJ6VgOwNX0cPojXvY1ysWIrh0Qzl1Zwn85ILg27MTuXtRc-LkYEGqvwhYRyNmyBf2kuFlVaQ9EoL-hkgDak10b48Np-0DQD_by5h7nskNtCnSNAk3EaT4IizfUryTPo-GC5hdRcUH9SJeIG2Xx_2JZTnMMwHQ5Lei3DXrxYXm_LJ3Y2px8yTwk4q3DdZF1DxhZchEXyQaWURZRrBR-oLA-xkikSHlPkuggiHmn3c5diYeihdADloJYxQWyVDsDKCek",
-    quote: "Protecting corporate integrity through rigorous legal oversight."
-  }
-];
+const aboutPage = await getEntry('pages', 'about');
+const { data: about } = aboutPage;
 ---
 
 <BaseLayout title="About Us | DB Mainaly & Associates">
@@ -50,10 +30,10 @@ const leaders = [
         <div class="max-w-3xl">
           <Small class="inline-block px-4 py-1.5 rounded-full bg-tertiary-fixed-dim text-on-tertiary-fixed tracking-widest uppercase mb-6 font-bold">ESTABLISHED AUTHORITY</Small>
           <H1 class="text-white mb-8">
-            The Legacy of <br class="hidden md:block"/>Financial Stewardship
+            {about.heroTitle}
           </H1>
           <Lead class="text-primary-fixed mb-12 max-w-2xl font-light opacity-90">
-            Guiding enterprises through the complexities of global finance with unwavering precision, local expertise, and a commitment to institutional excellence since our founding.
+            {about.heroSubtitle}
           </Lead>
           <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4">
             <div class="h-[2px] w-12 bg-tertiary-fixed-dim hidden sm:block"></div>
@@ -73,12 +53,12 @@ const leaders = [
         <div class="lg:col-span-12 xl:col-span-5 max-w-2xl lg:max-w-none">
           <div class="mb-12">
             <Small class="font-bold text-primary tracking-[0.2rem] uppercase mb-4 block animate-in fade-in slide-in-from-bottom-2 duration-700">Foundation of Purpose</Small>
-            <H2 class="text-on-surface mb-6 leading-tight">Architecture of a Modern Advisory</H2>
+            <H2 class="text-on-surface mb-6 leading-tight">{about.foundationTitle}</H2>
             <div class="h-1.5 w-20 bg-primary/20 rounded-full mb-8">
               <div class="h-full w-1/2 bg-primary rounded-full"></div>
             </div>
             <P class="text-on-surface-variant text-lg leading-relaxed max-w-xl">
-              Our firm is built upon three pillars that define every audit, advisory, and corporate strategy we execute. We do not just process numbers; we engineer trust.
+              {about.foundationSubtitle}
             </P>
           </div>
 
@@ -90,10 +70,10 @@ const leaders = [
               </div>
               <div class="transition-transform duration-300 group-hover:translate-x-2">
                 <H4 class="text-primary mb-3 font-bold flex items-center gap-3">
-                  Our Vision
+                  {about.visionTitle}
                   <span class="h-px flex-1 bg-primary/10 hidden md:block"></span>
                 </H4>
-                <P class="text-on-surface-variant mb-0 text-lg">To be the most trusted financial vanguard in the region, bridging Nepalese enterprise with global standards.</P>
+                <P class="text-on-surface-variant mb-0 text-lg">{about.visionText}</P>
               </div>
             </div>
 
@@ -104,10 +84,10 @@ const leaders = [
               </div>
               <div class="transition-transform duration-300 group-hover:translate-x-2">
                 <H4 class="text-primary mb-3 font-bold flex items-center gap-3">
-                  Our Mission
+                  {about.missionTitle}
                   <span class="h-px flex-1 bg-primary/10 hidden md:block"></span>
                 </H4>
-                <P class="text-on-surface-variant mb-0 text-lg">Delivering uncompromising integrity and analytical depth to empower sustainable corporate growth.</P>
+                <P class="text-on-surface-variant mb-0 text-lg">{about.missionText}</P>
               </div>
             </div>
           </div>
@@ -164,7 +144,7 @@ const leaders = [
           <P class="text-on-surface-variant text-lg max-w-sm mb-0">Our partners bring over 60 years of combined experience across auditing, taxation, and law.</P>
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
-          {leaders.map(leader => (
+          {about.leaders.map(leader => (
             <div class="group">
               <div class="relative overflow-hidden rounded-xl mb-6 md:mb-8 aspect-[3/4] bg-surface-container-high">
                 <img src={leader.image} alt={leader.name} class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">

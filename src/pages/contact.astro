@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import Button from '../components/Button.astro';
+import { getEntry } from 'astro:content';
 
 import H1 from '../components/typography/H1.astro';
 import H2 from '../components/typography/H2.astro';
@@ -12,24 +13,8 @@ import P from '../components/typography/P.astro';
 import Lead from '../components/typography/Lead.astro';
 import Small from '../components/typography/Small.astro';
 
-const faqs = [
-  {
-    question: "What documents are required for initial tax consultation?",
-    answer: "Typically, we require your previous three years of financial statements, current PAN/VAT registration certificates, and details of any outstanding tax liabilities or notices from the Inland Revenue Department."
-  },
-  {
-    question: "Do you offer virtual consulting for international clients?",
-    answer: "Yes, we provide secure digital consultation via Microsoft Teams and Zoom for international investors looking to navigate the Nepalese corporate landscape."
-  },
-  {
-    question: "How do your fees structure work?",
-    answer: "Our fees are structured based on the complexity and volume of work. We offer both project-based fixed pricing for audits and hourly rates for advisory services."
-  },
-  {
-    question: "Are you a member of any international accounting networks?",
-    answer: "We are a proud member of ICAN (The Institute of Chartered Accountants of Nepal) and maintain strong affiliations with global financial networks to ensure international compliance standards."
-  }
-];
+const contactPage = await getEntry('pages', 'contact');
+const { data: contact } = contactPage;
 ---
 
 <BaseLayout title="Contact Us | DB Mainaly & Associates">
@@ -42,10 +27,10 @@ const faqs = [
         <div class="max-w-3xl">
           <Small class="inline-block px-3 py-1 mb-6 text-xs font-bold tracking-[0.1rem] text-tertiary-fixed-dim bg-white/10 rounded uppercase">Get in Touch</Small>
           <H1 class="text-white mb-8">
-            Let's secure your financial future together
+            {contact.heroTitle}
           </H1>
           <Lead class="text-primary-fixed max-w-2xl opacity-90">
-            Expert financial advisory and corporate legal solutions tailored for Nepal's evolving economic landscape.
+            {contact.heroSubtitle}
           </Lead>
         </div>
       </div>
@@ -98,21 +83,21 @@ const faqs = [
                 <span class="material-symbols-outlined text-primary text-2xl">location_on</span>
                 <div>
                   <P class="font-bold text-on-surface mb-1">Physical Address</P>
-                  <P class="text-on-surface-variant leading-relaxed mb-0">DB Mainaly & Associates Building<br/>Level 4, Corporate Plaza<br/>New Baneshwor, Kathmandu<br/>Nepal</P>
+                  <P class="text-on-surface-variant leading-relaxed mb-0 whitespace-pre-line">{contact.officeAddress}</P>
                 </div>
               </div>
               <div class="flex gap-4">
                 <span class="material-symbols-outlined text-primary text-2xl">call</span>
                 <div>
                   <P class="font-bold text-on-surface mb-1">Phone & Fax</P>
-                  <P class="text-on-surface-variant mb-0">+977 1 4483012<br/>+977 9851000000</P>
+                  <P class="text-on-surface-variant mb-0 whitespace-pre-line">{contact.officePhone}</P>
                 </div>
               </div>
               <div class="flex gap-4">
                 <span class="material-symbols-outlined text-primary text-2xl">mail</span>
                 <div>
                   <P class="font-bold text-on-surface mb-1">Electronic Mail</P>
-                  <P class="text-on-surface-variant mb-0">info@dbmainaly.com.np<br/>support@dbmainaly.com.np</P>
+                  <P class="text-on-surface-variant mb-0 whitespace-pre-line">{contact.officeEmail}</P>
                 </div>
               </div>
             </div>
@@ -136,7 +121,7 @@ const faqs = [
         <div class="max-w-4xl mx-auto">
           <H2 class="text-on-surface text-center mb-12 md:mb-16">Frequently Asked Questions</H2>
           <div class="space-y-4">
-            {faqs.map(faq => (
+            {contact.faqs.map(faq => (
               <details class="group bg-surface-container-lowest p-6 md:p-8 rounded-lg shadow-sm border border-outline-variant/10">
                 <summary class="flex justify-between items-center w-full text-left cursor-pointer list-none">
                   <span class="text-base md:text-lg font-bold text-on-surface group-hover:text-primary transition-colors pr-8">{faq.question}</span>

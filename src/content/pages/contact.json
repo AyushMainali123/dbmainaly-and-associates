@@ -1,0 +1,25 @@
+{
+  "heroTitle": "Let's secure your financial future together",
+  "heroSubtitle": "Expert financial advisory and corporate legal solutions tailored for Nepal's evolving economic landscape.",
+  "officeAddress": "DB Mainaly & Associates Building\nLevel 4, Corporate Plaza\nNew Baneshwor, Kathmandu\nNepal",
+  "officePhone": "+977 1 4483012\n+977 9851000000",
+  "officeEmail": "info@dbmainaly.com.np\nsupport@dbmainaly.com.np",
+  "faqs": [
+    {
+      "question": "What documents are required for initial tax consultation?",
+      "answer": "Typically, we require your previous three years of financial statements, current PAN/VAT registration certificates, and details of any outstanding tax liabilities or notices from the Inland Revenue Department."
+    },
+    {
+      "question": "Do you offer virtual consulting for international clients?",
+      "answer": "Yes, we provide secure digital consultation via Microsoft Teams and Zoom for international investors looking to navigate the Nepalese corporate landscape."
+    },
+    {
+      "question": "How do your fees structure work?",
+      "answer": "Our fees are structured based on the complexity and volume of work. We offer both project-based fixed pricing for audits and hourly rates for advisory services."
+    },
+    {
+      "question": "Are you a member of any international accounting networks?",
+      "answer": "We are a proud member of ICAN (The Institute of Chartered Accountants of Nepal) and maintain strong affiliations with global financial networks to ensure international compliance standards."
+    }
+  ]
+}
