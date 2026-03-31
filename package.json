@@ -2,6 +2,7 @@
   "name": "dbm-next-refactor",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -9,9 +10,18 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@payloadcms/db-postgres": "^3.80.0",
+    "@payloadcms/next": "^3.80.0",
+    "@payloadcms/richtext-lexical": "^3.80.0",
+    "clsx": "^2.1.1",
+    "graphql": "^16.13.2",
+    "material-symbols": "^0.43.0",
     "next": "16.2.1",
+    "payload": "^3.80.0",
     "react": "19.2.4",
-    "react-dom": "19.2.4"
+    "react-dom": "19.2.4",
+    "tailwind-merge": "^3.5.0",
+    "tailwind-variants": "^3.2.2"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
