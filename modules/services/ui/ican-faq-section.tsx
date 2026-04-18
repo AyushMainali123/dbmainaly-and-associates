@@ -1,4 +1,5 @@
 import { H2, Lead, P } from "@/components/typography";
+import { MdOutlineExpandMore } from "react-icons/md";
 
 export default function IcanFaqSection() {
   return (
@@ -17,8 +18,8 @@ export default function IcanFaqSection() {
               <span className="text-base md:text-lg font-bold text-on-surface group-hover:text-primary transition-colors pr-8">
                 What are the current mandatory NFRS standards for SMEs in Nepal?
               </span>
-              <span className="material-symbols-outlined text-primary shrink-0 transition-transform group-focus:rotate-180">
-                expand_more
+              <span className="text-primary shrink-0 transition-transform group-focus:rotate-180">
+                <MdOutlineExpandMore />
               </span>
             </button>
             <div className="mt-4 text-on-surface-variant leading-relaxed text-sm md:text-base">

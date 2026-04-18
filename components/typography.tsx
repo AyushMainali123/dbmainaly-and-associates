@@ -78,7 +78,7 @@ type ListProps = React.ComponentProps<"ul"> & {
 export function List({ className = "", type = "ul", children, ...props }: ListProps) {
   const Tag = type;
   return (
-    <Tag className={className} {...(props)}>
+    <Tag className={className} {...(props as any)}>
       {children}
     </Tag>
   );

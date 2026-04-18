@@ -5,6 +5,9 @@ export const Author: CollectionConfig = {
     access: {
         read: () => true,
     },
+    admin: {
+        useAsTitle: 'name',
+      },
     fields: [
         {
             name: 'name',

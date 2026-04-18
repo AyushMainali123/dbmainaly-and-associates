@@ -70,6 +70,8 @@ export interface Config {
     users: User;
     media: Media;
     author: Author;
+    'blog-categories': BlogCategory;
+    blogs: Blog;
     'payload-kv': PayloadKv;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -80,6 +82,8 @@ export interface Config {
     users: UsersSelect<false> | UsersSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
     author: AuthorSelect<false> | AuthorSelect<true>;
+    'blog-categories': BlogCategoriesSelect<false> | BlogCategoriesSelect<true>;
+    blogs: BlogsSelect<false> | BlogsSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
@@ -89,8 +93,12 @@ export interface Config {
     defaultIDType: number;
   };
   fallbackLocale: null;
-  globals: {};
-  globalsSelect: {};
+  globals: {
+    'resource-page': ResourcePage;
+  };
+  globalsSelect: {
+    'resource-page': ResourcePageSelect<false> | ResourcePageSelect<true>;
+  };
   locale: null;
   widgets: {
     collections: CollectionsWidget;
@@ -177,6 +185,71 @@ export interface Author {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "blog-categories".
+ */
+export interface BlogCategory {
+  id: number;
+  name: string;
+  slug: string;
+  description?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "blogs".
+ */
+export interface Blog {
+  id: number;
+  title: string;
+  slug: string;
+  excerpt: string;
+  content: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  featuredImage: number | Media;
+  author: number | Author;
+  categories?: (number | BlogCategory)[] | null;
+  tags?:
+    | {
+        tag: string;
+        id?: string | null;
+      }[]
+    | null;
+  publishedAt: string;
+  isFeatured?: boolean | null;
+  isTrending?: boolean | null;
+  /**
+   * Estimated read time in minutes
+   */
+  readTime?: number | null;
+  tableOfContents?:
+    | {
+        label: string;
+        /**
+         * The ID of the section (e.g. #executive-summary)
+         */
+        anchor: string;
+        id?: string | null;
+      }[]
+    | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-kv".
  */
 export interface PayloadKv {
@@ -210,6 +283,14 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'author';
         value: number | Author;
+      } | null)
+    | ({
+        relationTo: 'blog-categories';
+        value: number | BlogCategory;
+      } | null)
+    | ({
+        relationTo: 'blogs';
+        value: number | Blog;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -306,6 +387,49 @@ export interface AuthorSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "blog-categories_select".
+ */
+export interface BlogCategoriesSelect<T extends boolean = true> {
+  name?: T;
+  slug?: T;
+  description?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "blogs_select".
+ */
+export interface BlogsSelect<T extends boolean = true> {
+  title?: T;
+  slug?: T;
+  excerpt?: T;
+  content?: T;
+  featuredImage?: T;
+  author?: T;
+  categories?: T;
+  tags?:
+    | T
+    | {
+        tag?: T;
+        id?: T;
+      };
+  publishedAt?: T;
+  isFeatured?: T;
+  isTrending?: T;
+  readTime?: T;
+  tableOfContents?:
+    | T
+    | {
+        label?: T;
+        anchor?: T;
+        id?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-kv_select".
  */
 export interface PayloadKvSelect<T extends boolean = true> {
@@ -343,6 +467,122 @@ export interface PayloadMigrationsSelect<T extends boolean = true> {
   batch?: T;
   updatedAt?: T;
   createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "resource-page".
+ */
+export interface ResourcePage {
+  id: number;
+  hero?: {
+    badge?: string | null;
+    title?: string | null;
+    description?: string | null;
+  };
+  statutoryForms?: {
+    title?: string | null;
+    primaryForm?: {
+      version?: string | null;
+      title?: string | null;
+      description?: string | null;
+      buttonText?: string | null;
+      file?: (number | null) | Media;
+    };
+    secondaryForm?: {
+      title?: string | null;
+      description?: string | null;
+      buttonText?: string | null;
+      link?: string | null;
+    };
+    additionalDownloads?:
+      | {
+          title: string;
+          file: number | Media;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  faqsSection?: {
+    title?: string | null;
+    description?: string | null;
+    questions?:
+      | {
+          question: string;
+          answer: string;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  newsletter?: {
+    title?: string | null;
+    description?: string | null;
+  };
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "resource-page_select".
+ */
+export interface ResourcePageSelect<T extends boolean = true> {
+  hero?:
+    | T
+    | {
+        badge?: T;
+        title?: T;
+        description?: T;
+      };
+  statutoryForms?:
+    | T
+    | {
+        title?: T;
+        primaryForm?:
+          | T
+          | {
+              version?: T;
+              title?: T;
+              description?: T;
+              buttonText?: T;
+              file?: T;
+            };
+        secondaryForm?:
+          | T
+          | {
+              title?: T;
+              description?: T;
+              buttonText?: T;
+              link?: T;
+            };
+        additionalDownloads?:
+          | T
+          | {
+              title?: T;
+              file?: T;
+              id?: T;
+            };
+      };
+  faqsSection?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        questions?:
+          | T
+          | {
+              question?: T;
+              answer?: T;
+              id?: T;
+            };
+      };
+  newsletter?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

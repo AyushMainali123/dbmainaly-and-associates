@@ -139,7 +139,7 @@
   }
 
   ul {
-    @apply list-disc list-inside my-4;
+    @apply list-none list-inside my-4;
   }
 
   ol {

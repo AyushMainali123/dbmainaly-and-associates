@@ -1,3 +1,4 @@
+import { MdOutlineAlternateEmail, MdOutlineCall, MdOutlineLocationOn } from "react-icons/md";
 export function Footer() {
     return (
         <footer
@@ -13,9 +14,9 @@ export function Footer() {
                         advisory across Nepal and South Asia.
                     </p>
                     <div className="flex gap-4">
-                        <span className="material-symbols-outlined text-primary">alternate_email</span>
-                        <span className="material-symbols-outlined text-primary">call</span>
-                        <span className="material-symbols-outlined text-primary">location_on</span>
+                        <MdOutlineAlternateEmail className="text-primary" />
+                        <MdOutlineCall className="text-primary" />
+                        <MdOutlineLocationOn className="text-primary" />
                     </div>
                 </div>
                 <div className="space-y-6">

@@ -11,9 +11,15 @@ import { Author } from "./collections/Author";
 import { Blog } from "./collections/Blog";
 import { BlogCategory } from "./collections/BlogCategory";
 
+import { ResourcePage } from "./globals/ResourcePage";
+
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
 
+
+if (!process.env.NEXT_PUBLIC_PAYLOAD_URL) {
+  throw new Error("NEXT_PUBLIC_PAYLOAD_URL is not defined");
+}
 export default buildConfig({
   admin: {
     user: Users.slug,
@@ -22,6 +28,7 @@ export default buildConfig({
     },
   },
   collections: [Users, Media, Author, BlogCategory, Blog],
+  globals: [ResourcePage],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || "",
   typescript: {
@@ -34,4 +41,6 @@ export default buildConfig({
   }),
   sharp,
   plugins: [],
+  serverURL: process.env.NEXT_PUBLIC_PAYLOAD_URL,
+  cors: [process.env.NEXT_PUBLIC_PAYLOAD_URL]
 });

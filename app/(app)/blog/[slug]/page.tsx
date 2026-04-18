@@ -2,23 +2,55 @@ import { Footer } from "@/components/footer";
 import { Navbar } from "@/components/navbar";
 import BlogDetailContentAndSidebarSection from "@/modules/blog-detail/ui/content-and-sidebar-section";
 import BlogDetailHeroSection from "@/modules/blog-detail/ui/hero-section";
+import { getBlogBySlug } from "@/utils/blog";
+import Image from "next/image";
+import { notFound } from "next/navigation";
 
-export default function BlogDetail() {
+type Props = {
+  params: Promise<{
+    slug: string;
+  }>;
+};
+
+export default async function BlogDetail({ params }: Props) {
+  const { slug } = await params;
+  const post = await getBlogBySlug(slug);
+
+  if (!post) {
+    notFound();
+  }
+
   return (
     <>
       <Navbar />
-      <main className="max-w-4xl mx-auto px-6 md:px-12 py-16 md:py-24">
-        <BlogDetailHeroSection />
-        <div className="relative aspect-video rounded-2xl overflow-hidden mb-12 md:mb-20 shadow-lg">
-          <img
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAoiChS4yBA8oyEBwkpdBk2l6njBChMUbhfeK7z9uuZcOC_U6sxihH0TFuM2Z21cDB0bEn6Y1fzqKII6ujR_XXp4TGja5LkPprxCdgv5CdCbe5OwK8zQ4MhQPw5y7tsDlfhhskcrOkWvz-OobklTNHnVH98WDA45xSrhDEYlS4YdEZDKLveoy_Ey0rUw0x6QGkCNeThh8_ovgSCN0P7A0md82IBk_rCsGxI5c59WzSZttRyGVzMu1jWUafjeWCuCTYL9_72_o5rjWU"
-            alt="Understanding the 2024 Nepal Finance Act"
+      <main className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-16 py-8 md:py-12">
+        {/* Breadcrumb */}
+        <div className="flex items-center space-x-2 text-xs md:text-sm text-on-surface-variant mb-8 uppercase tracking-widest font-bold">
+          <a className="hover:text-primary transition-colors" href="/blog">
+            Insights
+          </a>
+          <span className="material-symbols-outlined text-[10px] md:text-xs">
+            chevron_right
+          </span>
+          <span className="text-primary">{post.categoryName}</span>
+        </div>
+
+        <BlogDetailHeroSection post={post} />
+
+        {/* Featured Image */}
+        <div className="relative w-full aspect-video md:aspect-21/9 rounded-xl overflow-hidden mb-12 md:mb-16 shadow-2xl shadow-primary/5 border border-outline-variant/10">
+          <Image
+            src={post.imageUrl}
+            alt={post.imageAlt}
+            fill
             className="w-full h-full object-cover"
           />
         </div>
-        <BlogDetailContentAndSidebarSection />
+
+        <BlogDetailContentAndSidebarSection post={post} />
       </main>
       <Footer />
     </>
   );
 }
+

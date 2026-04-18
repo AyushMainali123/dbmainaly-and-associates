@@ -10,6 +10,14 @@ import H4 from '../components/typography/H4.astro';
 import P from '../components/typography/P.astro';
 import Lead from '../components/typography/Lead.astro';
 import Small from '../components/typography/Small.astro';
+import {
+  IconBuildingBank,
+  IconGavel,
+  IconChartHistogram,
+  IconCash,
+  IconChevronDown,
+  IconArrowRight,
+} from '@tabler/icons-react';
 
 ---
 
@@ -57,7 +65,7 @@ import Small from '../components/typography/Small.astro';
           
             <div id="audit-assurance" class="group bg-surface-container-lowest p-8 md:p-10 flex flex-col h-full border border-outline-variant/15 hover:shadow-[0_20px_40px_rgba(0,35,111,0.06)] transition-all duration-300 rounded-xl">
               <div class="mb-6 md:mb-8">
-                <span class="material-symbols-outlined text-primary text-3xl md:text-4xl">account_balance</span>
+                <IconBuildingBank className="text-primary text-3xl md:text-4xl" />
               </div>
               <H3 class="text-on-surface mb-4">Audit & Assurance</H3>
               <P class="text-on-surface-variant mb-8 grow">
@@ -75,13 +83,13 @@ import Small from '../components/typography/Small.astro';
                 
               </ul>
               <a class="inline-flex items-center gap-2 text-primary font-bold text-sm group-hover:gap-4 transition-all" href="#audit-assurance">
-                LEARN MORE <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                LEARN MORE <IconArrowRight className="text-sm" />
               </a>
             </div>
           
             <div id="corporate-law" class="group bg-surface-container-lowest p-8 md:p-10 flex flex-col h-full border border-outline-variant/15 hover:shadow-[0_20px_40px_rgba(0,35,111,0.06)] transition-all duration-300 rounded-xl">
               <div class="mb-6 md:mb-8">
-                <span class="material-symbols-outlined text-primary text-3xl md:text-4xl">gavel</span>
+                <IconGavel className="text-primary text-3xl md:text-4xl" />
               </div>
               <H3 class="text-on-surface mb-4">Corporate Law</H3>
               <P class="text-on-surface-variant mb-8 grow">
@@ -97,13 +105,13 @@ import Small from '../components/typography/Small.astro';
                 
               </ul>
               <a class="inline-flex items-center gap-2 text-primary font-bold text-sm group-hover:gap-4 transition-all" href="#corporate-law">
-                LEARN MORE <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                LEARN MORE <IconArrowRight className="text-sm" />
               </a>
             </div>
           
             <div id="management-consulting" class="group bg-surface-container-lowest p-8 md:p-10 flex flex-col h-full border border-outline-variant/15 hover:shadow-[0_20px_40px_rgba(0,35,111,0.06)] transition-all duration-300 rounded-xl">
               <div class="mb-6 md:mb-8">
-                <span class="material-symbols-outlined text-primary text-3xl md:text-4xl">query_stats</span>
+                <IconChartHistogram className="text-primary text-3xl md:text-4xl" />
               </div>
               <H3 class="text-on-surface mb-4">Management Consulting</H3>
               <P class="text-on-surface-variant mb-8 grow">
@@ -119,13 +127,13 @@ import Small from '../components/typography/Small.astro';
                 
               </ul>
               <a class="inline-flex items-center gap-2 text-primary font-bold text-sm group-hover:gap-4 transition-all" href="#management-consulting">
-                LEARN MORE <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                LEARN MORE <IconArrowRight className="text-sm" />
               </a>
             </div>
           
             <div id="tax-advisory" class="group bg-surface-container-lowest p-8 md:p-10 flex flex-col h-full border border-outline-variant/15 hover:shadow-[0_20px_40px_rgba(0,35,111,0.06)] transition-all duration-300 rounded-xl">
               <div class="mb-6 md:mb-8">
-                <span class="material-symbols-outlined text-primary text-3xl md:text-4xl">payments</span>
+                <IconCash className="text-primary text-3xl md:text-4xl" />
               </div>
               <H3 class="text-on-surface mb-4">Tax Advisory</H3>
               <P class="text-on-surface-variant mb-8 grow">
@@ -141,7 +149,7 @@ import Small from '../components/typography/Small.astro';
                 
               </ul>
               <a class="inline-flex items-center gap-2 text-primary font-bold text-sm group-hover:gap-4 transition-all" href="#tax-advisory">
-                LEARN MORE <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                LEARN MORE <IconArrowRight className="text-sm" />
               </a>
             </div>
           
@@ -164,7 +172,7 @@ import Small from '../components/typography/Small.astro';
             <div class="relative z-10">
               <H4 class="text-white mb-4">Banking & Finance</H4>
               <P class="text-primary-fixed-dim text-sm leading-relaxed mb-6">NRB regulatory compliance and risk management for leading commercial banks.</P>
-              <span class="material-symbols-outlined text-white text-3xl">payments</span>
+              <IconCash className="text-white text-3xl" />
             </div>
           </div>
           <div class="md:col-span-7 lg:col-span-8 grid grid-rows-1 md:grid-rows-2 gap-6 md:gap-8">
@@ -202,7 +210,7 @@ import Small from '../components/typography/Small.astro';
           <div class="border-b border-outline-variant/30 py-6">
             <button class="flex justify-between items-center w-full text-left group">
               <span class="text-base md:text-lg font-bold text-on-surface group-hover:text-primary transition-colors pr-8">What are the current mandatory NFRS standards for SMEs in Nepal?</span>
-              <span class="material-symbols-outlined text-primary shrink-0 transition-transform group-focus:rotate-180">expand_more</span>
+              <IconChevronDown className="text-primary shrink-0 transition-transform group-focus:rotate-180" />
             </button>
             <div class="mt-4 text-on-surface-variant leading-relaxed text-sm md:text-base">
               As per ICAN guidelines, SMEs in Nepal must follow the NFRS for SMEs which simplifies full NFRS requirements while maintaining high transparency for stakeholders.

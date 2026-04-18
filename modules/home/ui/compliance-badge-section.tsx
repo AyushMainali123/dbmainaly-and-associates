@@ -1,4 +1,5 @@
 import { Small } from "@/components/typography";
+import { MdOutlineVerified } from "react-icons/md";
 
 export default function ComplianceBadgeSection() {
     return (
@@ -6,7 +7,7 @@ export default function ComplianceBadgeSection() {
             <div className="max-w-[1440px] mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center justify-between gap-8 md:gap-4 opacity-80">
                 <div className="flex flex-col md:flex-row items-center gap-4 md:gap-6 text-center md:text-left">
                     <div className="w-12 h-12 md:w-16 md:h-16 bg-surface-container-lowest rounded-full flex items-center justify-center border border-outline-variant/20 shadow-sm shrink-0">
-                        <span className="material-symbols-outlined text-primary text-2xl md:text-3xl">verified</span>
+                        <span className="text-primary text-2xl md:text-3xl"><MdOutlineVerified /></span>
                     </div>
                     <div>
                         <Small className="text-primary font-bold tracking-widest uppercase mb-1 block">Regulatory Standard</Small>

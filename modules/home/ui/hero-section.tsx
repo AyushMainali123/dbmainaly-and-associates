@@ -21,7 +21,7 @@ export default function HeroSection() {
                     </Lead>
                     <div className="flex flex-col sm:flex-row gap-4">
                         <Button href="/services" variant="surface" size="lg" className="w-full sm:w-auto">Explore Advisory</Button>
-                        <Button href="/about" variant="outline" size="lg" className="w-full sm:w-auto">Our Portfolio</Button>
+                        <Button href="/about" variant="outline" size="lg" className="w-full sm:w-auto">Our Specializations</Button>
                     </div>
                 </div>
             </div>
