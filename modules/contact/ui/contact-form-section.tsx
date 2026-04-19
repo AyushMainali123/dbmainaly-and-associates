@@ -1,5 +1,6 @@
 import { Button } from "@/components/button";
 import { H2, H3, H4, P, Small } from "@/components/typography";
+import { MdOutlineCall, MdOutlineLocationOn, MdOutlineMail } from "react-icons/md";
 
 export default function ContactFormSection() {
     return (
@@ -47,7 +48,9 @@ export default function ContactFormSection() {
                         <H3 className="text-on-surface mb-8 border-l-4 border-primary pl-4">Office Headquarters</H3>
                         <div className="space-y-8">
                             <div className="flex gap-4">
-                                <span className="material-symbols-outlined text-primary text-2xl">location_on</span>
+                                <span className="text-primary text-2xl">
+                                    <MdOutlineLocationOn />
+                                </span>
                                 <div>
                                     <P className="font-bold text-on-surface mb-1">Physical Address</P>
                                     <P className="text-on-surface-variant leading-relaxed mb-0 whitespace-pre-line">DB Mainaly & Associates Building
@@ -57,7 +60,9 @@ export default function ContactFormSection() {
                                 </div>
                             </div>
                             <div className="flex gap-4">
-                                <span className="material-symbols-outlined text-primary text-2xl">call</span>
+                                <span className="text-primary text-2xl">
+                                    <MdOutlineCall />
+                                </span>
                                 <div>
                                     <P className="font-bold text-on-surface mb-1">Phone & Fax</P>
                                     <P className="text-on-surface-variant mb-0 whitespace-pre-line">+977 1 4483012
@@ -65,7 +70,9 @@ export default function ContactFormSection() {
                                 </div>
                             </div>
                             <div className="flex gap-4">
-                                <span className="material-symbols-outlined text-primary text-2xl">mail</span>
+                                <span className="text-primary text-2xl">
+                                    <MdOutlineMail />
+                                </span>
                                 <div>
                                     <P className="font-bold text-on-surface mb-1">Electronic Mail</P>
                                     <P className="text-on-surface-variant mb-0 whitespace-pre-line">info@dbmainaly.com.np
@@ -77,7 +84,9 @@ export default function ContactFormSection() {
                     <div className="relative w-full aspect-square md:aspect-video xl:aspect-square rounded-xl overflow-hidden bg-surface-container-high group">
                         <div className="absolute inset-0 flex flex-col items-center justify-center text-center bg-primary/5 z-10 p-6 md:p-12">
                             <div className="w-16 h-16 bg-primary rounded-full    flex items-center justify-center mb-4 shadow-xl">
-                                <span className="material-symbols-outlined text-white text-3xl" style={{ fontVariationSettings: "'FILL' 1" }}>pin_drop</span>
+                                <span className="text-white text-3xl">
+                                    <MdOutlineLocationOn />
+                                </span>
                             </div>
                             <H4 className="text-primary mb-2">We are here</H4>
                             <P className="text-sm text-on-secondary-container mb-0 font-medium">Centralized Hub, New Baneshwor</P>

@@ -1,11 +1,18 @@
+"use client";
+
+import { useActiveAnchor } from "@/hooks/use-active-anchor";
 import { H3, Lead, Small } from "@/components/typography";
 import type { BlogDetailItem } from "@/utils/blog";
+import { cn } from "@/utils";
 
 type Props = {
   post: BlogDetailItem;
 };
 
 export default function BlogDetailContentAndSidebarSection({ post }: Props) {
+  const anchors = post.tableOfContents?.map((item) => item.anchor) ?? [];
+  const activeAnchor = useActiveAnchor(anchors);
+
   return (
     <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 md:gap-16">
       {/* Sidebar - Contents */}
@@ -16,21 +23,25 @@ export default function BlogDetailContentAndSidebarSection({ post }: Props) {
               <Small className="font-bold text-primary tracking-[0.2em] mb-6 uppercase block">
                 CONTENTS
               </Small>
-              <ul className="space-y-4 text-sm font-medium">
-                {post.tableOfContents.map((item, index) => (
-                  <li key={item.anchor}>
-                    <a
-                      className={
-                        index === 0
-                          ? "text-primary border-l-2 border-primary pl-4 block font-bold"
-                          : "text-on-surface-variant hover:text-primary pl-4 block transition-colors"
-                      }
-                      href={item.anchor}
-                    >
-                      {item.label}
-                    </a>
-                  </li>
-                ))}
+              <ul className="relative space-y-4 text-sm font-medium">
+                {post.tableOfContents.map((item) => {
+                  const isActive = activeAnchor === item.anchor;
+                  return (
+                    <li key={item.anchor}>
+                      <a
+                        className={cn(
+                          "pl-4 block transition-all duration-300 border-l-2",
+                          isActive
+                            ? "text-primary border-primary font-bold translate-x-1"
+                            : "text-on-surface-variant border-transparent hover:text-primary hover:border-primary/30"
+                        )}
+                        href={item.anchor}
+                      >
+                        {item.label}
+                      </a>
+                    </li>
+                  );
+                })}
               </ul>
             </div>
           </div>

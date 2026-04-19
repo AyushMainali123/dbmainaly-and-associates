@@ -5,12 +5,15 @@ import BlogDetailHeroSection from "@/modules/blog-detail/ui/hero-section";
 import { getBlogBySlug } from "@/utils/blog";
 import Image from "next/image";
 import { notFound } from "next/navigation";
+import { MdOutlineChevronRight } from "react-icons/md";
 
 type Props = {
   params: Promise<{
     slug: string;
   }>;
 };
+
+export const revalidate = 60;
 
 export default async function BlogDetail({ params }: Props) {
   const { slug } = await params;
@@ -29,8 +32,8 @@ export default async function BlogDetail({ params }: Props) {
           <a className="hover:text-primary transition-colors" href="/blog">
             Insights
           </a>
-          <span className="material-symbols-outlined text-[10px] md:text-xs">
-            chevron_right
+          <span className="text-[10px] md:text-xs">
+            <MdOutlineChevronRight />
           </span>
           <span className="text-primary">{post.categoryName}</span>
         </div>

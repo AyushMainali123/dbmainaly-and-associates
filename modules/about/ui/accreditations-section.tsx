@@ -1,4 +1,5 @@
 import { Small } from "@/components/typography";
+import { MdOutlineLanguage, MdOutlineVerifiedUser } from "react-icons/md";
 
 export default function AccreditationsSection() {
   return (
@@ -17,13 +18,17 @@ export default function AccreditationsSection() {
           </div>
           <div className="flex flex-col items-center">
             <div className="w-20 h-20 md:w-24 md:h-24 bg-surface-container rounded-full flex items-center justify-center mb-4">
-              <span className="material-symbols-outlined text-primary text-3xl md:text-4xl">verified_user</span>
+              <span className="text-primary text-3xl md:text-4xl">
+                <MdOutlineVerifiedUser />
+              </span>
             </div>
             <p className="text-on-surface font-bold text-sm">ISO 9001 Certified</p>
           </div>
           <div className="flex flex-col items-center">
             <div className="w-20 h-20 md:w-24 md:h-24 bg-surface-container rounded-full flex items-center justify-center mb-4">
-              <span className="material-symbols-outlined text-primary text-3xl md:text-4xl">language</span>
+              <span className="text-primary text-3xl md:text-4xl">
+                <MdOutlineLanguage />
+              </span>
             </div>
             <p className="text-on-surface font-bold text-sm">Global Standards</p>
           </div>

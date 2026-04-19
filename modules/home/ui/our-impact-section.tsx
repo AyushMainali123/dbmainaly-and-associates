@@ -1,4 +1,5 @@
 import { H2, H3, P, Small } from "@/components/typography";
+import { MdOutlineFormatQuote } from "react-icons/md";
 
 export default function OurImpactSection() {
     return (
@@ -38,10 +39,12 @@ export default function OurImpactSection() {
                     <div className="absolute inset-0 bg-primary-container rounded-2xl transform rotate-3 scale-95 opacity-10"></div>
                     <div className="relative h-full rounded-2xl overflow-hidden shadow-2xl">
                         <img className="w-full h-full object-cover" src="https://images.unsplash.com/photo-1554469384-e58fac16e23a?auto=format&fit=crop&q=80&w=1000" alt="Modern corporate building" />
-                        <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent"></div>
+                        <div className="absolute inset-0 bg-linear-to-t from-primary/80 via-primary/20 to-transparent"></div>
                         <div className="absolute bottom-6 left-6 right-6 md:bottom-10 md:left-10 md:right-10">
                             <div className="bg-surface-container-lowest/10 backdrop-blur-xl p-6 md:p-8 rounded-xl border border-white/20">
-                                <span className="material-symbols-outlined text-tertiary-fixed-dim text-3xl md:text-4xl mb-4 block" style={{ fontVariationSettings: "'FILL' 1" }}>format_quote</span>
+                                <span className="text-tertiary-fixed-dim text-3xl md:text-4xl mb-4 block">
+                                    <MdOutlineFormatQuote />
+                                </span>
                                 <p className="text-white text-base md:text-lg italic mb-6">"DB Mainaly & Associates transformed our corporate governance structure, enabling our transition to a public entity."</p>
                                 <div className="flex items-center gap-4">
                                     <div className="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center font-bold text-primary shrink-0">SC</div>

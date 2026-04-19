@@ -6,6 +6,8 @@ import RegulatoryFaqSection from "@/modules/resources/ui/regulatory-faq-section"
 import StatutoryFormsSection from "@/modules/resources/ui/statutory-forms-section";
 import { getPayloadClient } from "@/utils/payload";
 
+export const revalidate = 60;
+
 export default async function ResourcesPage() {
   const payload = await getPayloadClient();
   const data = await payload.findGlobal({

@@ -95,9 +95,11 @@ export interface Config {
   fallbackLocale: null;
   globals: {
     'resource-page': ResourcePage;
+    'service-page': ServicePage;
   };
   globalsSelect: {
     'resource-page': ResourcePageSelect<false> | ResourcePageSelect<true>;
+    'service-page': ServicePageSelect<false> | ServicePageSelect<true>;
   };
   locale: null;
   widgets: {
@@ -522,6 +524,74 @@ export interface ResourcePage {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "service-page".
+ */
+export interface ServicePage {
+  id: number;
+  hero?: {
+    badge?: string | null;
+    title?: string | null;
+    description?: string | null;
+  };
+  servicesGrid?: {
+    services?:
+      | {
+          title: string;
+          description?: string | null;
+          icon?: ('MdOutlineAccountBalance' | 'MdOutlineGavel' | 'MdOutlineQueryStats' | 'MdOutlinePayments') | null;
+          features?:
+            | {
+                feature?: string | null;
+                id?: string | null;
+              }[]
+            | null;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  sectorSpecialization?: {
+    badge?: string | null;
+    title?: string | null;
+    /**
+     * This section requires exactly 3 sectors to maintain the grid layout.
+     */
+    sectors?:
+      | {
+          title: string;
+          description?: string | null;
+          image?: (number | null) | Media;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  icanFaq?: {
+    title?: string | null;
+    description?: string | null;
+    faqs?:
+      | {
+          question: string;
+          answer: string;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  cta?: {
+    title?: string | null;
+    description?: string | null;
+    primaryButton?: {
+      text?: string | null;
+      link?: string | null;
+    };
+    secondaryButton?: {
+      text?: string | null;
+      link?: string | null;
+    };
+  };
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "resource-page_select".
  */
 export interface ResourcePageSelect<T extends boolean = true> {
@@ -579,6 +649,85 @@ export interface ResourcePageSelect<T extends boolean = true> {
     | {
         title?: T;
         description?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "service-page_select".
+ */
+export interface ServicePageSelect<T extends boolean = true> {
+  hero?:
+    | T
+    | {
+        badge?: T;
+        title?: T;
+        description?: T;
+      };
+  servicesGrid?:
+    | T
+    | {
+        services?:
+          | T
+          | {
+              title?: T;
+              description?: T;
+              icon?: T;
+              features?:
+                | T
+                | {
+                    feature?: T;
+                    id?: T;
+                  };
+              id?: T;
+            };
+      };
+  sectorSpecialization?:
+    | T
+    | {
+        badge?: T;
+        title?: T;
+        sectors?:
+          | T
+          | {
+              title?: T;
+              description?: T;
+              image?: T;
+              id?: T;
+            };
+      };
+  icanFaq?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        faqs?:
+          | T
+          | {
+              question?: T;
+              answer?: T;
+              id?: T;
+            };
+      };
+  cta?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        primaryButton?:
+          | T
+          | {
+              text?: T;
+              link?: T;
+            };
+        secondaryButton?:
+          | T
+          | {
+              text?: T;
+              link?: T;
+            };
       };
   updatedAt?: T;
   createdAt?: T;
