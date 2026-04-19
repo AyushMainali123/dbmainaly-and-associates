@@ -5,6 +5,8 @@ import FoundationSection from "@/modules/about/ui/foundation-section";
 import LeadershipSection from "@/modules/about/ui/leadership-section";
 import AccreditationsSection from "@/modules/about/ui/accreditations-section";
 
+export const revalidate = 60;
+
 export default function AboutPage() {
   return (
     <>

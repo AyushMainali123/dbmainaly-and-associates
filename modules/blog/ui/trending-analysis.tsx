@@ -10,7 +10,7 @@ export function TrendingAnalysis({ trendingBlogs }: ITrendingAnalysisProps) {
     return (
         <div className="p-8 lg:p-10 bg-surface-container-low rounded-xl h-full border border-outline-variant/10">
             <H4 className="text-lg font-bold text-on-surface mb-6 flex items-center gap-2">
-                <span className="material-symbols-outlined text-primary">
+                <span className="text-primary">
                     <MdOutlineTrendingUp />
                 </span>{" "}
                 Trending Analysis

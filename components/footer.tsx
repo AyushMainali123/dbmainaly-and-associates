@@ -13,10 +13,10 @@ export function Footer() {
                         Leading chartered accountancy firm providing elite audit, tax, and legal
                         advisory across Nepal and South Asia.
                     </p>
-                    <div className="flex gap-4">
-                        <MdOutlineAlternateEmail className="text-primary" />
-                        <MdOutlineCall className="text-primary" />
-                        <MdOutlineLocationOn className="text-primary" />
+                    <div className="flex gap-2">
+                        <MdOutlineAlternateEmail className="text-primary text-lg" />
+                        <MdOutlineCall className="text-primary text-lg" />
+                        <MdOutlineLocationOn className="text-primary text-lg" />
                     </div>
                 </div>
                 <div className="space-y-6">
@@ -85,9 +85,7 @@ export function Footer() {
                         <p className="text-on-surface-variant font-medium">
                             Licensed by ICAN Nepal
                         </p>
-                        <p className="text-on-surface-variant/60 text-[10px] mt-1">
-                            Certificate #0045/FY80
-                        </p>
+
                     </div>
                 </div>
             </div>

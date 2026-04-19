@@ -1,4 +1,5 @@
 import { H2, H3, P, Small } from "@/components/typography";
+import { MdOutlineArrowForward } from "react-icons/md";
 
 export default function LatestInsightsSection() {
     return (
@@ -26,7 +27,9 @@ export default function LatestInsightsSection() {
                         <P className="text-on-surface-variant mb-6 line-clamp-2">
                             A comprehensive breakdown of the latest legislative changes affecting corporate taxation, profit repatriation, and compliance requirements in the Nepalese market.
                         </P>
-                        <a href="/blog/blog-detail" className="material-symbols-outlined text-primary group-hover:translate-x-2 transition-transform">arrow_forward</a>
+                        <a href="/blog/blog-detail" className="text-primary group-hover:translate-x-2 transition-transform">
+                            <MdOutlineArrowForward />
+                        </a>
                     </article>
 
                 </div>

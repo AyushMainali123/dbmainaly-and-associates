@@ -1,5 +1,6 @@
 import { H1, P, Small } from "@/components/typography";
 import type { BlogDetailItem } from "@/utils/blog";
+import { MdOutlineBookmark, MdOutlineShare } from "react-icons/md";
 
 type Props = {
   post: BlogDetailItem;
@@ -17,15 +18,15 @@ export default function BlogDetailHeroSection({ post }: Props) {
       <H1 className="text-on-surface mb-8">
         {post.title}
       </H1>
-      
+
       <div className="flex flex-wrap items-center gap-6 md:gap-8 py-6 border-y border-outline-variant/15">
         {/* Author Info */}
         <div className="flex items-center space-x-3">
           <div className="w-12 h-12 rounded-full overflow-hidden bg-surface-container shrink-0 border border-outline-variant/10">
-            <img 
-              className="w-full h-full object-cover" 
-              src={post.authorImageUrl} 
-              alt={post.authorName} 
+            <img
+              className="w-full h-full object-cover"
+              src={post.authorImageUrl}
+              alt={post.authorName}
             />
           </div>
           <div>
@@ -49,14 +50,13 @@ export default function BlogDetailHeroSection({ post }: Props) {
         </div>
 
         {/* Actions */}
-        <div className="sm:ml-auto flex space-x-2">
-          <button className="p-2 rounded-full hover:bg-surface-container transition-colors">
-            <span className="material-symbols-outlined text-on-surface-variant">share</span>
-          </button>
-          <button className="p-2 rounded-full hover:bg-surface-container transition-colors">
-            <span className="material-symbols-outlined text-on-surface-variant">bookmark</span>
-          </button>
-        </div>
+
+        <button className="p-2 rounded-full hover:bg-surface-container transition-colors">
+          <span className="text-on-surface-variant">
+            <MdOutlineShare />
+          </span>
+        </button>
+
       </div>
     </header>
   );

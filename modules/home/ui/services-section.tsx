@@ -1,4 +1,5 @@
 import { H2, H3, Lead, P, Small } from "@/components/typography";
+import { MdOutlineAccountBalance, MdOutlineArrowForward, MdOutlineGavel, MdOutlinePayments, MdOutlineQueryStats } from "react-icons/md";
 
 export default function ServicesSection() {
     return (
@@ -18,7 +19,9 @@ export default function ServicesSection() {
                     <div className="md:col-span-8 group relative overflow-hidden p-8 md:p-12 rounded-xl border border-outline-variant/10 transition-all duration-500 hover:shadow-xl bg-surface-container-lowest">
                         <div className="relative z-10 h-full flex flex-col justify-between">
                             <div>
-                                <span className="material-symbols-outlined text-3xl md:text-4xl mb-6 md:mb-8 text-primary">account_balance</span>
+                                <span className="text-3xl md:text-4xl mb-6 md:mb-8 text-primary">
+                                    <MdOutlineAccountBalance />
+                                </span>
                                 <H3 className="mb-4 text-on-surface">Audit & Assurance</H3>
                                 <P className="text-base md:text-lg mb-8 text-on-surface-variant max-w-lg">
                                     Independent verification services that build investor trust and ensure regulatory compliance through meticulous analysis.
@@ -39,19 +42,24 @@ export default function ServicesSection() {
                                 </ul>
 
                                 <a href="/services" className="inline-flex items-center gap-2 font-bold hover:gap-4 transition-all text-primary">
-                                    View Practice Area <span className="material-symbols-outlined">arrow_right_alt</span>
+                                    View Practice Area
+                                    <MdOutlineAccountBalance />
                                 </a>
                             </div>
                         </div>
                         <div className="absolute -right-20 -bottom-20 opacity-[0.03] scale-100 md:scale-150 pointer-events-none text-primary">
-                            <span className="material-symbols-outlined text-[10rem] md:text-[20rem]">account_balance</span>
+                            <span className="text-[10rem] md:text-[20rem]">
+                                <MdOutlineAccountBalance />
+                            </span>
                         </div>
                     </div>
 
                     <div className="md:col-span-4 bg-primary text-white group relative overflow-hidden p-8 md:p-12 rounded-xl border border-outline-variant/10 transition-all duration-500 hover:shadow-xl ">
                         <div className="relative z-10 h-full flex flex-col justify-between">
                             <div>
-                                <span className="material-symbols-outlined text-3xl md:text-4xl mb-6 md:mb-8 text-tertiary-fixed-dim">gavel</span>
+                                <span className="text-3xl md:text-4xl mb-6 md:mb-8 text-tertiary-fixed-dim">
+                                    <MdOutlineGavel />
+                                </span>
                                 <H3 className="mb-4 text-white">Corporate Law</H3>
                                 <P className="text-base md:text-lg mb-8 text-primary-fixed/80 max-w-lg">
                                     Expert guidance on company formation, compliance filings, and complex legal structuring.
@@ -60,19 +68,24 @@ export default function ServicesSection() {
                             <div className="mt-4">
 
                                 <a href="/services" className="inline-flex items-center gap-2 font-bold hover:gap-4 transition-all text-tertiary-fixed-dim">
-                                    Consult Expert <span className="material-symbols-outlined">arrow_right_alt</span>
+                                    Consult Expert
+                                    <MdOutlineArrowForward />
                                 </a>
                             </div>
                         </div>
                         <div className="absolute -right-20 -bottom-20 opacity-[0.03] scale-100 md:scale-150 pointer-events-none text-white">
-                            <span className="material-symbols-outlined text-[10rem] md:text-[20rem]">gavel</span>
+                            <span className="text-[10rem] md:text-[20rem]">
+                                <MdOutlineGavel />
+                            </span>
                         </div>
                     </div>
 
                     <div className="md:col-span-6 group relative overflow-hidden p-8 md:p-12 rounded-xl border border-outline-variant/10 transition-all duration-500 hover:shadow-xl bg-surface-container-high">
                         <div className="relative z-10 h-full flex flex-col justify-between">
                             <div>
-                                <span className="material-symbols-outlined text-3xl md:text-4xl mb-6 md:mb-8 text-primary">query_stats</span>
+                                <span className="text-3xl md:text-4xl mb-6 md:mb-8 text-primary">
+                                    <MdOutlineQueryStats />
+                                </span>
                                 <H3 className="mb-4 text-on-surface">Management Consulting</H3>
                                 <P className="text-base md:text-lg mb-8 text-on-surface-variant max-w-lg">
                                     Transformational strategies to scale your operations and improve organizational efficiency.
@@ -81,19 +94,25 @@ export default function ServicesSection() {
                             <div className="mt-4">
 
                                 <a href="/services" className="inline-flex items-center gap-2 font-bold hover:gap-4 transition-all text-primary">
-                                    View Practice Area <span className="material-symbols-outlined">arrow_right_alt</span>
+                                    View Practice Area
+                                    <MdOutlineArrowForward />
+
                                 </a>
                             </div>
                         </div>
                         <div className="absolute -right-20 -bottom-20 opacity-[0.03] scale-100 md:scale-150 pointer-events-none text-primary">
-                            <span className="material-symbols-outlined text-[10rem] md:text-[20rem]">query_stats</span>
+                            <span className="text-[10rem] md:text-[20rem]">
+                                <MdOutlineQueryStats />
+                            </span>
                         </div>
                     </div>
 
                     <div className="md:col-span-6 group relative overflow-hidden p-8 md:p-12 rounded-xl border border-outline-variant/10 transition-all duration-500 hover:shadow-xl bg-surface-container-lowest">
                         <div className="relative z-10 h-full flex flex-col justify-between">
                             <div>
-                                <span className="material-symbols-outlined text-3xl md:text-4xl mb-6 md:mb-8 text-primary">payments</span>
+                                <span className="text-3xl md:text-4xl mb-6 md:mb-8 text-primary">
+                                    <MdOutlinePayments />
+                                </span>
                                 <H3 className="mb-4 text-on-surface">Tax Advisory</H3>
                                 <P className="text-base md:text-lg mb-8 text-on-surface-variant max-w-lg">
                                     Optimizing tax strategies within the complex landscape of Nepalese VAT, Income Tax, and Customs duties.
@@ -102,12 +121,15 @@ export default function ServicesSection() {
                             <div className="mt-4">
 
                                 <a href="/services" className="inline-flex items-center gap-2 font-bold hover:gap-4 transition-all text-primary">
-                                    View Practice Area <span className="material-symbols-outlined">arrow_right_alt</span>
+                                    View Practice Area
+                                    <MdOutlineArrowForward />
                                 </a>
                             </div>
                         </div>
                         <div className="absolute -right-20 -bottom-20 opacity-[0.03] scale-100 md:scale-150 pointer-events-none text-primary">
-                            <span className="material-symbols-outlined text-[10rem] md:text-[20rem]">payments</span>
+                            <span className="text-[10rem] md:text-[20rem]">
+                                <MdOutlinePayments />
+                            </span>
                         </div>
                     </div>
 

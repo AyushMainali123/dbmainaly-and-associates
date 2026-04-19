@@ -10,9 +10,9 @@ import { TrendingAnalysis } from "@/modules/blog/ui/trending-analysis";
 import { getBlogCategories, getBlogsByCategory, getFeaturedBlogs, getTrendingBlogs } from "@/utils/blog";
 import { dehydrate, HydrationBoundary, QueryClient } from "@tanstack/react-query";
 
+export const revalidate = 60;
 
 export default async function BlogPage({ searchParams }: PageProps<"/blog">) {
-
 
   const query = await searchParams;
   const page = query.page ? Number(query.page) : 1;

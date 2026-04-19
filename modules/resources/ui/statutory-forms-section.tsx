@@ -53,7 +53,7 @@ export default function StatutoryFormsSection({
 
           {/* Secondary Statutory */}
           <div className="md:col-span-6 lg:col-span-4 bg-surface-container-low p-8 rounded-xl border border-outline-variant/10 hover:bg-surface-container-lowest transition-colors group flex flex-col h-full">
-            <span className="material-symbols-outlined text-4xl text-secondary mb-6 block">
+            <span className="text-4xl text-secondary mb-6 block">
               <MdOutlineAnalytics />
             </span>
             <H4 className="text-on-surface mb-3">
