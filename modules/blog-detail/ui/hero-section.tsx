@@ -1,6 +1,5 @@
 import { H1, P, Small } from "@/components/typography";
 import type { BlogDetailItem } from "@/utils/blog";
-import { MdOutlineBookmark, MdOutlineShare } from "react-icons/md";
 
 type Props = {
   post: BlogDetailItem;
@@ -48,15 +47,6 @@ export default function BlogDetailHeroSection({ post }: Props) {
           <Small className="text-on-surface-variant font-medium uppercase mb-0">Reading Time</Small>
           <Small className="font-bold text-on-surface mb-0">{post.readTime} Min Read</Small>
         </div>
-
-        {/* Actions */}
-
-        <button className="p-2 rounded-full hover:bg-surface-container transition-colors">
-          <span className="text-on-surface-variant">
-            <MdOutlineShare />
-          </span>
-        </button>
-
       </div>
     </header>
   );
