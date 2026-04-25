@@ -160,7 +160,6 @@ export async function getBlogCategories() {
 }
 
 
-
 export async function getBlogPageData() {
   const payload = await getPayloadClient();
 
