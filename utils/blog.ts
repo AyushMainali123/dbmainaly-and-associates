@@ -104,7 +104,7 @@ function lexicalToHtml(value: Blog["content"]): string {
 }
 
 
-function normalizeBlogPost(post: Blog): BlogDetailItem {
+export function normalizeBlogPost(post: Blog): BlogDetailItem {
   const image = asMedia(post.featuredImage);
   const author = asAuthor(post.author);
   const authorImage = author ? asMedia(author.image) : null;
