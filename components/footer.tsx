@@ -77,10 +77,10 @@ export function Footer() {
                     <h4 className="font-bold text-primary tracking-wide uppercase text-xs">
                         Headquarters
                     </h4>
-                    <p className="text-on-surface-variant">
-                        Lalitpur-03, Kathmandu, Nepal<br />
-                        Professional Building, 4th Floor
-                    </p>
+                    <address className="text-on-surface-variant not-italic">
+                        Bansidhar Marg, Bishalnagar <br />
+                        Kathmandu, Nepal (100m South of the Embassy of Finland)
+                    </address>
                     <div className="pt-4 border-t border-outline-variant/20">
                         <p className="text-on-surface-variant font-medium">
                             Licensed by ICAN Nepal

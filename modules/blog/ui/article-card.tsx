@@ -1,5 +1,6 @@
 import { H3, P, Small } from "@/components/typography";
 import { BlogListItem } from "@/utils/blog";
+import Image from "next/image";
 import Link from "next/link";
 import { MdArrowForward } from "react-icons/md";
 
@@ -16,11 +17,13 @@ export function ArticleCard({ article }: { article: BlogListItem }) {
     return (
         <article className="group">
             <Link href={`/blog/${article.slug}`} className="block">
-                <div className="aspect-[16/10] mb-8 overflow-hidden rounded-lg bg-surface-container shadow-sm border border-outline-variant/10">
-                    <img
+                <div className="relative aspect-16/10 mb-8 overflow-hidden rounded-lg bg-surface-container shadow-sm border border-outline-variant/10">
+                    <Image
                         alt={article.imageAlt}
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                        fill
+                        className="object-cover transition-transform duration-500 group-hover:scale-110"
                         src={article.imageUrl}
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     />
                 </div>
             </Link>
