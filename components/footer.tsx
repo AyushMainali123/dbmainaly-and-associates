@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { MdOutlineAlternateEmail, MdOutlineCall, MdOutlineLocationOn } from "react-icons/md";
 export function Footer() {
     return (
@@ -10,8 +11,8 @@ export function Footer() {
                 <div className="space-y-6">
                     <div className="text-lg font-bold text-primary">DB Mainaly & Associates</div>
                     <p className="text-on-surface-variant max-w-xs">
-                        Leading chartered accountancy firm providing elite audit, tax, and legal
-                        advisory across Nepal and South Asia.
+                        Leading chartered accountancy firm providing audit, tax, and legal
+                        advisory across Nepal.
                     </p>
                     <div className="flex gap-2">
                         <MdOutlineAlternateEmail className="text-primary text-lg" />
@@ -25,24 +26,24 @@ export function Footer() {
                     </h4>
                     <ul className="space-y-4">
                         <li>
-                            <a
+                            <Link
                                 className="text-on-surface-variant hover:text-primary transition-all"
-                                href="/services">Tax Advisory</a>
+                                href="/services">Tax Advisory</Link>
                         </li>
                         <li>
-                            <a
+                            <Link
                                 className="text-on-surface-variant hover:text-primary transition-all"
-                                href="/services">Audit & Assurance</a>
+                                href="/services">Audit & Assurance</Link>
                         </li>
                         <li>
-                            <a
+                            <Link
                                 className="text-on-surface-variant hover:text-primary transition-all"
-                                href="/services">Corporate Law</a>
+                                href="/services">Corporate Law</Link>
                         </li>
                         <li>
-                            <a
+                            <Link
                                 className="text-on-surface-variant hover:text-primary transition-all"
-                                href="/services">Financial Consulting</a>
+                                href="/services">Financial Consulting</Link>
                         </li>
                     </ul>
                 </div>
@@ -95,13 +96,12 @@ export function Footer() {
                 >
                     <p>© {new Date().getFullYear()} DB Mainaly & Associates. Member of ICAN.</p>
                     <div className="flex gap-8">
-                        <a className="hover:text-primary" href="#">LinkedIn</a>
-                        <a className="hover:text-primary" href="/blog">Financial Intelligence</a>
-                        <a className="hover:text-primary" href="#">Careers</a>
+                        <Link className="hover:text-primary" href="#">LinkedIn</Link>
+                        <Link className="hover:text-primary" href="/blog">Financial Intelligence</Link>
+                        <Link className="hover:text-primary" href="#">Careers</Link>
                     </div>
                 </div>
             </div>
         </footer>
-
     )
 }
