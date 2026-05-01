@@ -2,11 +2,11 @@ import { Small } from "@/components/typography";
 import { MdOutlineVerified } from "react-icons/md";
 
 interface ComplianceBadgeSectionProps {
-  data?: {
-    badge?: string | null;
-    title?: string | null;
-    badges?: { text: string; id?: string | null }[] | null;
-  };
+    data?: {
+        badge?: string | null;
+        title?: string | null;
+        badges?: { text: string; id?: string | null }[] | null;
+    };
 }
 
 export default function ComplianceBadgeSection({ data }: ComplianceBadgeSectionProps) {
@@ -19,7 +19,7 @@ export default function ComplianceBadgeSection({ data }: ComplianceBadgeSectionP
                     </div>
                     <div>
                         <Small className="text-primary font-bold tracking-widest uppercase mb-1 block">{data?.badge || "Regulatory Standard"}</Small>
-                        <p className="text-on-surface font-semibold text-sm md:text-base">{data?.title || "Institute of Chartered Accountants of Nepal (ICAN) Licensed"}</p>
+                        <p className="text-on-surface font-semibold text-sm md:text-base mb-0">{data?.title || "Institute of Chartered Accountants of Nepal (ICAN) Licensed"}</p>
                     </div>
                 </div>
                 <div className="h-px w-24 bg-outline-variant/30 hidden md:block"></div>
