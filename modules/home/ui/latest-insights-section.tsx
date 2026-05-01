@@ -1,36 +1,50 @@
-import { H2, H3, P, Small } from "@/components/typography";
-import { MdOutlineArrowForward } from "react-icons/md";
+import { H2, Small } from "@/components/typography";
+import { getBlogsByCategory, normalizeBlogPost, type BlogDetailItem } from "@/utils/blog";
+import { ArticleCard } from "@/modules/blog/ui/article-card";
+import Link from "next/link";
+import { Blog } from "@/payload-types";
 
-export default function LatestInsightsSection() {
+interface LatestInsightsSectionProps {
+  data?: {
+    badge?: string | null;
+    title?: string | null;
+    linkText?: string | null;
+    linkUrl?: string | null;
+    selectedArticles?: (number | Blog)[] | null;
+  };
+}
+
+export default async function LatestInsightsSection({ data }: LatestInsightsSectionProps) {
+    let articlesToDisplay: BlogDetailItem[] = [];
+
+    // Check if there are selected articles and they are populated objects (not just IDs)
+    if (data?.selectedArticles && data.selectedArticles.length > 0) {
+        articlesToDisplay = data.selectedArticles
+            .filter((item): item is Blog => typeof item === 'object' && item !== null && 'id' in item)
+            .map(normalizeBlogPost);
+    }
+
+    // Fallback if no selected articles or if they didn't populate properly
+    if (articlesToDisplay.length === 0) {
+        const { articles } = await getBlogsByCategory(undefined, 1, 3);
+        articlesToDisplay = articles;
+    }
+
     return (
         <section className="py-16 md:py-32 bg-surface">
             <div className="max-w-[1440px] mx-auto px-6 md:px-12">
                 <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 md:mb-16 gap-6">
                     <div>
-                        <Small className="text-primary font-bold tracking-[0.15em] uppercase mb-4 block">Financial Intelligence</Small>
-                        <H2 className="text-on-surface">Latest Insights</H2>
+                        <Small className="text-primary font-bold tracking-[0.15em] uppercase mb-4 block">{data?.badge || "Financial Intelligence"}</Small>
+                        <H2 className="text-on-surface">{data?.title || "Latest Insights"}</H2>
                     </div>
-                    <a href="/blog" className="text-primary font-bold border-b-2 border-primary pb-1 hover:text-primary-container hover:border-primary-container transition-all">View All Publications</a>
+                    <Link href={data?.linkUrl || "/blog"} className="text-primary font-bold border-b-2 border-primary pb-1 hover:text-primary-container hover:border-primary-container transition-all">{data?.linkText || "View All Publications"}</Link>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
 
-                    <article className="group">
-                        <div className="aspect-[16/10] bg-surface-container-high rounded-xl overflow-hidden mb-6 md:mb-8">
-                            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAoiChS4yBA8oyEBwkpdBk2l6njBChMUbhfeK7z9uuZcOC_U6sxihH0TFuM2Z21cDB0bEn6Y1fzqKII6ujR_XXp4TGja5LkPprxCdgv5CdCbe5OwK8zQ4MhQPw5y7tsDlfhhskcrOkWvz-OobklTNHnVH98WDA45xSrhDEYlS4YdEZDKLveoy_Ey0rUw0x6QGkCNeThh8_ovgSCN0P7A0md82IBk_rCsGxI5c59WzSZttRyGVzMu1jWUafjeWCuCTYL9_72_o5rjWU" alt="Understanding the 2024 Nepal Finance Act" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
-                        </div>
-                        <Small className="text-primary font-bold tracking-widest uppercase mb-4 block">
-                            Taxation • May 2024
-                        </Small>
-                        <H3 className="mb-4 group-hover:text-primary transition-colors text-xl md:text-2xl">
-                            <a href="/blog/blog-detail">Understanding the 2024 Nepal Finance Act</a>
-                        </H3>
-                        <P className="text-on-surface-variant mb-6 line-clamp-2">
-                            A comprehensive breakdown of the latest legislative changes affecting corporate taxation, profit repatriation, and compliance requirements in the Nepalese market.
-                        </P>
-                        <a href="/blog/blog-detail" className="text-primary group-hover:translate-x-2 transition-transform">
-                            <MdOutlineArrowForward />
-                        </a>
-                    </article>
+                    {
+                        articlesToDisplay.map(article => <ArticleCard key={article.id} article={article} />)
+                    }
 
                 </div>
             </div>

@@ -96,10 +96,14 @@ export interface Config {
   globals: {
     'resource-page': ResourcePage;
     'service-page': ServicePage;
+    'about-page': AboutPage;
+    'home-page': HomePage;
   };
   globalsSelect: {
     'resource-page': ResourcePageSelect<false> | ResourcePageSelect<true>;
     'service-page': ServicePageSelect<false> | ServicePageSelect<true>;
+    'about-page': AboutPageSelect<false> | AboutPageSelect<true>;
+    'home-page': HomePageSelect<false> | HomePageSelect<true>;
   };
   locale: null;
   widgets: {
@@ -592,6 +596,170 @@ export interface ServicePage {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "about-page".
+ */
+export interface AboutPage {
+  id: number;
+  hero?: {
+    badge?: string | null;
+    title?: string | null;
+    description?: string | null;
+    highlightText?: string | null;
+    backgroundImage?: (number | null) | Media;
+  };
+  foundation?: {
+    badge?: string | null;
+    title?: string | null;
+    description?: string | null;
+    vision?: {
+      title?: string | null;
+      description?: string | null;
+    };
+    mission?: {
+      title?: string | null;
+      description?: string | null;
+    };
+    pillars?:
+      | {
+          title: string;
+          description: string;
+          icon?: ('MdOutlineGavel' | 'MdOutlinePrecisionManufacturing') | null;
+          id?: string | null;
+        }[]
+      | null;
+    stewardship?: {
+      title?: string | null;
+      description?: string | null;
+    };
+  };
+  leadership?: {
+    badge?: string | null;
+    titleLine1?: string | null;
+    titleLine2?: string | null;
+    description?: string | null;
+    leaders?:
+      | {
+          name: string;
+          role: string;
+          description: string;
+          quote: string;
+          image: number | Media;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  accreditations?: {
+    badge?: string | null;
+    items?:
+      | {
+          title: string;
+          iconType: 'text' | 'icon';
+          iconText?: string | null;
+          icon?: ('MdOutlineVerifiedUser' | 'MdOutlineLanguage') | null;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "home-page".
+ */
+export interface HomePage {
+  id: number;
+  hero?: {
+    badge?: string | null;
+    title?: string | null;
+    description?: string | null;
+    primaryButton?: {
+      text?: string | null;
+      href?: string | null;
+    };
+    secondaryButton?: {
+      text?: string | null;
+      href?: string | null;
+    };
+    backgroundImage?: (number | null) | Media;
+  };
+  complianceBadge?: {
+    badge?: string | null;
+    title?: string | null;
+    badges?:
+      | {
+          text: string;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  services?: {
+    badge?: string | null;
+    title?: string | null;
+    description?: string | null;
+    items?:
+      | {
+          icon: 'MdOutlineAccountBalance' | 'MdOutlineGavel' | 'MdOutlineQueryStats' | 'MdOutlinePayments';
+          title: string;
+          description: string;
+          points?:
+            | {
+                text: string;
+                id?: string | null;
+              }[]
+            | null;
+          buttonText: string;
+          buttonLink: string;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  ourImpact?: {
+    badge?: string | null;
+    title?: string | null;
+    description?: string | null;
+    stats?:
+      | {
+          value: string;
+          label: string;
+          id?: string | null;
+        }[]
+      | null;
+    testimonial?: {
+      quote?: string | null;
+      authorInitials?: string | null;
+      authorName?: string | null;
+      authorRole?: string | null;
+    };
+    image?: (number | null) | Media;
+  };
+  latestInsights?: {
+    badge?: string | null;
+    title?: string | null;
+    linkText?: string | null;
+    linkUrl?: string | null;
+    /**
+     * Select up to 3 articles to display in this section. If left empty, the most recent articles will be shown.
+     */
+    selectedArticles?: (number | Blog)[] | null;
+  };
+  finalCta?: {
+    title?: string | null;
+    description?: string | null;
+    primaryButton?: {
+      text?: string | null;
+      href?: string | null;
+    };
+    secondaryButton?: {
+      text?: string | null;
+      href?: string | null;
+    };
+  };
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "resource-page_select".
  */
 export interface ResourcePageSelect<T extends boolean = true> {
@@ -727,6 +895,203 @@ export interface ServicePageSelect<T extends boolean = true> {
           | {
               text?: T;
               link?: T;
+            };
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "about-page_select".
+ */
+export interface AboutPageSelect<T extends boolean = true> {
+  hero?:
+    | T
+    | {
+        badge?: T;
+        title?: T;
+        description?: T;
+        highlightText?: T;
+        backgroundImage?: T;
+      };
+  foundation?:
+    | T
+    | {
+        badge?: T;
+        title?: T;
+        description?: T;
+        vision?:
+          | T
+          | {
+              title?: T;
+              description?: T;
+            };
+        mission?:
+          | T
+          | {
+              title?: T;
+              description?: T;
+            };
+        pillars?:
+          | T
+          | {
+              title?: T;
+              description?: T;
+              icon?: T;
+              id?: T;
+            };
+        stewardship?:
+          | T
+          | {
+              title?: T;
+              description?: T;
+            };
+      };
+  leadership?:
+    | T
+    | {
+        badge?: T;
+        titleLine1?: T;
+        titleLine2?: T;
+        description?: T;
+        leaders?:
+          | T
+          | {
+              name?: T;
+              role?: T;
+              description?: T;
+              quote?: T;
+              image?: T;
+              id?: T;
+            };
+      };
+  accreditations?:
+    | T
+    | {
+        badge?: T;
+        items?:
+          | T
+          | {
+              title?: T;
+              iconType?: T;
+              iconText?: T;
+              icon?: T;
+              id?: T;
+            };
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "home-page_select".
+ */
+export interface HomePageSelect<T extends boolean = true> {
+  hero?:
+    | T
+    | {
+        badge?: T;
+        title?: T;
+        description?: T;
+        primaryButton?:
+          | T
+          | {
+              text?: T;
+              href?: T;
+            };
+        secondaryButton?:
+          | T
+          | {
+              text?: T;
+              href?: T;
+            };
+        backgroundImage?: T;
+      };
+  complianceBadge?:
+    | T
+    | {
+        badge?: T;
+        title?: T;
+        badges?:
+          | T
+          | {
+              text?: T;
+              id?: T;
+            };
+      };
+  services?:
+    | T
+    | {
+        badge?: T;
+        title?: T;
+        description?: T;
+        items?:
+          | T
+          | {
+              icon?: T;
+              title?: T;
+              description?: T;
+              points?:
+                | T
+                | {
+                    text?: T;
+                    id?: T;
+                  };
+              buttonText?: T;
+              buttonLink?: T;
+              id?: T;
+            };
+      };
+  ourImpact?:
+    | T
+    | {
+        badge?: T;
+        title?: T;
+        description?: T;
+        stats?:
+          | T
+          | {
+              value?: T;
+              label?: T;
+              id?: T;
+            };
+        testimonial?:
+          | T
+          | {
+              quote?: T;
+              authorInitials?: T;
+              authorName?: T;
+              authorRole?: T;
+            };
+        image?: T;
+      };
+  latestInsights?:
+    | T
+    | {
+        badge?: T;
+        title?: T;
+        linkText?: T;
+        linkUrl?: T;
+        selectedArticles?: T;
+      };
+  finalCta?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        primaryButton?:
+          | T
+          | {
+              text?: T;
+              href?: T;
+            };
+        secondaryButton?:
+          | T
+          | {
+              text?: T;
+              href?: T;
             };
       };
   updatedAt?: T;
