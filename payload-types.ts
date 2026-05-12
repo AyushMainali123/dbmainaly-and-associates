@@ -98,12 +98,14 @@ export interface Config {
     'service-page': ServicePage;
     'about-page': AboutPage;
     'home-page': HomePage;
+    'contact-page': ContactPage;
   };
   globalsSelect: {
     'resource-page': ResourcePageSelect<false> | ResourcePageSelect<true>;
     'service-page': ServicePageSelect<false> | ServicePageSelect<true>;
     'about-page': AboutPageSelect<false> | AboutPageSelect<true>;
     'home-page': HomePageSelect<false> | HomePageSelect<true>;
+    'contact-page': ContactPageSelect<false> | ContactPageSelect<true>;
   };
   locale: null;
   widgets: {
@@ -760,6 +762,72 @@ export interface HomePage {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "contact-page".
+ */
+export interface ContactPage {
+  id: number;
+  hero?: {
+    badge?: string | null;
+    title?: string | null;
+    description?: string | null;
+  };
+  inquiryForm?: {
+    title?: string | null;
+    description?: string | null;
+    fullNameLabel?: string | null;
+    fullNamePlaceholder?: string | null;
+    emailLabel?: string | null;
+    emailPlaceholder?: string | null;
+    serviceLabel?: string | null;
+    serviceOptions?:
+      | {
+          label: string;
+          id?: string | null;
+        }[]
+      | null;
+    phoneLabel?: string | null;
+    phonePlaceholder?: string | null;
+    messageLabel?: string | null;
+    messagePlaceholder?: string | null;
+    submitButtonText?: string | null;
+  };
+  office?: {
+    headquartersTitle?: string | null;
+    addressBlockTitle?: string | null;
+    addressLines?: string | null;
+    phoneBlockTitle?: string | null;
+    phoneLines?: string | null;
+    emailBlockTitle?: string | null;
+    emailLines?: string | null;
+  };
+  /**
+   * Pin position for the contact page map. Requires NEXT_PUBLIC_GOOGLE_MAPS_API_KEY (Maps Embed API).
+   */
+  mapCard: {
+    /**
+     * WGS84 latitude.
+     */
+    latitude: number;
+    /**
+     * WGS84 longitude.
+     */
+    longitude: number;
+  };
+  faq?: {
+    title?: string | null;
+    items?:
+      | {
+          question: string;
+          answer: string;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "resource-page_select".
  */
 export interface ResourcePageSelect<T extends boolean = true> {
@@ -1092,6 +1160,73 @@ export interface HomePageSelect<T extends boolean = true> {
           | {
               text?: T;
               href?: T;
+            };
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "contact-page_select".
+ */
+export interface ContactPageSelect<T extends boolean = true> {
+  hero?:
+    | T
+    | {
+        badge?: T;
+        title?: T;
+        description?: T;
+      };
+  inquiryForm?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        fullNameLabel?: T;
+        fullNamePlaceholder?: T;
+        emailLabel?: T;
+        emailPlaceholder?: T;
+        serviceLabel?: T;
+        serviceOptions?:
+          | T
+          | {
+              label?: T;
+              id?: T;
+            };
+        phoneLabel?: T;
+        phonePlaceholder?: T;
+        messageLabel?: T;
+        messagePlaceholder?: T;
+        submitButtonText?: T;
+      };
+  office?:
+    | T
+    | {
+        headquartersTitle?: T;
+        addressBlockTitle?: T;
+        addressLines?: T;
+        phoneBlockTitle?: T;
+        phoneLines?: T;
+        emailBlockTitle?: T;
+        emailLines?: T;
+      };
+  mapCard?:
+    | T
+    | {
+        latitude?: T;
+        longitude?: T;
+      };
+  faq?:
+    | T
+    | {
+        title?: T;
+        items?:
+          | T
+          | {
+              question?: T;
+              answer?: T;
+              id?: T;
             };
       };
   updatedAt?: T;

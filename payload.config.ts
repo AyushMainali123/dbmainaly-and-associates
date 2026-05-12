@@ -15,6 +15,7 @@ import { ResourcePage } from "./globals/ResourcePage";
 import { ServicePage } from "./globals/ServicePage";
 import { AboutPage } from "./globals/AboutPage";
 import { HomePage } from "./globals/HomePage";
+import { ContactPage } from "./globals/ContactPage";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -43,7 +44,7 @@ export default buildConfig({
     },
   },
   collections: [Users, Media, Author, BlogCategory, Blog],
-  globals: [ResourcePage, ServicePage, AboutPage, HomePage],
+  globals: [ResourcePage, ServicePage, AboutPage, HomePage, ContactPage],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || "",
   typescript: {

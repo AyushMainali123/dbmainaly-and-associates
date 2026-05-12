@@ -6,6 +6,7 @@ import { getBlogBySlug } from "@/utils/blog";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { MdOutlineChevronRight } from "react-icons/md";
+import Link from "next/link";
 
 type Props = {
   params: Promise<{
@@ -29,9 +30,9 @@ export default async function BlogDetail({ params }: Props) {
       <main className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-16 py-8 md:py-12">
         {/* Breadcrumb */}
         <div className="flex items-center space-x-2 text-xs md:text-sm text-on-surface-variant mb-8 uppercase tracking-widest font-bold">
-          <a className="hover:text-primary transition-colors" href="/blog">
+          <Link className="hover:text-primary transition-colors" href="/blog">
             Insights
-          </a>
+          </Link>
           <span className="text-[10px] md:text-xs">
             <MdOutlineChevronRight />
           </span>

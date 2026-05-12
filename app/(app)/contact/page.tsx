@@ -1,21 +1,31 @@
-import { Button } from "@/components/button";
 import { Footer } from "@/components/footer";
 import { Navbar } from "@/components/navbar";
-import { H1, H2, H3, H4, Lead, P, Small } from "@/components/typography";
 import ContactFAQSection from "@/modules/contact/ui/contact-faq-section";
 import ContactFormSection from "@/modules/contact/ui/contact-form-section";
 import ContactHero from "@/modules/contact/ui/contact-hero";
+import { getPayloadClient } from "@/utils/payload";
 
-export default function ContactPage() {
-    return (
-        <>
-            <Navbar />
-            <main>
-                <ContactHero />
-                <ContactFormSection />
-                <ContactFAQSection />
-            </main>
-            <Footer />
-        </>
-    )
+export const revalidate = 60;
+
+export default async function ContactPage() {
+  const payload = await getPayloadClient();
+  const data = await payload.findGlobal({
+    slug: "contact-page",
+  });
+
+  return (
+    <>
+      <Navbar />
+      <main>
+        <ContactHero data={data.hero} />
+        <ContactFormSection
+          inquiryForm={data.inquiryForm}
+          office={data.office}
+          mapCard={data.mapCard}
+        />
+        <ContactFAQSection data={data.faq} />
+      </main>
+      <Footer />
+    </>
+  );
 }
