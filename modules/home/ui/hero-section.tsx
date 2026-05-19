@@ -1,6 +1,7 @@
 import { Button } from "@/components/button";
 import { H1, Lead, Small } from "@/components/typography";
 import { Media } from "@/payload-types";
+import Image from "next/image";
 
 interface HeroSectionProps {
   data?: {
@@ -20,11 +21,18 @@ export default function HeroSection({ data }: HeroSectionProps) {
 
     return (
         <section className="relative bg-linear-to-br from-primary to-primary-container overflow-hidden min-h-[600px] md:min-h-[800px] flex items-center py-20 md:py-0">
-            <div className="absolute inset-0 opacity-10">
-                <div 
-                    className="absolute top-0 right-0 w-full md:w-1/2 h-full bg-cover bg-center mix-blend-overlay"
-                    style={{ backgroundImage: `url('${bgImageUrl}')` }}
-                ></div>
+            <div className="absolute inset-0 opacity-10 pointer-events-none">
+                <div className="absolute top-0 right-0 w-full md:w-1/2 h-full">
+                    <Image
+                        src={bgImageUrl}
+                        alt="Hero Background"
+                        fill
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                        className="object-cover object-center mix-blend-overlay"
+                        loading="eager"
+                        fetchPriority="high"
+                    />
+                </div>
             </div>
             <div className="max-w-[1440px] mx-auto px-6 md:px-12 w-full grid grid-cols-1 md:grid-cols-12 gap-8 relative z-10">
                 <div className="md:col-span-8">
