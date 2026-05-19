@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { Footer } from "@/components/footer";
 import { Navbar } from "@/components/navbar";
 import ResourcesHeroSection from "@/modules/resources/ui/hero-section";
@@ -5,6 +6,15 @@ import NewsletterSection from "@/modules/resources/ui/newsletter-section";
 import RegulatoryFaqSection from "@/modules/resources/ui/regulatory-faq-section";
 import StatutoryFormsSection from "@/modules/resources/ui/statutory-forms-section";
 import { getPayloadClient } from "@/utils/payload";
+import { constructMetadata } from "@/utils/metadata";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const payload = await getPayloadClient();
+  const data = await payload.findGlobal({
+    slug: "resource-page",
+  });
+  return constructMetadata((data as any).seo);
+}
 
 export const revalidate = 60;
 

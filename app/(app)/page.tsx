@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { Navbar } from "@/components/navbar";
 import HeroSection from "@/modules/home/ui/hero-section";
 import ComplianceBadgeSection from "@/modules/home/ui/compliance-badge-section";
@@ -7,6 +8,17 @@ import LatestInsightsSection from "@/modules/home/ui/latest-insights-section";
 import FinalCTASection from "@/modules/home/ui/final-cta-section";
 import { Footer } from "@/components/footer";
 import { getPayloadClient } from "@/utils/payload";
+import { constructMetadata } from "@/utils/metadata";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const payload = await getPayloadClient();
+  const homePage = await payload.findGlobal({
+    slug: "home-page" as any,
+  });
+  return constructMetadata((homePage as any).seo);
+}
+
+export const revalidate = 60;
 
 export default async function Home() {
   const payload = await getPayloadClient();

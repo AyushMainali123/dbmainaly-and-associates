@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { Footer } from "@/components/footer";
 import { Navbar } from "@/components/navbar";
 import BlogDetailContentAndSidebarSection from "@/modules/blog-detail/ui/content-and-sidebar-section";
@@ -7,6 +8,24 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { MdOutlineChevronRight } from "react-icons/md";
 import Link from "next/link";
+import { constructMetadata } from "@/utils/metadata";
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = await params;
+  const post = await getBlogBySlug(slug);
+
+  if (!post) {
+    return {};
+  }
+
+  return constructMetadata({
+    ...post.seo,
+    image: post.seo?.image || post.imageUrl,
+  }, {
+    title: `${post.title} | DB Mainaly & Associates`,
+    description: post.excerpt || "",
+  });
+}
 
 type Props = {
   params: Promise<{

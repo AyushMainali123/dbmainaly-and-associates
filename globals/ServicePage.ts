@@ -1,4 +1,5 @@
 import type { GlobalConfig } from 'payload'
+import { seoFields } from '../fields/seo'
 
 export const ServicePage: GlobalConfig = {
   slug: 'service-page',
@@ -206,6 +207,10 @@ export const ServicePage: GlobalConfig = {
               ],
             },
           ],
+        },
+        {
+          label: 'SEO',
+          fields: [seoFields],
         },
       ],
     },

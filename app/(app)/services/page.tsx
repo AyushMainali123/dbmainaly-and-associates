@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { Footer } from "@/components/footer";
 import { Navbar } from "@/components/navbar";
 import IcanFaqSection from "@/modules/services/ui/ican-faq-section";
@@ -6,6 +7,15 @@ import ServicesGridSection from "@/modules/services/ui/services-grid-section";
 import ServicesHeroSection from "@/modules/services/ui/hero-section";
 import SectorSpecializationSection from "@/modules/services/ui/sector-specialization-section";
 import { getPayloadClient } from "@/utils/payload";
+import { constructMetadata } from "@/utils/metadata";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const payload = await getPayloadClient();
+  const data = await payload.findGlobal({
+    slug: "service-page",
+  });
+  return constructMetadata((data as any).seo);
+}
 
 export const revalidate = 60;
 

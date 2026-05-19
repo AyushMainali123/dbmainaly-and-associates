@@ -1,4 +1,5 @@
 import type { GlobalConfig } from 'payload'
+import { seoFields } from '../fields/seo'
 
 export const ContactPage: GlobalConfig = {
   slug: 'contact-page',
@@ -243,6 +244,10 @@ export const ContactPage: GlobalConfig = {
               ],
             },
           ],
+        },
+        {
+          label: 'SEO',
+          fields: [seoFields],
         },
       ],
     },

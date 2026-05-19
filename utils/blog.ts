@@ -22,6 +22,7 @@ export type BlogListItem = {
 export type BlogDetailItem = BlogListItem & {
   contentText: string;
   tableOfContents: { label: string; anchor: string }[];
+  seo?: any;
 };
 
 const FALLBACK_IMAGE = "https://placehold.co/1200x800";
@@ -144,6 +145,7 @@ export function normalizeBlogPost(post: Blog): BlogDetailItem {
         label: item.label,
         anchor: item.anchor,
       })) ?? [],
+    seo: (post as any).seo || null,
   };
 }
 

@@ -253,6 +253,24 @@ export interface Blog {
         id?: string | null;
       }[]
     | null;
+  seo?: {
+    /**
+     * Recommended: 50-60 characters. Appears in search results and browser tabs.
+     */
+    title?: string | null;
+    /**
+     * Recommended: 150-160 characters. A brief summary of the page.
+     */
+    description?: string | null;
+    /**
+     * Recommended dimensions: 1200x630px. Preview image when shared on social platforms.
+     */
+    image?: (number | null) | Media;
+    /**
+     * If checked, search engines will be instructed not to list this page.
+     */
+    noindex?: boolean | null;
+  };
   updatedAt: string;
   createdAt: string;
 }
@@ -433,6 +451,14 @@ export interface BlogsSelect<T extends boolean = true> {
         anchor?: T;
         id?: T;
       };
+  seo?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        image?: T;
+        noindex?: T;
+      };
   updatedAt?: T;
   createdAt?: T;
 }
@@ -525,6 +551,24 @@ export interface ResourcePage {
     title?: string | null;
     description?: string | null;
   };
+  seo?: {
+    /**
+     * Recommended: 50-60 characters. Appears in search results and browser tabs.
+     */
+    title?: string | null;
+    /**
+     * Recommended: 150-160 characters. A brief summary of the page.
+     */
+    description?: string | null;
+    /**
+     * Recommended dimensions: 1200x630px. Preview image when shared on social platforms.
+     */
+    image?: (number | null) | Media;
+    /**
+     * If checked, search engines will be instructed not to list this page.
+     */
+    noindex?: boolean | null;
+  };
   updatedAt?: string | null;
   createdAt?: string | null;
 }
@@ -592,6 +636,24 @@ export interface ServicePage {
       text?: string | null;
       link?: string | null;
     };
+  };
+  seo?: {
+    /**
+     * Recommended: 50-60 characters. Appears in search results and browser tabs.
+     */
+    title?: string | null;
+    /**
+     * Recommended: 150-160 characters. A brief summary of the page.
+     */
+    description?: string | null;
+    /**
+     * Recommended dimensions: 1200x630px. Preview image when shared on social platforms.
+     */
+    image?: (number | null) | Media;
+    /**
+     * If checked, search engines will be instructed not to list this page.
+     */
+    noindex?: boolean | null;
   };
   updatedAt?: string | null;
   createdAt?: string | null;
@@ -661,6 +723,24 @@ export interface AboutPage {
           id?: string | null;
         }[]
       | null;
+  };
+  seo?: {
+    /**
+     * Recommended: 50-60 characters. Appears in search results and browser tabs.
+     */
+    title?: string | null;
+    /**
+     * Recommended: 150-160 characters. A brief summary of the page.
+     */
+    description?: string | null;
+    /**
+     * Recommended dimensions: 1200x630px. Preview image when shared on social platforms.
+     */
+    image?: (number | null) | Media;
+    /**
+     * If checked, search engines will be instructed not to list this page.
+     */
+    noindex?: boolean | null;
   };
   updatedAt?: string | null;
   createdAt?: string | null;
@@ -757,6 +837,24 @@ export interface HomePage {
       href?: string | null;
     };
   };
+  seo?: {
+    /**
+     * Recommended: 50-60 characters. Appears in search results and browser tabs.
+     */
+    title?: string | null;
+    /**
+     * Recommended: 150-160 characters. A brief summary of the page.
+     */
+    description?: string | null;
+    /**
+     * Recommended dimensions: 1200x630px. Preview image when shared on social platforms.
+     */
+    image?: (number | null) | Media;
+    /**
+     * If checked, search engines will be instructed not to list this page.
+     */
+    noindex?: boolean | null;
+  };
   updatedAt?: string | null;
   createdAt?: string | null;
 }
@@ -823,6 +921,24 @@ export interface ContactPage {
         }[]
       | null;
   };
+  seo?: {
+    /**
+     * Recommended: 50-60 characters. Appears in search results and browser tabs.
+     */
+    title?: string | null;
+    /**
+     * Recommended: 150-160 characters. A brief summary of the page.
+     */
+    description?: string | null;
+    /**
+     * Recommended dimensions: 1200x630px. Preview image when shared on social platforms.
+     */
+    image?: (number | null) | Media;
+    /**
+     * If checked, search engines will be instructed not to list this page.
+     */
+    noindex?: boolean | null;
+  };
   updatedAt?: string | null;
   createdAt?: string | null;
 }
@@ -885,6 +1001,14 @@ export interface ResourcePageSelect<T extends boolean = true> {
     | {
         title?: T;
         description?: T;
+      };
+  seo?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        image?: T;
+        noindex?: T;
       };
   updatedAt?: T;
   createdAt?: T;
@@ -964,6 +1088,14 @@ export interface ServicePageSelect<T extends boolean = true> {
               text?: T;
               link?: T;
             };
+      };
+  seo?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        image?: T;
+        noindex?: T;
       };
   updatedAt?: T;
   createdAt?: T;
@@ -1047,6 +1179,14 @@ export interface AboutPageSelect<T extends boolean = true> {
               icon?: T;
               id?: T;
             };
+      };
+  seo?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        image?: T;
+        noindex?: T;
       };
   updatedAt?: T;
   createdAt?: T;
@@ -1162,6 +1302,14 @@ export interface HomePageSelect<T extends boolean = true> {
               href?: T;
             };
       };
+  seo?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        image?: T;
+        noindex?: T;
+      };
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;
@@ -1228,6 +1376,14 @@ export interface ContactPageSelect<T extends boolean = true> {
               answer?: T;
               id?: T;
             };
+      };
+  seo?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        image?: T;
+        noindex?: T;
       };
   updatedAt?: T;
   createdAt?: T;
