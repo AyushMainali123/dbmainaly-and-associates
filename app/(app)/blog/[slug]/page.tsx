@@ -47,6 +47,7 @@ export default async function BlogDetail({ params }: Props) {
             src={post.imageUrl}
             alt={post.imageAlt}
             fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             className="w-full h-full object-cover"
           />
         </div>

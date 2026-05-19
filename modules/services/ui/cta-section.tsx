@@ -1,5 +1,6 @@
 import { H2, Lead } from "@/components/typography";
 import { ServicePage } from "@/payload-types";
+import Link from "next/link";
 
 export default function ServicesCtaSection({
   data,
@@ -19,20 +20,20 @@ export default function ServicesCtaSection({
           </Lead>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             {data?.primaryButton && (
-              <a
+              <Link
                 href={data.primaryButton.link || "/contact"}
                 className="bg-surface text-primary font-bold px-10 py-4 rounded-lg hover:bg-surface-dim transition-all active:scale-95 text-sm md:text-base"
               >
                 {data.primaryButton.text || "Schedule a Meeting"}
-              </a>
+              </Link>
             )}
             {data?.secondaryButton && (
-              <a
+              <Link
                 href={data.secondaryButton.link || "/about"}
                 className="border border-surface/30 text-white font-bold px-10 py-4 rounded-lg hover:bg-white/10 transition-all text-sm md:text-base"
               >
                 {data.secondaryButton.text || "View Firm Profile"}
-              </a>
+              </Link>
             )}
           </div>
         </div>

@@ -14,11 +14,6 @@ export function Footer() {
                         Leading chartered accountancy firm providing audit, tax, and legal
                         advisory across Nepal.
                     </p>
-                    <div className="flex gap-2">
-                        <MdOutlineAlternateEmail className="text-primary text-lg" />
-                        <MdOutlineCall className="text-primary text-lg" />
-                        <MdOutlineLocationOn className="text-primary text-lg" />
-                    </div>
                 </div>
                 <div className="space-y-6">
                     <h4 className="font-bold text-primary tracking-wide uppercase text-xs">
@@ -53,24 +48,19 @@ export function Footer() {
                     </h4>
                     <ul className="space-y-4">
                         <li>
-                            <a
+                            <Link
                                 className="text-on-surface-variant hover:text-primary transition-all"
-                                href="/resources">Privacy Policy</a>
+                                href="/resources">Privacy Policy</Link>
                         </li>
                         <li>
-                            <a
+                            <Link
                                 className="text-on-surface-variant hover:text-primary transition-all"
-                                href="/resources">Compliance</a>
+                                href="/resources">Compliance</Link>
                         </li>
                         <li>
-                            <a
+                            <Link
                                 className="text-on-surface-variant hover:text-primary transition-all"
-                                href="/resources">Client Portal</a>
-                        </li>
-                        <li>
-                            <a
-                                className="text-on-surface-variant hover:text-primary transition-all"
-                                href="/resources">Annual Reports</a>
+                                href="/resources">Annual Reports</Link>
                         </li>
                     </ul>
                 </div>
@@ -96,9 +86,8 @@ export function Footer() {
                 >
                     <p>© {new Date().getFullYear()} DB Mainaly & Associates. Member of ICAN.</p>
                     <div className="flex gap-8">
-                        <Link className="hover:text-primary" href="#">LinkedIn</Link>
-                        <Link className="hover:text-primary" href="/blog">Financial Intelligence</Link>
-                        <Link className="hover:text-primary" href="#">Careers</Link>
+                        <Link className="hover:text-primary" href="https://linkedin.com/in/dipak-babu-mainaly-40108040" target="_blank">LinkedIn</Link>
+                        <Link className="hover:text-primary" href="/blog">Articles</Link>
                     </div>
                 </div>
             </div>

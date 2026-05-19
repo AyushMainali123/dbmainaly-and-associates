@@ -1,5 +1,6 @@
 import { H1, P, Small } from "@/components/typography";
 import type { BlogDetailItem } from "@/utils/blog";
+import Image from "next/image";
 
 type Props = {
   post: BlogDetailItem;
@@ -21,11 +22,17 @@ export default function BlogDetailHeroSection({ post }: Props) {
       <div className="flex flex-wrap items-center gap-6 md:gap-8 py-6 border-y border-outline-variant/15">
         {/* Author Info */}
         <div className="flex items-center space-x-3">
-          <div className="w-12 h-12 rounded-full overflow-hidden bg-surface-container shrink-0 border border-outline-variant/10">
-            <img
-              className="w-full h-full object-cover"
+          <div className="relative w-12 h-12 rounded-full overflow-hidden bg-surface-container shrink-0 border border-outline-variant/10">
+            <Image
+              className="w-full h-full"
               src={post.authorImageUrl}
               alt={post.authorName}
+              fill
+              priority
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              loading="eager"
+              fetchPriority="high"
+              objectFit="cover"
             />
           </div>
           <div>

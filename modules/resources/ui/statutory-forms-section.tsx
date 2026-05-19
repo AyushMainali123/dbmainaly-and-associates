@@ -1,6 +1,7 @@
 import { Button } from "@/components/button";
 import { H2, H3, H4, P, Small } from "@/components/typography";
 import { ResourcePage, Media } from "@/payload-types";
+import Link from "next/link";
 import { MdOutlineDescription, MdOutlineAnalytics, MdOutlineArrowRightAlt, MdOutlinePictureAsPdf, MdOutlineDownload } from "react-icons/md";
 export default function StatutoryFormsSection({
   data,
@@ -74,7 +75,7 @@ export default function StatutoryFormsSection({
             <H3 className="text-on-surface mb-8">Additional Downloads</H3>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {data?.additionalDownloads?.map((item) => (
-                <a
+                <Link
                   key={item.id}
                   href={typeof item.file === "object" ? item.file.url || "#" : "#"}
                   className="flex items-center gap-4 p-4 bg-surface-container-lowest rounded-lg border border-outline-variant/10 hover:border-primary/30 transition-all cursor-pointer group"
@@ -85,7 +86,7 @@ export default function StatutoryFormsSection({
                   <span className="font-medium text-on-surface text-sm md:text-base">
                     {item.title}
                   </span>
-                </a>
+                </Link>
               ))}
 
             </div>

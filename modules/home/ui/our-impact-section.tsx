@@ -1,6 +1,7 @@
 import { H2, H3, P, Small } from "@/components/typography";
 import { MdOutlineFormatQuote } from "react-icons/md";
 import { Media } from "@/payload-types";
+import Image from "next/image";
 
 interface OurImpactSectionProps {
     data?: {
@@ -63,7 +64,7 @@ export default function OurImpactSection({ data }: OurImpactSectionProps) {
                 <div className="relative aspect-square order-1 md:order-2">
                     <div className="absolute inset-0 bg-primary-container rounded-2xl transform rotate-3 scale-95 opacity-10"></div>
                     <div className="relative h-full rounded-2xl overflow-hidden shadow-2xl">
-                        <img className="w-full h-full object-cover" src={imageUrl} alt={data?.title || "Impact"} />
+                        <Image className="w-full h-full" objectFit="cover" src={imageUrl} fill sizes="20vw" alt={data?.title || "Impact"} />
                         <div className="absolute inset-0 bg-linear-to-t from-primary/80 via-primary/20 to-transparent"></div>
                         <div className="absolute bottom-6 left-6 right-6 md:bottom-10 md:left-10 md:right-10">
                             <div className="bg-surface-container-lowest/10 backdrop-blur-xl p-6 md:p-8 rounded-xl border border-white/20">

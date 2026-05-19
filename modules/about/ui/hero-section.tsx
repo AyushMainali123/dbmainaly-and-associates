@@ -11,7 +11,7 @@ export default function HeroSection({ data }: { data: AboutPage["hero"] }) {
     <section className="relative min-h-[500px] md:min-h-[716px] flex items-center overflow-hidden bg-primary py-20 md:py-0">
       <div className="absolute inset-0 opacity-20 pointer-events-none">
         <div className="absolute top-0 right-0 w-full md:w-1/2 h-full bg-linear-to-bl from-primary-container to-transparent"></div>
-        <Image priority src={backgroundImageUrl} alt="Hero Background" fill className="object-cover mix-blend-overlay" />
+        <Image priority src={backgroundImageUrl} alt="Hero Background" fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" className="object-cover mix-blend-overlay" />
       </div>
       <div className="relative max-w-[1440px] mx-auto px-6 md:px-12 w-full">
         <div className="max-w-3xl">

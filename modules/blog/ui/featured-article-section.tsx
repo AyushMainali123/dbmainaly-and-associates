@@ -43,6 +43,7 @@ export default function FeaturedArticleSection({ article }: Props) {
               alt={article.imageAlt}
               fill
               priority
+              loading="eager"
               sizes="(max-width: 768px) 100vw, 60vw"
               className="object-cover transition-transform duration-1000 ease-out group-hover:scale-105"
             />
@@ -91,6 +92,7 @@ export default function FeaturedArticleSection({ article }: Props) {
                       src={article.authorImageUrl}
                       alt={article.authorName}
                       fill
+                      sizes="10vw"
                       className="object-cover"
                     />
                   ) : (

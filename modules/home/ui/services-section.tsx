@@ -1,22 +1,23 @@
 import { H2, H3, Lead, P, Small } from "@/components/typography";
 import { MdOutlineAccountBalance, MdOutlineArrowForward, MdOutlineGavel, MdOutlinePayments, MdOutlineQueryStats } from "react-icons/md";
 import clsx from "clsx";
+import Link from "next/link";
 
 interface ServicesSectionProps {
-  data?: {
-    badge?: string | null;
-    title?: string | null;
-    description?: string | null;
-    items?: {
-      icon: 'MdOutlineAccountBalance' | 'MdOutlineGavel' | 'MdOutlineQueryStats' | 'MdOutlinePayments';
-      title: string;
-      description: string;
-      points?: { text: string; id?: string | null; }[] | null;
-      buttonText: string;
-      buttonLink: string;
-      id?: string | null;
-    }[] | null;
-  };
+    data?: {
+        badge?: string | null;
+        title?: string | null;
+        description?: string | null;
+        items?: {
+            icon: 'MdOutlineAccountBalance' | 'MdOutlineGavel' | 'MdOutlineQueryStats' | 'MdOutlinePayments';
+            title: string;
+            description: string;
+            points?: { text: string; id?: string | null; }[] | null;
+            buttonText: string;
+            buttonLink: string;
+            id?: string | null;
+        }[] | null;
+    };
 }
 
 const icons = {
@@ -28,7 +29,7 @@ const icons = {
 
 export default function ServicesSection({ data }: ServicesSectionProps) {
     const items = data?.items || [];
-    
+
     // Fallback if empty
     if (!items.length) {
         return null;
@@ -49,7 +50,7 @@ export default function ServicesSection({ data }: ServicesSectionProps) {
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8">
                     {items.map((item, index) => {
                         const Icon = icons[item.icon] || MdOutlineArrowForward;
-                        
+
                         // Apply specific classes based on index (0, 1, 2, 3) like the original static design
                         let cardClass = "group relative overflow-hidden p-8 md:p-12 rounded-xl border border-outline-variant/10 transition-all duration-500 hover:shadow-xl ";
                         let iconColor = "text-primary";
@@ -95,10 +96,10 @@ export default function ServicesSection({ data }: ServicesSectionProps) {
                                                 ))}
                                             </ul>
                                         )}
-                                        <a href={item.buttonLink} className={clsx("inline-flex items-center gap-2 font-bold hover:gap-4 transition-all", linkColor)}>
+                                        <Link href={item.buttonLink} className={clsx("inline-flex items-center gap-2 font-bold hover:gap-4 transition-all", linkColor)}>
                                             {item.buttonText}
                                             {index % 4 === 0 ? <Icon /> : <MdOutlineArrowForward />}
-                                        </a>
+                                        </Link>
                                     </div>
                                 </div>
                                 <div className={clsx("absolute -right-20 -bottom-20 opacity-[0.03] scale-100 md:scale-150 pointer-events-none", bgIconColor)}>

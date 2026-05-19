@@ -23,7 +23,7 @@ export function ArticleCard({ article }: { article: BlogListItem }) {
                         fill
                         className="object-cover transition-transform duration-500 group-hover:scale-110"
                         src={article.imageUrl}
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        sizes="25vw"
                     />
                 </div>
             </Link>

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 import { tv, type VariantProps } from "tailwind-variants";
 
@@ -26,7 +27,7 @@ type ButtonVariants = VariantProps<typeof button>;
 
 interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
-    ButtonVariants {
+  ButtonVariants {
   href?: string;
 }
 
@@ -42,9 +43,9 @@ export function Button({
 
   if (href) {
     return (
-      <a href={href} className={styles} {...(props as any)}>
+      <Link href={href} className={styles} {...(props as any)}>
         {children}
-      </a>
+      </Link>
     );
   }
 

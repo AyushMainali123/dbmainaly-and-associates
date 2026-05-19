@@ -1,5 +1,6 @@
 import { H2, H4, P, Small } from "@/components/typography";
 import { ServicePage, Media } from "@/payload-types";
+import Image from "next/image";
 
 export default function SectorSpecializationSection({
   data,
@@ -34,9 +35,11 @@ export default function SectorSpecializationSection({
           {sector1 && (
             <div className="md:col-span-5 lg:col-span-4 relative group overflow-hidden bg-primary p-8 md:p-12 flex flex-col justify-end min-h-[400px] md:min-h-[500px] rounded-xl">
               <div className="absolute inset-0 opacity-40 mix-blend-multiply transition-transform duration-700 group-hover:scale-110">
-                <img
+                <Image
                   src={getImageUrl(sector1.image) || "https://images.unsplash.com/photo-1541354453284-699709772a0d?auto=format&fit=crop&q=80&w=800"}
                   alt={sector1.title}
+                  fill
+                  sizes="20vw"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -54,9 +57,11 @@ export default function SectorSpecializationSection({
             {sector2 && (
               <div className="relative group overflow-hidden bg-secondary-container p-8 md:p-12 flex flex-col justify-center rounded-xl min-h-[300px] md:min-h-0">
                 <div className="absolute inset-0 opacity-20 transition-transform duration-700 group-hover:scale-105">
-                  <img
+                  <Image
                     src={getImageUrl(sector2.image) || "https://images.unsplash.com/photo-1466611653911-95481536a6b2?auto=format&fit=crop&q=80&w=1200"}
                     alt={sector2.title}
+                    fill
+                    sizes="20vw"
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -73,9 +78,11 @@ export default function SectorSpecializationSection({
             {sector3 && (
               <div className="relative group overflow-hidden bg-tertiary-fixed p-8 md:p-12 flex flex-col justify-center rounded-xl min-h-[300px] md:min-h-0">
                 <div className="absolute inset-0 opacity-15 transition-transform duration-700 group-hover:scale-105">
-                  <img
+                  <Image
                     src={getImageUrl(sector3.image) || "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1200"}
                     alt={sector3.title}
+                    fill
+                    sizes="20vw"
                     className="w-full h-full object-cover"
                   />
                 </div>

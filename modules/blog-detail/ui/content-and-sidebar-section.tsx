@@ -4,6 +4,7 @@ import { useActiveAnchor } from "@/hooks/use-active-anchor";
 import { H3, Lead, Small } from "@/components/typography";
 import type { BlogDetailItem } from "@/utils/blog";
 import { cn } from "@/utils";
+import Link from "next/link";
 
 type Props = {
   post: BlogDetailItem;
@@ -28,7 +29,7 @@ export default function BlogDetailContentAndSidebarSection({ post }: Props) {
                   const isActive = activeAnchor === item.anchor;
                   return (
                     <li key={item.anchor}>
-                      <a
+                      <Link
                         className={cn(
                           "pl-4 block transition-all duration-300 border-l-2",
                           isActive
@@ -38,7 +39,7 @@ export default function BlogDetailContentAndSidebarSection({ post }: Props) {
                         href={item.anchor}
                       >
                         {item.label}
-                      </a>
+                      </Link>
                     </li>
                   );
                 })}
@@ -83,18 +84,18 @@ export default function BlogDetailContentAndSidebarSection({ post }: Props) {
               Our team of certified experts is ready to help you navigate the complexities of NFRS and ensure your business remains compliant and competitive.
             </Lead>
             <div className="flex flex-col sm:flex-row gap-4">
-              <a
+              <Link
                 href="/contact"
                 className="bg-surface text-primary px-8 py-3.5 rounded-lg font-bold hover:bg-surface-dim transition-all shadow-lg text-center active:scale-95"
               >
                 Speak with our experts
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/resources"
                 className="border border-surface/30 text-white px-8 py-3.5 rounded-lg font-bold hover:bg-white/10 transition-all text-center active:scale-95"
               >
                 Download SME Guide
-              </a>
+              </Link>
             </div>
           </div>
           <div className="absolute top-0 right-0 w-1/3 h-full bg-linear-to-l from-white/5 to-transparent pointer-events-none"></div>
